@@ -8,7 +8,7 @@ title: 前沿计算实践II
 
 ## Linux Overview
 
-[Linux](https://en.wikipedia.org/wiki/Linux)是一群==开源==的、基于==Linux内核==的==类Unix操作系统==集合。
+[Linux](https://en.wikipedia.org/wiki/Linux)是一群**开源**的、基于**Linux内核**的**类Unix操作系统**集合。
 
 * 操作系统(operating system)：管理计算机硬件和软件资源的程序，为用户程序提供硬件抽象和接口。
 * 操作系统内核(operating system kernel)：操作系统最核心的部分，管理系统的进程、内存、设备驱动程序、文件和网络系统，一直在内存中，不包括图形界面、Shell等功能
@@ -243,8 +243,8 @@ export PATH=/path/to/bin:$PATH
 
 举一个例子，比如你在Windows下实现了一个新方法，需要将其和其他人的方法进行比对。然而你发现其他人的代码是在Linux下实现的(或者使用了bash脚本)，此时如果使用双系统或者虚拟机会面临以下的问题：
 
-- 两份代码的比较过程中需要==反复切换操作系统==，操作复杂
-- 两份代码的输出结果保存在==不同的文件系统中==，不一定能互访
+- 两份代码的比较过程中需要**反复切换操作系统**，操作复杂
+- 两份代码的输出结果保存在**不同的文件系统中**，不一定能互访
 - 难以将两份代码的结果用同样的方法进行后续处理。
 
 而WSL(特指WSL1)则提供了一个在Windows下直接运行Linux代码的方法，其表现为，同一个文件夹下，你既可以用Windows的cmd进行操作，也可以用Linux的bash进行操作。
@@ -261,7 +261,7 @@ PS D:\Advance>
 ```
 
 
-而此时在cmd里键入`bash`，则会切换成Linux的==bash==界面。
+而此时在cmd里键入`bash`，则会切换成Linux的**bash**界面。
 
 ```shell=cmd
 PS D:\Advance>bash
@@ -297,7 +297,7 @@ yhy@xxx:/mnt/d/Advance$ python3 -m http.server 8001
 #### 使用VS code
 虽然我们在命令行里就可以使用Linux命令，但是在日常码代码时，我们还是希望能有更直观的操作，这时我们可以配套使用`VS code`。
 
-在==Windows内==安装好VS code。安装`Remote Development`插件包(在extension内搜索即得)。之后在WSL的文件系统内，你可以通过输入下面的代码直接打开当前文件夹(例子为/home文件夹)
+在**Windows内**安装好VS code。安装`Remote Development`插件包(在extension内搜索即得)。之后在WSL的文件系统内，你可以通过输入下面的代码直接打开当前文件夹(例子为/home文件夹)
 
 ```shell=bash
 yhy@xxx:/home$ code .
