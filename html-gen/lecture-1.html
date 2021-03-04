@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+           "GitHub HTML5 Pandoc Template" v2.2 — by Tristano Ajmone
+==============================================================================
+Copyright © Tristano Ajmone, 2017-2020, MIT License (MIT). Project's home:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License
+
+Copyright (c) Tristano Ajmone, 2017-2020 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017-2020,
+released under the MIT License (MIT); it contains readaptations of substantial
+portions of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>前沿计算实践II</title>
+  <style type="text/css">
+@charset "UTF-8";.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word;box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px}.markdown-body a{color:#0366d6;background-color:transparent;text-decoration:none;-webkit-text-decoration-skip:objects}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body a:hover{text-decoration:underline}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body strong{font-weight:600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1{font-size:2em;margin:.67em 0;padding-bottom:.3em;border-bottom:1px solid #eaecef}.markdown-body h2{padding-bottom:.3em;font-size:1.5em;border-bottom:1px solid #eaecef}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body img{border-style:none}.markdown-body svg:not(:root){overflow:hidden}.markdown-body hr{box-sizing:content-box;height:.25em;margin:24px 0;padding:0;overflow:hidden;background-color:#e1e4e8;border:0}.markdown-body hr::before{display:table;content:""}.markdown-body hr::after{display:table;clear:both;content:""}.markdown-body input{margin:0;overflow:visible;font:inherit;font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dd{margin-left:0}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body code{font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace}.markdown-body pre{font:12px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;word-wrap:normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body table{display:block;width:100%;overflow:auto;border-spacing:0;border-collapse:collapse}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body code{padding:.2em 0;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body code::after,.markdown-body code::before{letter-spacing:-.2em;content:" "}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:0 0;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code::after,.markdown-body pre code::before{content:normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body kbd{box-shadow:inset 0 -1px 0 #959da5;display:inline-block;padding:3px 5px;font:11px/10px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;color:#444d56;vertical-align:middle;background-color:#fcfcfc;border:1px solid #c6cbd1;border-bottom-color:#959da5;border-radius:3px;box-shadow:inset 0 -1px 0 #959da5}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body::before{display:table;content:""}.markdown-body::after{display:table;clear:both;content:""}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.Alert,.Error,.Note,.Success,.Warning{padding:11px;margin-bottom:24px;border-style:solid;border-width:1px;border-radius:4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top:0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom:0}.Alert{color:#246;background-color:#e2eef9;border-color:#bac6d3}.Warning{color:#4c4a42;background-color:#fff9ea;border-color:#dfd8c2}.Error{color:#911;background-color:#fcdede;border-color:#d2b2b2}.Success{color:#22662c;background-color:#e2f9e5;border-color:#bad3be}.Note{color:#2f363d;background-color:#f6f8fa;border-color:#d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color:#246;margin-bottom:0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color:#4c4a42;margin-bottom:0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color:#911;margin-bottom:0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color:#22662c;margin-bottom:0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color:#2f363d;margin-bottom:0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top:0}h1.title,p.subtitle{text-align:center}h1.title.followed-by-subtitle{margin-bottom:0}p.subtitle{font-size:1.5em;font-weight:600;line-height:1.25;margin-top:0;margin-bottom:16px;padding-bottom:.3em}div.line-block{white-space:pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title">前沿计算实践II</h1>
+</header>
+<h1 id="lecture-1">Lecture 1</h1>
+<p>本课程参考<a href="https://web.mit.edu/">MIT</a>课程<a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>，考虑到同学们之前上过课程的基础以及科研需要进行适当调整。</p>
+<h2 id="linux-overview">Linux Overview</h2>
+<p><a href="https://en.wikipedia.org/wiki/Linux">Linux</a>是一群==开源==的、基于==Linux内核==的==类Unix操作系统==集合。</p>
+<ul>
+<li>操作系统(operating system)：管理计算机硬件和软件资源的程序，为用户程序提供硬件抽象和接口。</li>
+<li>操作系统内核(operating system kernel)：操作系统最核心的部分，管理系统的进程、内存、设备驱动程序、文件和网络系统，一直在内存中，不包括图形界面、Shell等功能</li>
+<li>Shell：内核的封装，为用户提供更高级的抽象，比如<code>echo</code>、<code>ls</code>、<code>cd</code>等命令，以及进程间通信功能（管道）</li>
+<li>Unix内核：最早形成规模，被广泛使用的操作系统，由肯•汤普森(Ken Thompson)和丹尼斯•里奇(Dennis Ritchie)发明，使用C编写，现在常用的基于UNIX内核的操作系统有<a href="https://www.oracle.com/solaris/solaris11/">Solaris</a>、<a href="https://www.freebsd.org/">FreeBSD</a></li>
+<li>Linux内核：由李纳斯•托瓦兹(Linus Torvalds)在赫尔辛基大学读书时出于个人爱好而编写的，当时他觉得教学用的迷你版UNIX操作系统Minix太难用了，于是决定自己开发一个操作系统。第1版本于1991年9月发布，当时仅有10000行代码。李纳斯•托瓦兹没有保留Linux源代码的版权，公开了代码，并邀请他人一起完善Linux。据估计，现在只有2%的Linux核心代码是由李纳斯•托瓦兹自己编写的，虽然他仍然拥有Linux内核（操作系统的核心部分），并且保留了选择新代码和需要合并的新方法的最终裁定权(Benevolent dictator for life, BDFL)。</li>
+</ul>
+<blockquote>
+<p><a href="https://www.microsoft.com/en-us/windows">Windows</a>使用的是NT内核(New Technology Kernenl)，同样借鉴了UNIX内核，正如名称所言图形界面窗口是Windows中很重要的一部分，与之相对的Linux系统很大一部分优势在于其命令行操作的遍历性及良好的生态，而不依赖于图形界面。<a href="https://www.apple.com/macos/big-sur/">macOS</a>内核被官方称为XNU。这个首字母缩写词代表“XNU is Not Unix”。根据苹果公司的Github页面，XNU是“将卡耐基梅隆大学开发的Mach内核和FreeBSD组件整合而成的混合内核，加上用于编写驱动程序的 C++ API”。macOS也有很方便的命令行界面且</p>
+</blockquote>
+<p>在Linux内核的基础上衍生出了大量的操作系统，满足不同情况下的各种需求，每一个称为一个发行版(distribution,distro)。</p>
+<figure>
+<img src="..\figures\linuxdistrotimeline.png" alt="Linux distro timeline" /><figcaption aria-hidden="true">Linux distro timeline</figcaption>
+</figure>
+<p>常用的Linux发行版有<a href="https://www.redhat.com">Red Hat</a>、<a href="https://ubuntu.com/">Ubuntu</a>、<a href="www.suse.com">SuSE</a>、<a href="www.gentoo.org">Gentoo</a>、<a href="www.centos.org">CenterOS</a>、<a href="https://archlinux.org/">Arch Linux</a>等等，本课程将主要介绍Ubuntu系统，因其简单易用，其他发行版可以直接简单对应，因为他们基于的都是相同的内核。</p>
+<h2 id="ubuntu">Ubuntu</h2>
+<p>Ubuntu的安装方法与Windows类似，可以在官网上下载ISO映像文件然后使用工具制作U盘启动盘比如<a href="https://www.ultraiso.com/">UltraISO</a>，然后重启进入BIOS界面从U盘启动安装系统。Ubuntu可以与Windows作为双系统共存，网上有很多教程。如果不想安装双系统也可以选择虚拟机，Windows下也可以考虑下面介绍的WSL。</p>
+<p>如果使用的是没有图形界面版的Ubuntu，那么开机之后进入的就是Shell的控制台。在图形界面下，可以通过终端(Terminal)进入Shell控制台，Ubuntu默认的终端是<a href="https://help.gnome.org/users/gnome-terminal/stable/">gnome terminal</a>，也可以自行安装<a href="https://linuxx.info/terminator/">Terminator</a>或者其他终端模拟器，区别只在于图形界面和窗口管理。比如gnome terminal每个窗口只能打开一个命令行，想要切换只能手动寻找窗口然后点开，这对于很多视动鼠标为耻辱的程序员来说是不能接受的，因此可以选择Terminator在一个窗口下打开多个命令行。但另一方面也可以使用<a href="https://github.com/tmux/tmux">Tmux</a>在任何终端上实现这一功能。</p>
+<p>Ubuntu默认的Shell是Bourne Again Shell(bash)，打开终端出现的紫框就是bash的界面：<br />
+<img src="..\figures\bash-purple.png" /></p>
+<p><a href="http://zsh.sourceforge.net/">zsh</a>是bash的升级版，在bash基础功能之上实现了拼写检查、路径补全、插件、主题等功能，相比bash对用户更为友好。在zsh的基础上还能再使用<a href="https://ohmyz.sh/">oh-my-zsh</a>进一步使用各种便利功能和主题，美化终端：<br />
+<img src="..\figures\oh-my-zsh.png" /></p>
+<blockquote>
+<p>在Windows下也可以使用Windows Terminal、Power Shell、Oh-My-Posh达到同样的美观效果</p>
+</blockquote>
+<h2 id="常用命令">常用命令</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">功能</th>
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">date</td>
+<td style="text-align: center;">显示时间</td>
+<td style="text-align: center;">rm</td>
+<td style="text-align: center;">删除</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">shutdown -h now</td>
+<td style="text-align: center;">关闭系统</td>
+<td style="text-align: center;">mv</td>
+<td style="text-align: center;">移动、重命名</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">man</td>
+<td style="text-align: center;">查看帮助文档</td>
+<td style="text-align: center;">cp</td>
+<td style="text-align: center;">复制</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">cat</td>
+<td style="text-align: center;">显示文件内容</td>
+<td style="text-align: center;">touch</td>
+<td style="text-align: center;">新建文件</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">cd</td>
+<td style="text-align: center;">切换当前路径</td>
+<td style="text-align: center;">ln</td>
+<td style="text-align: center;">链接</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">pwd</td>
+<td style="text-align: center;">显示当前路径</td>
+<td style="text-align: center;">find</td>
+<td style="text-align: center;">寻找文件</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ls</td>
+<td style="text-align: center;">查看目录中的文件</td>
+<td style="text-align: center;">whereis</td>
+<td style="text-align: center;">寻找命令路径</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">mkdir</td>
+<td style="text-align: center;">新建目录</td>
+<td style="text-align: center;">passwd</td>
+<td style="text-align: center;">修改密码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="权限">权限</h2>
+<p>在Linux中所有东西都可以视为文件，应用、目录、锁等等，每个文件都有对应权限，当我们使用<code>ls -l</code>命令时就能查看目录下所有文件的权限：</p>
+<pre><code>dd@ubuntu~:$ ls -l /
+total 684
+lrwxrwxrwx   1 root root      7 Aug  5  2020 bin -&gt; usr/bin
+drwxr-xr-x   2 root root   4096 Aug  5  2020 boot
+...
+-rwxr-xr-x   3 root root 631968 Sep 15 17:30 init
+...</code></pre>
+<p>首先是文件的所有者，对应第三栏和第四栏，第三栏的<code>root</code>表示文件的所有者是root，也就是超级用户(superuser)，第四栏表示文件的所有组，Linux会默认为每个用户单独创建一个组，用户也可以自己创建。Linux针对每个文件为文件的所有者、所在组以及其他用户分配了不同的权限，在第一栏显示。第一栏一共10个字符，第一个字符是文件的种类，第二到第四个字符表示文件的所有者权限，第五到第七个字符表示文件所有组的权限，第八到第十个字符表示其他人的权限。首先是文件种类，这里<code>d</code>表示文件是一个目录，<code>-</code>表示是单纯的文件，<code>l</code>表示文件是一个软连接，这是一个文件系统的概念，可以认为软连接是一个类似指针的东西，只存储了目标在文件系统中的位置，与之相对的还有硬链接，之间的区别可以看<a href="https://www.jianshu.com/p/dde6a01c4094">这篇文章</a>。后面每三个字符表示一组权限，<code>r</code>表示可读，<code>w</code>表示可写，<code>x</code>表示可执行。于是我们就明白了<code>bin</code>是一个指向<code>usr/bin</code>的软链接，所有人可读、可写、可执行，但<code>boot</code>目录直有root用户可读、可写、可执行，其他用户只能读和执行。<br />
+为了保护操作系统的稳定性和用户的安全，Linux限制了很多任务只能由root来执行，比如安装软件，删除某些重要文件，因此当用户尝试想要进行这些操作时，必须使用root账户。Linux提供了一个非常方便的命令<code>sudo</code>，也就是substitute user, and do，来使用户借用root账户来进行一些操作。比如当我们尝试用<code>apt-get</code>安装软件(下面会介绍)</p>
+<pre><code>dd@ubuntu:~$ apt-get install python
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?</code></pre>
+<p>系统会报错提示我们权限不够，这个时候只需要在前面加上<code>sudo</code>就没有问题了</p>
+<pre><code>dd@ubuntu:~$ sudo apt-get install python</code></pre>
+<p>系统会提示你输入密码然后执行安装命令。如果你有大量的命令需要在root权限下执行，也可以通过<code>su</code>命令进入root模式，就不需要在每个命令前加上<code>sudo</code>。<br />
+另外一个重要的命令是改变文件权限的命令<code>chmod</code>，也就是change mode。比如我们新建了一个Shell脚本</p>
+<pre><code>dd@ubuntu:~$ touch hello.sh &amp;&amp; echo &quot;echo hello world&quot; &gt; hello.sh
+dd@ubuntu:~$ ls -l
+-rw-r--r-- 1 dd dd 17 Mar  3 13:54 hello.sh</code></pre>
+<p>可以看到此时脚本是可读可写但是不可执行的，直接执行就会报错</p>
+<pre><code>dd@ubuntu:~$ ./hello.sh
+-bash: ./hello.sh: Permission denied</code></pre>
+<p>这时就需要通过<code>chmod</code>命令来为文件增加可执行的权限。<code>chmod</code>命令可以通过两种方法设定权限，一是通过数字直接指定权限，比如</p>
+<pre><code>chmod 744 hello.sh</code></pre>
+<p>这里的三个数字7、4、4分别表示所有者、所有组、其他人的权限，其中<code>x</code>对应1，<code>w</code>对应2，<code>r</code>对应4，那么<code>rwx</code>也就是4+2+1=7，换言之，744也就是表示所有者可读可写可执行，但是其他人只能读。或者我们也可以通过字符的方式，比如</p>
+<pre><code>chmod u+x hello.sh </code></pre>
+<p>这里<code>u</code>表示user即所有者，类似的<code>g</code>表示group即所有组，<code>o</code>表示other即其他用户，<code>a</code>表示all即所有用户。中间的连接符可以是<code>+</code>、<code>-</code>、<code>=</code>表示增加、删除、指定某些权限，后面的<code>x</code>表示的就是执行权限，换言之<code>u+x</code>也就是为所有者增加执行权限。<br />
+权限修改之后就可以直接执行了。值得注意的是，如果待修改权限的文件所有者并不是自己，就需要在<code>chmod</code>前加上<code>sudo</code>，此外，还可以通过<code>chown</code>来修改文件所有者，这里就不再赘述。</p>
+<h2 id="包管理">包管理</h2>
+<p>如果在Windows下安装某个应用程序，往往需要先下载安装器，一班后缀为<code>.exe</code>或者<code>.msi</code>，然后运行安装程序安装。在Ubuntu下，我们也可以在网站上下载软件包，后缀为<code>.deb</code>，然后调用<code>dpkg</code>进行安装：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">sudo</span> dpkg -i xxx.deb</span></code></pre></div>
+<p><code>.deb</code>文件后缀是<a href="https://www.debian.org/">Debian</a>系统的软件包格式，Ubuntu基于Debian开发因此使用相同的软件包格式，里面包含了程序的二进制文件、配置文件、man/info帮助页面等信息。用户不同的任务依赖大量的软件支撑，不同的软件往往有着复杂的依赖关系，一个软件往往也有很多版本，为了管理这么多的软件，Ubuntu提供了统一的软件管理机制，也就是<code>dpkg</code>和<code>apt</code>。 <code>dpkg</code>的用法如上所示，<code>dpkg -l</code>可以列出所有的以安装软件，<code>dpkg -r</code>卸载软件，更多命令可以使用<code>dpkg --help</code>或者<code>man dpkg</code>。dpkg安装完成之后，默认文件存放位置如下：</p>
+<ul>
+<li>二进制文件：<code>/usr/bin</code></li>
+<li>库文件：<code>/usr/lib</code></li>
+<li>配置文件：<code>/etc</code></li>
+<li>使用手册和帮助文档：<code>/usr/share/doc</code></li>
+<li>man帮助页面：<code>/usr/share/man</code></li>
+</ul>
+<p>然而dpkg并不是万能的，当某个软件的依赖项没有安装时dpkg就会报错，需要用户手动安装依赖项。apt很好地解决了这一问题。首先开发者会将编译后的二进制文件和软件信息存放在Ubuntu的源服务器上，当需要安装软件时，apt会自动从服务器上获取软件依赖信息，然后从服务器上下载依赖并安装，然后再安装需要的软件。服务器的信息记录在本地的<code>/etc/apt/sources.list</code>中：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="ex">dd@ubuntu</span>~:$ cat /etc/apt/sources.list</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="ex">deb</span> http://archive.canonical.com/ubuntu focal partner</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.canonical.com/ubuntu focal partner</span></code></pre></div>
+<p>在国内访问这些服务器可能速度比较慢，可以考虑更换为<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华源</a>，在更换之前可以先备份默认配置以免后面找不到：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="fu">sudo</span> cp /etc/apt/sources.list /etc/apt/sources.list_backup</span></code></pre></div>
+<p>改完之后更新apt就可以使用新的源了</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">sudo</span> apt-get update </span></code></pre></div>
+<p>使用apt-get安装软件非常简单：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">sudo</span> apt-get install xxx</span></code></pre></div>
+<p>apt会自动处理依赖并调用dpkg来安装这些包。apt和apt-get在使用上基本没有区别，具体差别可以查看<a href="https://phoenixnap.com/kb/apt-vs-apt-get">这篇文章</a>。</p>
+<h2 id="重定向和管道">重定向和管道</h2>
+<p>每个程序都是一个单独的进程，在Shell中执行命令实际上是fork出一个新的进程然后再执行命令，不同的进程之间虚拟内存地址不同，因而需要特别的机制来实现不同程序之间的通信，管道(pipeline)就是Linux的一个进程间的通信方式。<br />
+在了解管道之前我们先看Linux是怎么完成输入和输出的重定向的。Linux下可以通过输出重定位符<code>&gt;</code>和输入重定位符<code>&lt;</code>重定位程序的输入和输出，比如</p>
+<pre><code>echo &#39;hello world&#39; &gt; hello.txt</code></pre>
+<p>就可以将<code>echo</code>的输出重定位到<code>hello.txt</code>中，如果想在文件末尾添加而不是覆盖，可以使用<code>&gt;&gt;</code></p>
+<pre><code>echo &#39;hello world&#39; &gt;&gt; hello.txt</code></pre>
+<p>这样就可以不覆盖文件原来的内容。类似的我们可以</p>
+<pre><code>cat &lt; hello.txt</code></pre>
+<p>将<code>hello.txt</code>作为<code>cat</code>的输入。<br />
+有了重定向的机制后，假如我们想将命令A的输出作为命令B的输入，就可以先将A的输出保存到一个文件中，然后再将文件作为B的输入，但这样做无疑是麻烦而且低效的，而如果使用管道机制，我们就可以直接一行命令<code>A | B</code>将A的输出作为B的输入，同时B可以在A还没有结束时就启动，并行运行提高效率。比如我们可以先<code>ls</code>目录信息然后查找其中的文件夹</p>
+<pre><code>dd@ubuntu~:$ ls -l / | grep &#39;home&#39;
+drwxr-xr-x   3 root root   4096 Dec  4 20:58 home</code></pre>
+<p>就可以立马看到对应<code>home</code>文件夹的那一行。利用管道我们可以组合不同的命令来方便地实现复杂的功能，这也是Linux命令行功能强大的重要原因。</p>
+<h2 id="环境变量">环境变量</h2>
+<p>环境变量是一组操作系统能访问到的变量，在Shell中输入<code>env</code>就能查看当前所有的环境变量</p>
+<pre><code>dd@ubuntu~:$ env
+SHELL=/bin/bash
+USER=dd
+...
+PATH=/home/dd/.local/bin:/home/dd/.local/bin:/usr/local/sbin:
+/usr/local/bin:/usr/sbin:/usr/bin:...
+...</code></pre>
+<p>环境变量可以保存默认设置、搜索路径等，比如我们可以看到系统的默认Shell是<code>bin/bash</code>，用户名是<code>dd</code>。我们可以在Shell和程序中使用这些变量，比如</p>
+<pre><code>dd@ubuntu~:$ echo $SHELL
+/bin/bash</code></pre>
+<p>使用方法就是在环境变量名之间加上<code>$</code>，或者用大括号括起来之后再加<code>$</code>。一些软件在编译运行时需要依赖其他软件，这时如果可以在环境变量中找到已经安装的软件路径，就可以很方便地通过环境变量找到依赖，比如CMake中的<code>find_package</code>命令就会在环境变量中寻找匹配的包。<br />
+环境变量中非常重要的一个是<code>PATH</code>，它指定了Shell寻找可执行文件的路径。可以看到<code>PATH</code>中包含了<code>usr/bin</code>，所以所有我们通过<code>apt-get</code>安装的软件都可以直接在Shell中使用。如果我们已经安装了某个软件但是在Shell中依然无法使用时，大概率是没有将安装的位置加入到<code>PATH</code>中。<br />
+除了环境变量之外，还有Shell的变量，在命令行中输入<code>set | less</code>就能查看当前所有的Shell变量，只能在当前的Shell窗口下访问到，比如当我们定义</p>
+<pre><code>dd@ubuntu~:$ HELLO=hello</code></pre>
+<p>就可以在<code>set</code>中看到</p>
+<pre><code>dd@ubuntu~:$ set | grep &quot;HELLO&quot;
+HELLO=hello</code></pre>
+<p>但是在环境变量中看不到</p>
+<pre><code>dd@ubuntu~:$ env | grep &quot;HELLO&quot;</code></pre>
+<p>并且如果我们进入一个子进程比如再打开一个bash</p>
+<pre><code>dd@ubuntu~:$ bash
+dd@ubuntu~:$ set | grep &quot;HELLO&quot;</code></pre>
+<p>这时也看不到我们刚定义的变量了，输入<code>exit</code>退出子进程可以再次看到定义的变量</p>
+<pre><code>dd@ubuntu~:$ exit
+dd@ubuntu~:$ set | grep &quot;HELLO&quot;
+HELLO=hello</code></pre>
+<p>那么要怎么在Shell中定义和修改环境变量呢？可以使用<code>export</code>命令</p>
+<pre><code>export HELLO=hello</code></pre>
+<p>这时就可以在环境变量里找到定义的变量</p>
+<pre><code>dd@ubuntu~:$ env | grep &quot;HELLO&quot;
+HELLO=hello</code></pre>
+<p>但是这时如果我们退回父进程或者重开一个控制台窗口，我们又不能看到定义的变量了。这是因为Shell中定义的环境变量之后影响子进程，为了避免我们每次都需要在使用前定义环境变量，我们可以将这一设置写进<code>~/.bashrc</code>里，这个配置文件会在每次启动bash时执行。<code>~/.bashrc</code>中已经包含了很多配置，我们要做的就是在最后添加</p>
+<pre><code>export HELLO=hello</code></pre>
+<p>然后执行<code>source ~/.bashrc</code>，这样就可以在每次打开Shell的时候定义这一环境变量。利用这个机制，假如我们想把自定义的命令加入<code>PATH</code>中时就可以在<code>~/.bashrc</code>中添加</p>
+<pre><code>export PATH=/path/to/bin:$PATH</code></pre>
+<p>这样命令就会添加到Shell的搜索路径中。需要注意的一点是，如果使用的是zsh，需要修改的就不是<code>~/.bashrc</code>，而是<code>~/.zshrc</code>。</p>
+<h2 id="wsl">WSL</h2>
+<h3 id="使用情景">使用情景</h3>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>的全称是Windows Subsystem for Linux，即Windows的Linux子系统。</p>
+<p>一般我们如果想要运行linux代码，需要安装双系统或者虚拟机，而WSL可以让我们直接在Windows下使用Linux的命令行和工具。</p>
+<p>举一个例子，比如你在Windows下实现了一个新方法，需要将其和其他人的方法进行比对。然而你发现其他人的代码是在Linux下实现的(或者使用了bash脚本)，此时如果使用双系统或者虚拟机会面临以下的问题：</p>
+<ul>
+<li>两份代码的比较过程中需要==反复切换操作系统==，操作复杂</li>
+<li>两份代码的输出结果保存在==不同的文件系统中==，不一定能互访</li>
+<li>难以将两份代码的结果用同样的方法进行后续处理。</li>
+</ul>
+<p>而WSL(特指WSL1)则提供了一个在Windows下直接运行Linux代码的方法，其表现为，同一个文件夹下，你既可以用Windows的cmd进行操作，也可以用Linux的bash进行操作。</p>
+<p>具体来讲，当你在Windows下用cmd打开一个文件夹，其界面会是这样：</p>
+<pre class="shell=cmd"><code>Windows PowerShell
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+尝试新的跨平台 PowerShell https://aka.ms/pscore6
+
+PS D:\Advance&gt;</code></pre>
+<p>而此时在cmd里键入<code>bash</code>，则会切换成Linux的==bash==界面。</p>
+<pre class="shell=cmd"><code>PS D:\Advance&gt;bash
+yhy@xxx:/mnt/d/Advance$</code></pre>
+<p>注意到，原本的<code>D:\Advance</code>文件夹此时被显示成<code>/mnt/d/Advance</code>文件夹，但是这只是由于文件系统不同造成的显示出来的路径不同，他们所指向的实际位置是一个。所以此时你在<code>bash</code>内输入的所有Linux指令都会真的作用于这个本属于Windows的文件夹。</p>
+<blockquote>
+<p>WSL2相对于WSL1，其更像一个真正的虚拟机，拥有完整的Linux内核。但是其在使用Windows文件系统时会更慢。</p>
+</blockquote>
+<p>大多数情况下，我们都是希望在Linux上运行一个<code>server</code>，在Windows下对其进行访问。此时可以通过<code>localhost</code>直接访问。比如在bash内运行如下命令</p>
+<pre class="shell=bash"><code># for python2
+yhy@xxx:/mnt/d/Advance$ python -m SimpleHTTPServer 8001
+
+# for python3
+yhy@xxx:/mnt/d/Advance$ python3 -m http.server 8001</code></pre>
+<p>运行后，8001端口会提供一个对当前文件夹的服务。我们可以直接在浏览器内打开<code>http://localhost:8001/</code>，其会显示如下界面</p>
+<p><img src="..\figures\wsl-directories.png" /></p>
+<p>这会是<code>/mnt/d/Advance</code>文件夹里的内容。</p>
+<p>但是如果反过来，我们想要在WSL内访问Windows的端口则不一定能直接访问，可能会需要获取主机IP(尝试了目前版本可以直接访问，和以前的说法不同)。</p>
+<h3 id="更好地使用wsl">更好地使用WSL</h3>
+<h4 id="使用vs-code">使用VS code</h4>
+<p>虽然我们在命令行里就可以使用Linux命令，但是在日常码代码时，我们还是希望能有更直观的操作，这时我们可以配套使用<code>VS code</code>。</p>
+<p>在==Windows内==安装好VS code。安装<code>Remote Development</code>插件包(在extension内搜索即得)。之后在WSL的文件系统内，你可以通过输入下面的代码直接打开当前文件夹(例子为/home文件夹)</p>
+<pre class="shell=bash"><code>yhy@xxx:/home$ code .</code></pre>
+<h4 id="使用windows-terminal">使用Windows Terminal</h4>
+<p>Windows Terminal让我们用多标签管理多个终端，并且支持更多的主题和背景。</p>
+<p><img src="..\figures\windows-terminal.png" /></p>
+<p>其设置可以在<a href="https://docs.microsoft.com/en-us/windows/terminal/">Windows Terminal官方文档</a>中找到。</p>
+<h4 id="直接在cmd内运行linux命令">直接在cmd内运行Linux命令</h4>
+<p>除了在cmd内键入bash，然后再执行Linux命令以外，可以直接在cmd内运行并保持cmd不变，比如执行<code>ls -la</code>代码只需要在前面加上<code>wsl</code>，即</p>
+<pre class="shell=cmd"><code>PS D:\Advance&gt;wsl ls -la</code></pre>
+<p>由于cmd同样有管道和重定向机制，我们就可以把Windows和Linux特有的命令混合起来，比如Linux特有的<code>ls</code>输入给Windows特有的<code>findstr</code></p>
+<pre class="shell=cmd"><code>PS D:\Advance&gt;wsl ls -la | findstr &quot;figure&quot;</code></pre>
+<p>或者反过来</p>
+<pre class="shell=cmd"><code>PS D:\Advance&gt;dir | wsl grep git</code></pre>
+<p>注意这里的管道是<code>cmd</code>的管道，不是和wsl结合的，也就是说</p>
+<pre class="shell=cmd"><code>PS D:\Advance&gt; wsl ls -la | grep git
+# grep : 无法将“grep”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。
+
+PS D:\Advance&gt; wsl ls -la | wsl grep git
+# 正确结果</code></pre>
+<h4 id="在wsl里运行cmd命令">在WSL里运行cmd命令</h4>
+<p>可以通过在bash内使用<code>[tool-name].exe</code>来调用Windows工具，比如</p>
+<pre class="shell=bash"><code>yhy@xxx:/home$ explorer.exe .</code></pre>
+<p>会在Windows的文件资源管理器内打开<code>/home</code>文件夹。</p>
+<p>特别地，<code>cmd.exe</code>可以让我们在bash内直接使用cmd命令(就像我们在cmd内使用bash命令一样)</p>
+<pre class="shell=bash"><code>cmd.exe /C dir</code></pre>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="http://c.biancheng.net/view/707.html">Linux和UNIX的关系及区别</a></li>
+<li><a href="https://phoenixnap.com/kb/apt-vs-apt-get">APT Vs APT-GET: What’s The Difference?</a></li>
+<li><a href="https://www.jianshu.com/p/dde6a01c4094">5分钟让你明白“软链接”和“硬链接”的区别</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux#setting-shell-and-environmental-variables">How to Set and List Environment Variables in Linux</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL 官方文档</a></li>
+</ul>
+</article>
+</body>
+</html>
