@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        前沿实践II-Lecture 1 - HedgeDoc
+    </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://demo.hedgedoc.org/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://demo.hedgedoc.org/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://demo.hedgedoc.org/icons/favicon-16x16.png">
+    <link rel="manifest" href="https://demo.hedgedoc.org/icons/site.webmanifest">
+    <link rel="mask-icon" href="https://demo.hedgedoc.org/icons/safari-pinned-tab.svg" color="#b51f08">
+    <link rel="shortcut icon" href="https://demo.hedgedoc.org/icons/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha256-H0KfTigpUV+0/5tn2HXC0CPwhhDhWgSawJdnFd0CGCo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.3/css/fork-awesome.min.css" integrity="sha256-ZhApazu+kejqTYhMF+1DzNKjIzP7KXu6AzyXcC1gMus=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css" integrity="sha256-tAflq+ymku3Khs+I/WcAneIlafYgDiOQ9stIHH985Wo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,300italic,300|Source+Serif+Pro|Source+Code+Pro:400,300,500&subset=latin,latin-ext);.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{padding:0 1em;color:#777;border-left:.25em solid #ddd}.night .markdown-body blockquote{color:#bcbcbc}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.night .markdown-body h1,.night .markdown-body h2,.night .markdown-body h3,.night .markdown-body h4,.night .markdown-body h5,.night .markdown-body h6{color:#ddd}.markdown-body h1 .fa-link,.markdown-body h2 .fa-link,.markdown-body h3 .fa-link,.markdown-body h4 .fa-link,.markdown-body h5 .fa-link,.markdown-body h6 .fa-link{color:#000;vertical-align:middle;visibility:hidden;font-size:16px}.night .markdown-body h1 .fa-link,.night .markdown-body h2 .fa-link,.night .markdown-body h3 .fa-link,.night .markdown-body h4 .fa-link,.night .markdown-body h5 .fa-link,.night .markdown-body h6 .fa-link{color:#fff}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .fa-link,.markdown-body h2:hover .anchor .fa-link,.markdown-body h3:hover .anchor .fa-link,.markdown-body h4:hover .anchor .fa-link,.markdown-body h5:hover .anchor .fa-link,.markdown-body h6:hover .anchor .fa-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.night .markdown-body table tr{background-color:#5f5f5f}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.night .markdown-body table tr:nth-child(2n){background-color:#4f4f4f}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:.2em 0;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.night .markdown-body code,.night .markdown-body tt{color:#eee;background-color:hsla(0,0%,90.2%,.36)}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.markdown-body kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid;border-color:#ccc #ccc #bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body pre{border:inherit!important}.night .markdown-body pre{filter:invert(100%)}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-webkit-inline-flex;display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.night .markdown-body .gist table tr:nth-child(2n){background-color:#ddd}.night .markdown-body .gist table tr:nth-child(odd){background-color:#e3e3e3}.markdown-body code[data-gist-id]{background:none;padding:0;filter:invert(100%)}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.night .markdown-body pre.graphviz{filter:none}.night .markdown-body pre.mermaid .sectionTitle,.night .markdown-body pre.mermaid .titleText,.night .markdown-body pre.mermaid text{fill:#fff}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.night .markdown-body .abc{background-color:#fff;filter:none}.night pre rect{fill:transparent}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body img{background-color:transparent}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;-webkit-transition:opacity .2s;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;-webkit-transition:opacity .2s;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:758px;margin-top:25px;margin-bottom:-25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:10000}.ui-toc-label{opacity:.3;background-color:#ccc;border:none}.ui-toc-label,.ui-toc .open .ui-toc-label{-webkit-transition:opacity .2s;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;-webkit-transition:opacity .2s;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.night .ui-toc-dropdown .nav>li>a:focus,.night .ui-toc-dropdown .nav>li>a:hover{color:#fff;border-left-color:#fff}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.night .ui-toc-dropdown .nav>.active:focus>a,.night .ui-toc-dropdown .nav>.active:hover>a,.night .ui-toc-dropdown .nav>.active>a{color:#fff;border-left:2px solid #fff}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.night .ui-toc-dropdown .nav>li>a{color:#aaa}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:contain}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}small span{line-height:22px}small .dropdown{display:inline-block}small .dropdown a:focus,small .dropdown a:hover{text-decoration:none}.unselectable{-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-o-user-select:none;user-select:none}.night .navbar{background:#333;border-bottom-color:#333;color:#eee}.night .navbar a{color:#eee}.markdown-body h1[id]:before,.markdown-body h2[id]:before,.markdown-body h3[id]:before,.markdown-body h4[id]:before,.markdown-body h5[id]:before,.markdown-body h6[id]:before{display:block;content:" ";margin-top:-55px;height:55px;visibility:hidden}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.markdown-body.slides aside.notes{display:none}.markdown-body.slides ol,.markdown-body.slides ul{display:inline-block;text-align:left;margin:0 0 0 1em;padding:0}.markdown-body.slides table{width:50%;margin:0 auto;border-collapse:collapse;border-spacing:0;display:table}.markdown-body.slides table td,.markdown-body.slides table th{text-align:left;padding:.2em .5em;border:none;border-bottom:1px solid}.markdown-body.slides table tr{border-top:0;background-color:#fff}.markdown-body.slides table tr:nth-child(2n){background-color:inherit}.markdown-body.slides table tbody tr:last-child td,.markdown-body.slides table tbody tr:last-child th{border-bottom:none}.markdown-body.slides h1,.markdown-body.slides h2{border-bottom:0}.night .markdown-body.slides h1,.night .markdown-body.slides h2,.night .markdown-body.slides h3,.night .markdown-body.slides h4,.night .markdown-body.slides h5,.night .markdown-body.slides h6{color:#000}.markdown-body section>section:last-child{margin-bottom:1.5em!important}.ui-view-area.black{background-color:#000!important}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid"><h1 id="前沿实践II-Lecture-1"><a class="anchor hidden-xs" href="#前沿实践II-Lecture-1" title="前沿实践II-Lecture-1"><i class="fa fa-link"></i></a>前沿实践II-Lecture 1</h1><p>本课程参考<a href="https://web.mit.edu/" target="_blank" rel="noopener">MIT</a>课程<a href="https://missing.csail.mit.edu/" target="_blank" rel="noopener">The Missing Semester of Your CS Education</a>，考虑到同学们之前上过课程的基础以及科研需要进行适当调整。</p><h2 id="Linux-Overview"><a class="anchor hidden-xs" href="#Linux-Overview" title="Linux-Overview"><i class="fa fa-link"></i></a>Linux Overview</h2><p><a href="https://en.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">Linux</a>是一群<mark>开源</mark>的、基于<mark>Linux内核</mark>的<mark>类Unix操作系统</mark>集合。</p><ul>
+<li>操作系统(operating system)：管理计算机硬件和软件资源的程序，为用户程序提供硬件抽象和接口。</li>
+<li>操作系统内核(operating system kernel)：操作系统最核心的部分，管理系统的进程、内存、设备驱动程序、文件和网络系统，一直在内存中，不包括图形界面、Shell等功能</li>
+<li>Shell：内核的封装，为用户提供更高级的抽象，比如<code>echo</code>、<code>ls</code>、<code>cd</code>等命令，以及进程间通信功能（管道）</li>
+<li>Unix内核：最早形成规模，被广泛使用的操作系统，由肯•汤普森(Ken Thompson)和丹尼斯•里奇(Dennis Ritchie)发明，使用C编写，现在常用的基于UNIX内核的操作系统有<a href="https://www.oracle.com/solaris/solaris11/" target="_blank" rel="noopener">Solaris</a>、<a href="https://www.freebsd.org/" target="_blank" rel="noopener">FreeBSD</a></li>
+<li>Linux内核：由李纳斯•托瓦兹(Linus Torvalds)在赫尔辛基大学读书时出于个人爱好而编写的，当时他觉得教学用的迷你版UNIX操作系统Minix太难用了，于是决定自己开发一个操作系统。第1版本于1991年9月发布，当时仅有10000行代码。李纳斯•托瓦兹没有保留Linux源代码的版权，公开了代码，并邀请他人一起完善Linux。据估计，现在只有2%的Linux核心代码是由李纳斯•托瓦兹自己编写的，虽然他仍然拥有Linux内核（操作系统的核心部分），并且保留了选择新代码和需要合并的新方法的最终裁定权(Benevolent dictator for life, BDFL)。</li>
+</ul><blockquote>
+<p><a href="https://www.microsoft.com/en-us/windows" target="_blank" rel="noopener">Windows</a>使用的是NT内核(New Technology Kernenl)，同样借鉴了UNIX内核，正如名称所言图形界面窗口是Windows中很重要的一部分，与之相对的Linux系统很大一部分优势在于其命令行操作的遍历性及良好的生态，而不依赖于图形界面。<a href="https://www.apple.com/macos/big-sur/" target="_blank" rel="noopener">macOS</a>内核被官方称为XNU。这个首字母缩写词代表“XNU is Not Unix”。根据苹果公司的Github页面，XNU是“将卡耐基梅隆大学开发的Mach内核和FreeBSD组件整合而成的混合内核，加上用于编写驱动程序的 C++ API”。macOS也有很方便的命令行界面且</p>
+</blockquote><p>在Linux内核的基础上衍生出了大量的操作系统，满足不同情况下的各种需求，每一个称为一个发行版(distribution,distro)。</p><p><img src="http://hyperexperience.com/wp-content/uploads/2008/03/44218-linuxdistrotimeline-72.png" alt="Linux distro timeline"></p><p>常用的Linux发行版有<a href="https://www.redhat.com" target="_blank" rel="noopener">Red Hat</a>、<a href="https://ubuntu.com/" target="_blank" rel="noopener">Ubuntu</a>、<a href="" target="_blank" rel="noopener">SuSE</a>、<a href="" target="_blank" rel="noopener">Gentoo</a>、<a href="" target="_blank" rel="noopener">CenterOS</a>、<a href="https://archlinux.org/" target="_blank" rel="noopener">Arch Linux</a>等等，本课程将主要介绍Ubuntu系统，因其简单易用，其他发行版可以直接简单对应，因为他们基于的都是相同的内核。</p><h2 id="Ubuntu"><a class="anchor hidden-xs" href="#Ubuntu" title="Ubuntu"><i class="fa fa-link"></i></a>Ubuntu</h2><p>Ubuntu的安装方法与Windows类似，可以在官网上下载ISO映像文件然后使用工具制作U盘启动盘比如<a href="https://www.ultraiso.com/" target="_blank" rel="noopener">UltraISO</a>，然后重启进入BIOS界面从U盘启动安装系统。Ubuntu可以与Windows作为双系统共存，网上有很多教程。如果不想安装双系统也可以选择虚拟机，Windows下也可以考虑下面介绍的WSL。</p><p>如果使用的是没有图形界面版的Ubuntu，那么开机之后进入的就是Shell的控制台。在图形界面下，可以通过终端(Terminal)进入Shell控制台，Ubuntu默认的终端是<a href="https://help.gnome.org/users/gnome-terminal/stable/" target="_blank" rel="noopener">gnome terminal</a>，也可以自行安装<a href="https://linuxx.info/terminator/" target="_blank" rel="noopener">Terminator</a>或者其他终端模拟器，区别只在于图形界面和窗口管理。比如gnome terminal每个窗口只能打开一个命令行，想要切换只能手动寻找窗口然后点开，这对于很多视动鼠标为耻辱的程序员来说是不能接受的，因此可以选择Terminator在一个窗口下打开多个命令行。但另一方面也可以使用<a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">Tmux</a>在任何终端上实现这一功能。</p><p>Ubuntu默认的Shell是Bourne Again Shell(bash)，打开终端出现的紫框就是bash的界面：<br>
+<img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_ecfa934164c75e8fe1f76257677fe52c.png" alt=""></p><p><a href="http://zsh.sourceforge.net/" target="_blank" rel="noopener">zsh</a>是bash的升级版，在bash基础功能之上实现了拼写检查、路径补全、插件、主题等功能，相比bash对用户更为友好。在zsh的基础上还能再使用<a href="https://ohmyz.sh/" target="_blank" rel="noopener">oh-my-zsh</a>进一步使用各种便利功能和主题，美化终端：<br>
+<img src="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png" alt=""></p><blockquote>
+<p>在Windows下也可以使用Windows Terminal、Power Shell、Oh-My-Posh达到同样的美观效果</p>
+</blockquote><h2 id="常用命令"><a class="anchor hidden-xs" href="#常用命令" title="常用命令"><i class="fa fa-link"></i></a>常用命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">显示时间</td>
+<td style="text-align:center">rm</td>
+<td style="text-align:center">删除</td>
+</tr>
+<tr>
+<td style="text-align:center">shutdown -h now</td>
+<td style="text-align:center">关闭系统</td>
+<td style="text-align:center">mv</td>
+<td style="text-align:center">移动、重命名</td>
+</tr>
+<tr>
+<td style="text-align:center">man</td>
+<td style="text-align:center">查看帮助文档</td>
+<td style="text-align:center">cp</td>
+<td style="text-align:center">复制</td>
+</tr>
+<tr>
+<td style="text-align:center">cat</td>
+<td style="text-align:center">显示文件内容</td>
+<td style="text-align:center">touch</td>
+<td style="text-align:center">新建文件</td>
+</tr>
+<tr>
+<td style="text-align:center">cd</td>
+<td style="text-align:center">切换当前路径</td>
+<td style="text-align:center">ln</td>
+<td style="text-align:center">链接</td>
+</tr>
+<tr>
+<td style="text-align:center">pwd</td>
+<td style="text-align:center">显示当前路径</td>
+<td style="text-align:center">find</td>
+<td style="text-align:center">寻找文件</td>
+</tr>
+<tr>
+<td style="text-align:center">ls</td>
+<td style="text-align:center">查看目录中的文件</td>
+<td style="text-align:center">whereis</td>
+<td style="text-align:center">寻找命令路径</td>
+</tr>
+<tr>
+<td style="text-align:center">mkdir</td>
+<td style="text-align:center">新建目录</td>
+<td style="text-align:center">passwd</td>
+<td style="text-align:center">修改密码</td>
+</tr>
+</tbody>
+</table><h2 id="权限"><a class="anchor hidden-xs" href="#权限" title="权限"><i class="fa fa-link"></i></a>权限</h2><p>在Linux中所有东西都可以视为文件，应用、目录、锁等等，每个文件都有对应权限，当我们使用<code>ls -l</code>命令时就能查看目录下所有文件的权限：</p><pre><code>dd@ubuntu~:$ ls -l /
+total 684
+lrwxrwxrwx   1 root root      7 Aug  5  2020 bin -&gt; usr/bin
+drwxr-xr-x   2 root root   4096 Aug  5  2020 boot
+...
+-rwxr-xr-x   3 root root 631968 Sep 15 17:30 init
+...
+</code></pre><p>首先是文件的所有者，对应第三栏和第四栏，第三栏的<code>root</code>表示文件的所有者是root，也就是超级用户(superuser)，第四栏表示文件的所有组，Linux会默认为每个用户单独创建一个组，用户也可以自己创建。Linux针对每个文件为文件的所有者、所在组以及其他用户分配了不同的权限，在第一栏显示。第一栏一共10个字符，第一个字符是文件的种类，第二到第四个字符表示文件的所有者权限，第五到第七个字符表示文件所有组的权限，第八到第十个字符表示其他人的权限。首先是文件种类，这里<code>d</code>表示文件是一个目录，<code>-</code>表示是单纯的文件，<code>l</code>表示文件是一个软连接，这是一个文件系统的概念，可以认为软连接是一个类似指针的东西，只存储了目标在文件系统中的位置，与之相对的还有硬链接，之间的区别可以看<a href="https://www.jianshu.com/p/dde6a01c4094" target="_blank" rel="noopener">这篇文章</a>。后面每三个字符表示一组权限，<code>r</code>表示可读，<code>w</code>表示可写，<code>x</code>表示可执行。于是我们就明白了<code>bin</code>是一个指向<code>usr/bin</code>的软链接，所有人可读、可写、可执行，但<code>boot</code>目录直有root用户可读、可写、可执行，其他用户只能读和执行。<br>
+为了保护操作系统的稳定性和用户的安全，Linux限制了很多任务只能由root来执行，比如安装软件，删除某些重要文件，因此当用户尝试想要进行这些操作时，必须使用root账户。Linux提供了一个非常方便的命令<code>sudo</code>，也就是substitute user, and do，来使用户借用root账户来进行一些操作。比如当我们尝试用<code>apt-get</code>安装软件(下面会介绍)</p><pre><code>dd@ubuntu:~$ apt-get install python
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+</code></pre><p>系统会报错提示我们权限不够，这个时候只需要在前面加上<code>sudo</code>就没有问题了</p><pre><code>dd@ubuntu:~$ sudo apt-get install python
+</code></pre><p>系统会提示你输入密码然后执行安装命令。如果你有大量的命令需要在root权限下执行，也可以通过<code>su</code>命令进入root模式，就不需要在每个命令前加上<code>sudo</code>。<br>
+另外一个重要的命令是改变文件权限的命令<code>chmod</code>，也就是change mode。比如我们新建了一个Shell脚本</p><pre><code>dd@ubuntu:~$ touch hello.sh &amp;&amp; echo "echo hello world" &gt; hello.sh
+dd@ubuntu:~$ ls -l
+-rw-r--r-- 1 dd dd 17 Mar  3 13:54 hello.sh
+</code></pre><p>可以看到此时脚本是可读可写但是不可执行的，直接执行就会报错</p><pre><code>dd@ubuntu:~$ ./hello.sh
+-bash: ./hello.sh: Permission denied
+</code></pre><p>这时就需要通过<code>chmod</code>命令来为文件增加可执行的权限。<code>chmod</code>命令可以通过两种方法设定权限，一是通过数字直接指定权限，比如</p><pre><code>chmod 744 hello.sh
+</code></pre><p>这里的三个数字7、4、4分别表示所有者、所有组、其他人的权限，其中<code>x</code>对应1，<code>w</code>对应2，<code>r</code>对应4，那么<code>rwx</code>也就是4+2+1=7，换言之，744也就是表示所有者可读可写可执行，但是其他人只能读。或者我们也可以通过字符的方式，比如</p><pre><code>chmod u+x hello.sh 
+</code></pre><p>这里<code>u</code>表示user即所有者，类似的<code>g</code>表示group即所有组，<code>o</code>表示other即其他用户，<code>a</code>表示all即所有用户。中间的连接符可以是<code>+</code>、<code>-</code>、<code>=</code>表示增加、删除、指定某些权限，后面的<code>x</code>表示的就是执行权限，换言之<code>u+x</code>也就是为所有者增加执行权限。<br>
+权限修改之后就可以直接执行了。值得注意的是，如果待修改权限的文件所有者并不是自己，就需要在<code>chmod</code>前加上<code>sudo</code>，此外，还可以通过<code>chown</code>来修改文件所有者，这里就不再赘述。</p><h2 id="包管理"><a class="anchor hidden-xs" href="#包管理" title="包管理"><i class="fa fa-link"></i></a>包管理</h2><p>如果在Windows下安装某个应用程序，往往需要先下载安装器，一班后缀为<code>.exe</code>或者<code>.msi</code>，然后运行安装程序安装。在Ubuntu下，我们也可以在网站上下载软件包，后缀为<code>.deb</code>，然后调用<code>dpkg</code>进行安装：</p><pre><code class="bash hljs">sudo dpkg -i xxx.deb
+</code></pre><p><code>.deb</code>文件后缀是<a href="https://www.debian.org/" target="_blank" rel="noopener">Debian</a>系统的软件包格式，Ubuntu基于Debian开发因此使用相同的软件包格式，里面包含了程序的二进制文件、配置文件、man/info帮助页面等信息。用户不同的任务依赖大量的软件支撑，不同的软件往往有着复杂的依赖关系，一个软件往往也有很多版本，为了管理这么多的软件，Ubuntu提供了统一的软件管理机制，也就是<code>dpkg</code>和<code>apt</code>。<br>
+<code>dpkg</code>的用法如上所示，<code>dpkg -l</code>可以列出所有的以安装软件，<code>dpkg -r</code>卸载软件，更多命令可以使用<code>dpkg --help</code>或者<code>man dpkg</code>。dpkg安装完成之后，默认文件存放位置如下：</p><ul>
+<li>二进制文件：<code>/usr/bin</code></li>
+<li>库文件：<code>/usr/lib</code></li>
+<li>配置文件：<code>/etc</code></li>
+<li>使用手册和帮助文档：<code>/usr/share/doc</code></li>
+<li>man帮助页面：<code>/usr/share/man</code></li>
+</ul><p>然而dpkg并不是万能的，当某个软件的依赖项没有安装时dpkg就会报错，需要用户手动安装依赖项。apt很好地解决了这一问题。首先开发者会将编译后的二进制文件和软件信息存放在Ubuntu的源服务器上，当需要安装软件时，apt会自动从服务器上获取软件依赖信息，然后从服务器上下载依赖并安装，然后再安装需要的软件。服务器的信息记录在本地的<code>/etc/apt/sources.list</code>中：</p><pre><code class="bash hljs">dd@ubuntu~:$ cat /etc/apt/sources.list
+
+deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+
+deb http://archive.canonical.com/ubuntu focal partner
+deb-src http://archive.canonical.com/ubuntu focal partner
+</code></pre><p>在国内访问这些服务器可能速度比较慢，可以考虑更换为<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">清华源</a>，在更换之前可以先备份默认配置以免后面找不到：</p><pre><code class="bash hljs">sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+</code></pre><p>改完之后更新apt就可以使用新的源了</p><pre><code class="bash hljs">sudo apt-get update 
+</code></pre><p>使用apt-get安装软件非常简单：</p><pre><code class="bash hljs">sudo apt-get install xxx
+</code></pre><p>apt会自动处理依赖并调用dpkg来安装这些包。apt和apt-get在使用上基本没有区别，具体差别可以查看<a href="https://phoenixnap.com/kb/apt-vs-apt-get" target="_blank" rel="noopener">这篇文章</a>。</p><h2 id="重定向和管道"><a class="anchor hidden-xs" href="#重定向和管道" title="重定向和管道"><i class="fa fa-link"></i></a>重定向和管道</h2><p>每个程序都是一个单独的进程，在Shell中执行命令实际上是fork出一个新的进程然后再执行命令，不同的进程之间虚拟内存地址不同，因而需要特别的机制来实现不同程序之间的通信，管道(pipeline)就是Linux的一个进程间的通信方式。<br>
+在了解管道之前我们先看Linux是怎么完成输入和输出的重定向的。Linux下可以通过输出重定位符<code>&gt;</code>和输入重定位符<code>&lt;</code>重定位程序的输入和输出，比如</p><pre><code>echo 'hello world' &gt; hello.txt
+</code></pre><p>就可以将<code>echo</code>的输出重定位到<code>hello.txt</code>中，如果想在文件末尾添加而不是覆盖，可以使用<code>&gt;&gt;</code></p><pre><code>echo 'hello world' &gt;&gt; hello.txt
+</code></pre><p>这样就可以不覆盖文件原来的内容。类似的我们可以</p><pre><code>cat &lt; hello.txt
+</code></pre><p>将<code>hello.txt</code>作为<code>cat</code>的输入。<br>
+有了重定向的机制后，假如我们想将命令A的输出作为命令B的输入，就可以先将A的输出保存到一个文件中，然后再将文件作为B的输入，但这样做无疑是麻烦而且低效的，而如果使用管道机制，我们就可以直接一行命令<code>A | B</code>将A的输出作为B的输入，同时B可以在A还没有结束时就启动，并行运行提高效率。比如我们可以先<code>ls</code>目录信息然后查找其中的文件夹</p><pre><code>dd@ubuntu~:$ ls -l / | grep 'home'
+drwxr-xr-x   3 root root   4096 Dec  4 20:58 home
+</code></pre><p>就可以立马看到对应<code>home</code>文件夹的那一行。利用管道我们可以组合不同的命令来方便地实现复杂的功能，这也是Linux命令行功能强大的重要原因。</p><h2 id="环境变量"><a class="anchor hidden-xs" href="#环境变量" title="环境变量"><i class="fa fa-link"></i></a>环境变量</h2><p>环境变量是一组操作系统能访问到的变量，在Shell中输入<code>env</code>就能查看当前所有的环境变量</p><pre><code>dd@ubuntu~:$ env
+SHELL=/bin/bash
+USER=dd
+...
+PATH=/home/dd/.local/bin:/home/dd/.local/bin:/usr/local/sbin:
+/usr/local/bin:/usr/sbin:/usr/bin:...
+...
+</code></pre><p>环境变量可以保存默认设置、搜索路径等，比如我们可以看到系统的默认Shell是<code>bin/bash</code>，用户名是<code>dd</code>。我们可以在Shell和程序中使用这些变量，比如</p><pre><code>dd@ubuntu~:$ echo $SHELL
+/bin/bash
+</code></pre><p>使用方法就是在环境变量名之间加上<code>$</code>，或者用大括号括起来之后再加<code>$</code>。一些软件在编译运行时需要依赖其他软件，这时如果可以在环境变量中找到已经安装的软件路径，就可以很方便地通过环境变量找到依赖，比如CMake中的<code>find_package</code>命令就会在环境变量中寻找匹配的包。<br>
+环境变量中非常重要的一个是<code>PATH</code>，它指定了Shell寻找可执行文件的路径。可以看到<code>PATH</code>中包含了<code>usr/bin</code>，所以所有我们通过<code>apt-get</code>安装的软件都可以直接在Shell中使用。如果我们已经安装了某个软件但是在Shell中依然无法使用时，大概率是没有将安装的位置加入到<code>PATH</code>中。<br>
+除了环境变量之外，还有Shell的变量，在命令行中输入<code>set | less</code>就能查看当前所有的Shell变量，只能在当前的Shell窗口下访问到，比如当我们定义</p><pre><code>dd@ubuntu~:$ HELLO=hello
+</code></pre><p>就可以在<code>set</code>中看到</p><pre><code>dd@ubuntu~:$ set | grep "HELLO"
+HELLO=hello
+</code></pre><p>但是在环境变量中看不到</p><pre><code>dd@ubuntu~:$ env | grep "HELLO"
+</code></pre><p>并且如果我们进入一个子进程比如再打开一个bash</p><pre><code>dd@ubuntu~:$ bash
+dd@ubuntu~:$ set | grep "HELLO"
+</code></pre><p>这时也看不到我们刚定义的变量了，输入<code>exit</code>退出子进程可以再次看到定义的变量</p><pre><code>dd@ubuntu~:$ exit
+dd@ubuntu~:$ set | grep "HELLO"
+HELLO=hello
+</code></pre><p>那么要怎么在Shell中定义和修改环境变量呢？可以使用<code>export</code>命令</p><pre><code>export HELLO=hello
+</code></pre><p>这时就可以在环境变量里找到定义的变量</p><pre><code>dd@ubuntu~:$ env | grep "HELLO"
+HELLO=hello
+</code></pre><p>但是这时如果我们退回父进程或者重开一个控制台窗口，我们又不能看到定义的变量了。这是因为Shell中定义的环境变量之后影响子进程，为了避免我们每次都需要在使用前定义环境变量，我们可以将这一设置写进<code>~/.bashrc</code>里，这个配置文件会在每次启动bash时执行。<code>~/.bashrc</code>中已经包含了很多配置，我们要做的就是在最后添加</p><pre><code>export HELLO=hello
+</code></pre><p>然后执行<code>source ~/.bashrc</code>，这样就可以在每次打开Shell的时候定义这一环境变量。利用这个机制，假如我们想把自定义的命令加入<code>PATH</code>中时就可以在<code>~/.bashrc</code>中添加</p><pre><code>export PATH=/path/to/bin:$PATH
+</code></pre><p>这样命令就会添加到Shell的搜索路径中。需要注意的一点是，如果使用的是zsh，需要修改的就不是<code>~/.bashrc</code>，而是<code>~/.zshrc</code>。</p><h2 id="WSL"><a class="anchor hidden-xs" href="#WSL" title="WSL"><i class="fa fa-link"></i></a>WSL</h2><h3 id="使用情景"><a class="anchor hidden-xs" href="#使用情景" title="使用情景"><i class="fa fa-link"></i></a>使用情景</h3><p><a href="https://docs.microsoft.com/en-us/windows/wsl/" target="_blank" rel="noopener">WSL</a>的全称是Windows Subsystem for Linux，即Windows的Linux子系统。</p><p>一般我们如果想要运行linux代码，需要安装双系统或者虚拟机，而WSL可以让我们直接在Windows下使用Linux的命令行和工具。</p><p>举一个例子，比如你在Windows下实现了一个新方法，需要将其和其他人的方法进行比对。然而你发现其他人的代码是在Linux下实现的(或者使用了bash脚本)，此时如果使用双系统或者虚拟机会面临以下的问题：</p><ul>
+<li>两份代码的比较过程中需要<mark>反复切换操作系统</mark>，操作复杂</li>
+<li>两份代码的输出结果保存在<mark>不同的文件系统中</mark>，不一定能互访</li>
+<li>难以将两份代码的结果用同样的方法进行后续处理。</li>
+</ul><p>而WSL(特指WSL1)则提供了一个在Windows下直接运行Linux代码的方法，其表现为，同一个文件夹下，你既可以用Windows的cmd进行操作，也可以用Linux的bash进行操作。</p><p>具体来讲，当你在Windows下用cmd打开一个文件夹，其界面会是这样：</p><pre><code>Windows PowerShell
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+尝试新的跨平台 PowerShell https://aka.ms/pscore6
+
+PS D:\Advance&gt;
+</code></pre><p>而此时在cmd里键入<code>bash</code>，则会切换成Linux的<mark>bash</mark>界面。</p><pre><code>PS D:\Advance&gt;bash
+yhy@xxx:/mnt/d/Advance$
+</code></pre><p>注意到，原本的<code>D:\Advance</code>文件夹此时被显示成<code>/mnt/d/Advance</code>文件夹，但是这只是由于文件系统不同造成的显示出来的路径不同，他们所指向的实际位置是一个。所以此时你在<code>bash</code>内输入的所有Linux指令都会真的作用于这个本属于Windows的文件夹。</p><blockquote>
+<p>WSL2相对于WSL1，其更像一个真正的虚拟机，拥有完整的Linux内核。但是其在使用Windows文件系统时会更慢。</p>
+</blockquote><p>大多数情况下，我们都是希望在Linux上运行一个<code>server</code>，在Windows下对其进行访问。此时可以通过<code>localhost</code>直接访问。比如在bash内运行如下命令</p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-comment"># for python2</span>
+yhy@xxx:/mnt/d/Advance$ python -m SimpleHTTPServer 8001
+
+<span class="hljs-comment"># for python3</span>
+yhy@xxx:/mnt/d/Advance$ python3 -m http.server 8001
+</div></div></code></pre><p>运行后，8001端口会提供一个对当前文件夹的服务。我们可以直接在浏览器内打开<code>http://localhost:8001/</code>，其会显示如下界面</p><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_7eb5b59e6695ed0385b17ca870b7fa9b.png" alt=""></p><p>这会是<code>/mnt/d/Advance</code>文件夹里的内容。</p><p>但是如果反过来，我们想要在WSL内访问Windows的端口则不一定能直接访问，可能会需要获取主机IP(尝试了目前版本可以直接访问，和以前的说法不同)。</p><h3 id="更好地使用WSL"><a class="anchor hidden-xs" href="#更好地使用WSL" title="更好地使用WSL"><i class="fa fa-link"></i></a>更好地使用WSL</h3><h4 id="使用VS-code"><a class="anchor hidden-xs" href="#使用VS-code" title="使用VS-code"><i class="fa fa-link"></i></a>使用VS code</h4><p>虽然我们在命令行里就可以使用Linux命令，但是在日常码代码时，我们还是希望能有更直观的操作，这时我们可以配套使用<code>VS code</code>。</p><p>在<mark>Windows内</mark>安装好VS code。安装<code>Remote Development</code>插件包(在extension内搜索即得)。之后在WSL的文件系统内，你可以通过输入下面的代码直接打开当前文件夹(例子为/home文件夹)</p><pre><code class="bash hljs">yhy@xxx:/home$ code .
+</code></pre><h4 id="使用Windows-Terminal"><a class="anchor hidden-xs" href="#使用Windows-Terminal" title="使用Windows-Terminal"><i class="fa fa-link"></i></a>使用Windows Terminal</h4><p>Windows Terminal让我们用多标签管理多个终端，并且支持更多的主题和背景。</p><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_8c0434bc4b24ea8aa3c5df8096990d5d.png" alt=""></p><p>其设置可以在<a href="https://docs.microsoft.com/en-us/windows/terminal/" target="_blank" rel="noopener">Windows Terminal官方文档</a>中找到。</p><h4 id="直接在cmd内运行Linux命令"><a class="anchor hidden-xs" href="#直接在cmd内运行Linux命令" title="直接在cmd内运行Linux命令"><i class="fa fa-link"></i></a>直接在cmd内运行Linux命令</h4><p>除了在cmd内键入bash，然后再执行Linux命令以外，可以直接在cmd内运行并保持cmd不变，比如执行<code>ls -la</code>代码只需要在前面加上<code>wsl</code>，即</p><pre><code>PS D:\Advance&gt;wsl ls -la
+</code></pre><p>由于cmd同样有管道和重定向机制，我们就可以把Windows和Linux特有的命令混合起来，比如Linux特有的<code>ls</code>输入给Windows特有的<code>findstr</code></p><pre><code>PS D:\Advance&gt;wsl ls -la | findstr "figure"
+</code></pre><p>或者反过来</p><pre><code class="bash hljs">PS D:\Advance&gt;dir | wsl grep git
+</code></pre><p>注意这里的管道是<code>cmd</code>的管道，不是和wsl结合的，也就是说</p><pre><code class="bash hljs">PS D:\Advance&gt;wsl ls -la | grep git
+<span class="hljs-comment"># grep : 无法将“grep”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</span>
+
+PS D:\Advance&gt; wsl ls -la | wsl grep git
+<span class="hljs-comment"># 正确结果</span>
+</code></pre><h4 id="在WSL里运行cmd命令"><a class="anchor hidden-xs" href="#在WSL里运行cmd命令" title="在WSL里运行cmd命令"><i class="fa fa-link"></i></a>在WSL里运行cmd命令</h4><p>可以通过在bash内使用<code>[tool-name].exe</code>来调用Windows工具，比如</p><pre><code>yhy@xxx:/home$ explorer.exe .
+</code></pre><p>会在Windows的文件资源管理器内打开<code>/home</code>文件夹。</p><p>特别地，<code>cmd.exe</code>可以让我们在bash内直接使用cmd命令(就像我们在cmd内使用bash命令一样)</p><pre><code>cmd.exe /C dir
+</code></pre><h2 id="Shell-Script"><a class="anchor hidden-xs" href="#Shell-Script" title="Shell-Script"><i class="fa fa-link"></i></a>Shell Script</h2><h2 id="server-amp-ssh"><a class="anchor hidden-xs" href="#server-amp-ssh" title="server-amp-ssh"><i class="fa fa-link"></i></a>server &amp; ssh</h2><h2 id="Reference"><a class="anchor hidden-xs" href="#Reference" title="Reference"><i class="fa fa-link"></i></a>Reference</h2><ul>
+<li><a href="http://c.biancheng.net/view/707.html" target="_blank" rel="noopener">Linux和UNIX的关系及区别</a></li>
+<li><a href="https://phoenixnap.com/kb/apt-vs-apt-get" target="_blank" rel="noopener">APT Vs APT-GET: What’s The Difference?</a></li>
+<li><a href="https://www.jianshu.com/p/dde6a01c4094" target="_blank" rel="noopener">5分钟让你明白“软链接”和“硬链接”的区别</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux#setting-shell-and-environmental-variables" target="_blank" rel="noopener">How to Set and List Environment Variables in Linux</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/" target="_blank" rel="noopener">WSL 官方文档</a></li>
+</ul></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#前沿实践II-Lecture-1" title="前沿实践II-Lecture 1">前沿实践II-Lecture 1</a><ul class="nav">
+<li><a href="#Linux-Overview" title="Linux Overview">Linux Overview</a></li>
+<li><a href="#Ubuntu" title="Ubuntu">Ubuntu</a></li>
+<li><a href="#常用命令" title="常用命令">常用命令</a></li>
+<li><a href="#权限" title="权限">权限</a></li>
+<li><a href="#包管理" title="包管理">包管理</a></li>
+<li><a href="#重定向和管道" title="重定向和管道">重定向和管道</a></li>
+<li><a href="#环境变量" title="环境变量">环境变量</a></li>
+<li><a href="#WSL" title="WSL">WSL</a><ul class="nav">
+<li><a href="#使用情景" title="使用情景">使用情景</a></li>
+<li><a href="#更好地使用WSL" title="更好地使用WSL">更好地使用WSL</a></li>
+</ul>
+</li>
+<li><a href="#Shell-Script" title="Shell Script">Shell Script</a></li>
+<li><a href="#server-amp-ssh" title="server &amp; ssh">server &amp; ssh</a></li>
+<li><a href="#Reference" title="Reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#前沿实践II-Lecture-1" title="前沿实践II-Lecture 1">前沿实践II-Lecture 1</a><ul class="nav">
+<li><a href="#Linux-Overview" title="Linux Overview">Linux Overview</a></li>
+<li><a href="#Ubuntu" title="Ubuntu">Ubuntu</a></li>
+<li><a href="#常用命令" title="常用命令">常用命令</a></li>
+<li><a href="#权限" title="权限">权限</a></li>
+<li><a href="#包管理" title="包管理">包管理</a></li>
+<li><a href="#重定向和管道" title="重定向和管道">重定向和管道</a></li>
+<li><a href="#环境变量" title="环境变量">环境变量</a></li>
+<li><a href="#WSL" title="WSL">WSL</a><ul class="nav">
+<li><a href="#使用情景" title="使用情景">使用情景</a></li>
+<li><a href="#更好地使用WSL" title="更好地使用WSL">更好地使用WSL</a></li>
+</ul>
+</li>
+<li><a href="#Shell-Script" title="Shell Script">Shell Script</a></li>
+<li><a href="#server-amp-ssh" title="server &amp; ssh">server &amp; ssh</a></li>
+<li><a href="#Reference" title="Reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha256-kJrlY+s09+QoWjpkOrXXwhxeaoDz9FW5SaxF8I0DibQ=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
