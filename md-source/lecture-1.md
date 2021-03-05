@@ -612,6 +612,8 @@ linux的常用命令很多，各个选项也十分复杂，我们不大可能全
 另外一个十分推荐的选择是`tldr`，它会给出`简略的描述和例子`，能让你更快地找到所需要的功能。
 
 ![](..\figures\tldr.png)
+
+
 ## Reference
 
 * [Linux和UNIX的关系及区别](http://c.biancheng.net/view/707.html)
