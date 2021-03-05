@@ -58,27 +58,26 @@ SOFTWARE.
   </style>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,39 +86,34 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -146,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>在Linux内核的基础上衍生出了大量的操作系统，满足不同情况下的各种需求，每一个称为一个发行版(distribution,distro)。</p>
 <figure>
-<img src="..\figures\linuxdistrotimeline.png" alt="Linux distro timeline" /><figcaption aria-hidden="true">Linux distro timeline</figcaption>
+<img src="..\figures\linuxdistrotimeline.png" alt="Linux distro timeline" /><figcaption>Linux distro timeline</figcaption>
 </figure>
 <p>常用的Linux发行版有<a href="https://www.redhat.com">Red Hat</a>、<a href="https://ubuntu.com/">Ubuntu</a>、<a href="www.suse.com">SuSE</a>、<a href="www.gentoo.org">Gentoo</a>、<a href="www.centos.org">CenterOS</a>、<a href="https://archlinux.org/">Arch Linux</a>等等，本课程将主要介绍Ubuntu系统，因其简单易用，其他发行版可以直接简单对应，因为他们基于的都是相同的内核。</p>
 <h2 id="ubuntu">Ubuntu</h2>
@@ -252,7 +246,7 @@ dd@ubuntu:~$ ls -l
 权限修改之后就可以直接执行了。值得注意的是，如果待修改权限的文件所有者并不是自己，就需要在<code>chmod</code>前加上<code>sudo</code>，此外，还可以通过<code>chown</code>来修改文件所有者，这里就不再赘述。</p>
 <h2 id="包管理">包管理</h2>
 <p>如果在Windows下安装某个应用程序，往往需要先下载安装器，一班后缀为<code>.exe</code>或者<code>.msi</code>，然后运行安装程序安装。在Ubuntu下，我们也可以在网站上下载软件包，后缀为<code>.deb</code>，然后调用<code>dpkg</code>进行安装：</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">sudo</span> dpkg -i xxx.deb</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">sudo</span> dpkg -i xxx.deb</a></code></pre></div>
 <p><code>.deb</code>文件后缀是<a href="https://www.debian.org/">Debian</a>系统的软件包格式，Ubuntu基于Debian开发因此使用相同的软件包格式，里面包含了程序的二进制文件、配置文件、man/info帮助页面等信息。用户不同的任务依赖大量的软件支撑，不同的软件往往有着复杂的依赖关系，一个软件往往也有很多版本，为了管理这么多的软件，Ubuntu提供了统一的软件管理机制，也就是<code>dpkg</code>和<code>apt</code>。 <code>dpkg</code>的用法如上所示，<code>dpkg -l</code>可以列出所有的以安装软件，<code>dpkg -r</code>卸载软件，更多命令可以使用<code>dpkg --help</code>或者<code>man dpkg</code>。dpkg安装完成之后，默认文件存放位置如下：</p>
 <ul>
 <li>二进制文件：<code>/usr/bin</code></li>
@@ -262,28 +256,28 @@ dd@ubuntu:~$ ls -l
 <li>man帮助页面：<code>/usr/share/man</code></li>
 </ul>
 <p>然而dpkg并不是万能的，当某个软件的依赖项没有安装时dpkg就会报错，需要用户手动安装依赖项。apt很好地解决了这一问题。首先开发者会将编译后的二进制文件和软件信息存放在Ubuntu的源服务器上，当需要安装软件时，apt会自动从服务器上获取软件依赖信息，然后从服务器上下载依赖并安装，然后再安装需要的软件。服务器的信息记录在本地的<code>/etc/apt/sources.list</code>中：</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="ex">dd@ubuntu</span>~:$ cat /etc/apt/sources.list</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="ex">deb</span> http://archive.canonical.com/ubuntu focal partner</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a><span class="ex">deb-src</span> http://archive.canonical.com/ubuntu focal partner</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">dd@ubuntu</span>~:$ cat /etc/apt/sources.list</a>
+<a class="sourceLine" id="cb9-2" title="2"></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-5" title="5"></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-8" title="8"></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-11" title="11"></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="ex">deb</span> http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="ex">deb-src</span> http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</a>
+<a class="sourceLine" id="cb9-14" title="14"></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="ex">deb</span> http://archive.canonical.com/ubuntu focal partner</a>
+<a class="sourceLine" id="cb9-16" title="16"><span class="ex">deb-src</span> http://archive.canonical.com/ubuntu focal partner</a></code></pre></div>
 <p>在国内访问这些服务器可能速度比较慢，可以考虑更换为<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华源</a>，在更换之前可以先备份默认配置以免后面找不到：</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="fu">sudo</span> cp /etc/apt/sources.list /etc/apt/sources.list_backup</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">sudo</span> cp /etc/apt/sources.list /etc/apt/sources.list_backup</a></code></pre></div>
 <p>改完之后更新apt就可以使用新的源了</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">sudo</span> apt-get update </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">sudo</span> apt-get update </a></code></pre></div>
 <p>使用apt-get安装软件非常简单：</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">sudo</span> apt-get install xxx</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb12-1" title="1"><span class="fu">sudo</span> apt-get install xxx</a></code></pre></div>
 <p>apt会自动处理依赖并调用dpkg来安装这些包。apt和apt-get在使用上基本没有区别，具体差别可以查看<a href="https://phoenixnap.com/kb/apt-vs-apt-get">这篇文章</a>。</p>
 <h2 id="重定向和管道">重定向和管道</h2>
 <p>每个程序都是一个单独的进程，在Shell中执行命令实际上是fork出一个新的进程然后再执行命令，不同的进程之间虚拟内存地址不同，因而需要特别的机制来实现不同程序之间的通信，管道(pipeline)就是Linux的一个进程间的通信方式。<br />
@@ -301,7 +295,7 @@ drwxr-xr-x   3 root root   4096 Dec  4 20:58 home</code></pre>
 <h2 id="环境变量">环境变量</h2>
 <p>环境变量是一组操作系统能访问到的变量，在Shell中输入<code>env</code>就能查看当前所有的环境变量</p>
 <pre><code>dd@ubuntu~:$ env
-SHELL=/bin/bash
+/bin/bash
 USER=dd
 ...
 PATH=/home/dd/.local/bin:/home/dd/.local/bin:/usr/local/sbin:
@@ -348,25 +342,25 @@ HELLO=hello</code></pre>
 </ul>
 <p>而WSL(特指WSL1)则提供了一个在Windows下直接运行Linux代码的方法，其表现为，同一个文件夹下，你既可以用Windows的cmd进行操作，也可以用Linux的bash进行操作。</p>
 <p>具体来讲，当你在Windows下用cmd打开一个文件夹，其界面会是这样：</p>
-<pre class="shell=cmd"><code>Windows PowerShell
-版权所有 (C) Microsoft Corporation。保留所有权利。
-
-尝试新的跨平台 PowerShell https://aka.ms/pscore6
-
-PS D:\Advance&gt;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb28-1" title="1"><span class="ex">Windows</span> PowerShell</a>
+<a class="sourceLine" id="cb28-2" title="2">版权所有 <span class="kw">(</span><span class="ex">C</span><span class="kw">)</span> <span class="ex">Microsoft</span> Corporation。保留所有权利。</a>
+<a class="sourceLine" id="cb28-3" title="3"></a>
+<a class="sourceLine" id="cb28-4" title="4">尝试新的跨平台 <span class="ex">PowerShell</span> https://aka.ms/pscore6</a>
+<a class="sourceLine" id="cb28-5" title="5"></a>
+<a class="sourceLine" id="cb28-6" title="6"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span></a></code></pre></div>
 <p>而此时在cmd里键入<code>bash</code>，则会切换成Linux的<strong>bash</strong>界面。</p>
-<pre class="shell=cmd"><code>PS D:\Advance&gt;bash
-yhy@xxx:/mnt/d/Advance$</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span>bash</a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="ex">yhy@xxx</span>:/mnt/d/Advance$</a></code></pre></div>
 <p>注意到，原本的<code>D:\Advance</code>文件夹此时被显示成<code>/mnt/d/Advance</code>文件夹，但是这只是由于文件系统不同造成的显示出来的路径不同，他们所指向的实际位置是一个。所以此时你在<code>bash</code>内输入的所有Linux指令都会真的作用于这个本属于Windows的文件夹。</p>
 <blockquote>
 <p>WSL2相对于WSL1，其更像一个真正的虚拟机，拥有完整的Linux内核。但是其在使用Windows文件系统时会更慢。</p>
 </blockquote>
 <p>大多数情况下，我们都是希望在Linux上运行一个<code>server</code>，在Windows下对其进行访问。此时可以通过<code>localhost</code>直接访问。比如在bash内运行如下命令</p>
-<pre class="shell=bash"><code># for python2
-yhy@xxx:/mnt/d/Advance$ python -m SimpleHTTPServer 8001
-
-# for python3
-yhy@xxx:/mnt/d/Advance$ python3 -m http.server 8001</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb30-1" title="1"><span class="co"># for python2</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="ex">yhy@xxx</span>:/mnt/d/Advance$ python -m SimpleHTTPServer 8001</a>
+<a class="sourceLine" id="cb30-3" title="3"></a>
+<a class="sourceLine" id="cb30-4" title="4"><span class="co"># for python3</span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="ex">yhy@xxx</span>:/mnt/d/Advance$ python3 -m http.server 8001</a></code></pre></div>
 <p>运行后，8001端口会提供一个对当前文件夹的服务。我们可以直接在浏览器内打开<code>http://localhost:8001/</code>，其会显示如下界面</p>
 <p><img src="..\figures\wsl-directories.png" /></p>
 <p>这会是<code>/mnt/d/Advance</code>文件夹里的内容。</p>
@@ -375,30 +369,151 @@ yhy@xxx:/mnt/d/Advance$ python3 -m http.server 8001</code></pre>
 <h4 id="使用vs-code">使用VS code</h4>
 <p>虽然我们在命令行里就可以使用Linux命令，但是在日常码代码时，我们还是希望能有更直观的操作，这时我们可以配套使用<code>VS code</code>。</p>
 <p>在<strong>Windows内</strong>安装好VS code。安装<code>Remote Development</code>插件包(在extension内搜索即得)。之后在WSL的文件系统内，你可以通过输入下面的代码直接打开当前文件夹(例子为/home文件夹)</p>
-<pre class="shell=bash"><code>yhy@xxx:/home$ code .</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb31-1" title="1"><span class="ex">yhy@xxx</span>:/home$ code .</a></code></pre></div>
 <h4 id="使用windows-terminal">使用Windows Terminal</h4>
 <p>Windows Terminal让我们用多标签管理多个终端，并且支持更多的主题和背景。</p>
 <p><img src="..\figures\windows-terminal.png" /></p>
 <p>其设置可以在<a href="https://docs.microsoft.com/en-us/windows/terminal/">Windows Terminal官方文档</a>中找到。</p>
 <h4 id="直接在cmd内运行linux命令">直接在cmd内运行Linux命令</h4>
 <p>除了在cmd内键入bash，然后再执行Linux命令以外，可以直接在cmd内运行并保持cmd不变，比如执行<code>ls -la</code>代码只需要在前面加上<code>wsl</code>，即</p>
-<pre class="shell=cmd"><code>PS D:\Advance&gt;wsl ls -la</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span>wsl ls -la</a></code></pre></div>
 <p>由于cmd同样有管道和重定向机制，我们就可以把Windows和Linux特有的命令混合起来，比如Linux特有的<code>ls</code>输入给Windows特有的<code>findstr</code></p>
-<pre class="shell=cmd"><code>PS D:\Advance&gt;wsl ls -la | findstr &quot;figure&quot;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span>wsl ls -la <span class="kw">|</span> <span class="ex">findstr</span> <span class="st">&quot;figure&quot;</span></a></code></pre></div>
 <p>或者反过来</p>
-<pre class="shell=cmd"><code>PS D:\Advance&gt;dir | wsl grep git</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span>dir <span class="kw">|</span> <span class="ex">wsl</span> grep git</a></code></pre></div>
 <p>注意这里的管道是<code>cmd</code>的管道，不是和wsl结合的，也就是说</p>
-<pre class="shell=cmd"><code>PS D:\Advance&gt; wsl ls -la | grep git
-# grep : 无法将“grep”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。
-
-PS D:\Advance&gt; wsl ls -la | wsl grep git
-# 正确结果</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span> wsl ls -la <span class="kw">|</span> <span class="fu">grep</span> git</a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="co"># grep : 无法将“grep”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</span></a>
+<a class="sourceLine" id="cb35-3" title="3"></a>
+<a class="sourceLine" id="cb35-4" title="4"><span class="kw">PS</span> <span class="ex">D</span>:\Advance<span class="op">&gt;</span> wsl ls -la <span class="kw">|</span> <span class="ex">wsl</span> grep git</a>
+<a class="sourceLine" id="cb35-5" title="5"><span class="co"># 正确结果</span></a></code></pre></div>
 <h4 id="在wsl里运行cmd命令">在WSL里运行cmd命令</h4>
 <p>可以通过在bash内使用<code>[tool-name].exe</code>来调用Windows工具，比如</p>
-<pre class="shell=bash"><code>yhy@xxx:/home$ explorer.exe .</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb36-1" title="1"><span class="ex">yhy@xxx</span>:/home$ explorer.exe .</a></code></pre></div>
 <p>会在Windows的文件资源管理器内打开<code>/home</code>文件夹。</p>
 <p>特别地，<code>cmd.exe</code>可以让我们在bash内直接使用cmd命令(就像我们在cmd内使用bash命令一样)</p>
-<pre class="shell=bash"><code>cmd.exe /C dir</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb37-1" title="1"><span class="ex">cmd.exe</span> /C dir</a></code></pre></div>
+<h2 id="shell-script">Shell Script</h2>
+<h3 id="如何运行脚本">如何运行脚本</h3>
+<p>脚本语言本身只是区别于那些传统的，需要通过编译、链接才能运行的编程语言，其需要解释器来运行。</p>
+<p>比如我们熟知的<code>python</code>就是一种脚本语言。在编写python的时候，我们可以交互式地逐行输入，也可以将程序写到一个文件里(如<code>helloworld.py</code>)，然后再在终端里输入<code>python3 helloworld.py</code>运行。</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" title="1"><span class="bu">print</span>(<span class="st">&quot;hello world&quot;</span>) </a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="co"># helloworld.py 的内容</span></a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">$</span> <span class="ex">python3</span> helloworld.py </a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="ex">hello</span> world <span class="co">#这是上面命令的输出</span></a></code></pre></div>
+<p>在上面的过程中，<code>helloworld.py</code>文件就是一个<strong>脚本</strong>，而<code>python3</code>则是我们给它指定的<strong>解释器</strong>。</p>
+<p>同样的，我们也可以把<code>bash</code>的语句写到<code>xxx.sh</code>文件里，然后用<code>bash xxx.sh</code>运行脚本。此时，会运行一个新的<code>bash</code>解释器，并执行脚本<code>xxx.sh</code>。</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb40-1" title="1"><span class="bu">echo</span> <span class="st">&#39;hello world&#39;</span> </a>
+<a class="sourceLine" id="cb40-2" title="2"><span class="co"># test.sh 的内容</span></a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">$</span> <span class="fu">bash</span> test.sh</a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="ex">hello</span> world <span class="co">#这是上面命令的输出</span></a></code></pre></div>
+<p>当然这只是一种运行脚本的方法，即将文件名当作参数传给要运行的解释器。</p>
+<p>实际上，我们可以直接在文件里指定解释器，比如下面的<code>test.py文件</code>和<code>test.sh文件</code></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb42-1" title="1"><span class="co">#!/usr/bin/python3</span></a>
+<a class="sourceLine" id="cb42-2" title="2"><span class="bu">print</span>(<span class="st">&quot;hello world&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb43-1" title="1"><span class="co">#! /usr/bin/bash</span></a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="bu">echo</span> <span class="st">&#39;hello world&#39;</span> </a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">$</span> <span class="ex">./test.py</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="ex">hello</span> world</a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="kw">$</span> <span class="ex">./test.sh</span></a>
+<a class="sourceLine" id="cb44-4" title="4"><span class="ex">hello</span> world</a></code></pre></div>
+<p>其中<code>#!</code>称为<code>shebang</code>，是<code>sharp bang</code>的缩写，前者表示井号，后者是感叹号。其后跟着的路径会让内核能够找到该脚本的解释器，<code>shebang</code>需要写在首行。</p>
+<p>有些时候，我们不知道解释器在哪个位置，只知道能通过环境变量<code>PATH</code>找到，此时可以把绝对路径改成下面的形式</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb45-1" title="1"><span class="co">#! /usr/bin/env python3</span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="bu">print</span>(<span class="st">&quot;hello world&quot;</span>)</a></code></pre></div>
+<p><code>/usr/bin/env</code>会帮助你运行环境变量中的解释器。</p>
+<h3 id="简单的bash语法">简单的bash语法</h3>
+<blockquote>
+<p>为了方便展示，短一点的语句我们可能在终端内交互式输入，长一些的则会写入文件运行，前者会在命令前加<code>$</code>表示这是输入的命令，其余部分为输出。后者会在代码块最上方加上shebang</p>
+</blockquote>
+<h4 id="定义变量和简单输出">定义变量和简单输出</h4>
+<p>同python一样，bash shell作为编程语言同样有定义变量，控制流，函数等。但有些不同的是，空格在bash shell的语法里起着比较重要的作用，比如在定义变量时</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">$</span> <span class="va">a=</span><span class="st">&quot;hello world&quot;</span></a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="kw">$</span> <span class="bu">echo</span> <span class="va">$a</span></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="ex">hello</span> world</a></code></pre></div>
+<p>定义了一个字符串变量<code>a</code>，想要获取它的值需要使用<code>$a</code>，<code>echo</code>负责把传给它的值输出到终端上。</p>
+<p>而如果我们在等号周围加上了空格<code>a = "hello world"</code>，其就不再是一个赋值操作，而是试图调用程序<code>a</code>，并且传入参数<code>=</code>和<code>"hello world"</code>。</p>
+<p>除此之外，赋值语句<code>a="hello world"</code>的形式是<code>var=value</code>，如果<code>value</code>本身不含有空格，可以把外面的引号删掉，比如</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">$</span> <span class="va">a=</span>hello</a>
+<a class="sourceLine" id="cb47-2" title="2"><span class="kw">$</span> <span class="bu">echo</span> <span class="va">$a</span></a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="ex">hello</span></a></code></pre></div>
+<p>这时hello虽然没加引号，但是依然被视为了字符串变量。bash shell的字符串同样面临转义的问题，一般来讲，单引号<code>''</code>包含的字符串是纯文本，不需要也不会进行转义，而双引号<code>""</code>中则是可以引用变量和转义的，比如</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">$</span> <span class="va">name=</span>yhy</a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="kw">$</span> <span class="bu">echo</span> <span class="st">&quot;your name is </span><span class="va">$name</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="ex">your</span> name is yhy</a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="kw">$</span> <span class="bu">echo</span> <span class="st">&#39;your name is $name&#39;</span></a>
+<a class="sourceLine" id="cb48-5" title="5"><span class="ex">your</span> name is <span class="va">$name</span></a></code></pre></div>
+<h4 id="函数特殊变量返回值和输出值">函数，特殊变量，返回值和输出值</h4>
+<p>bash shell 同样可以定义函数，比如下面定义的<code>mcd</code>函数是<code>mkdir</code>和<code>cd</code>的结合，其会建立一个文件夹并切换进去。</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb49-1" title="1"><span class="fu">mcd ()</span> <span class="kw">{</span></a>
+<a class="sourceLine" id="cb49-2" title="2">    <span class="fu">mkdir</span> -p <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb49-3" title="3">    <span class="bu">cd</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="kw">}</span></a></code></pre></div>
+<p>这里<code>$1</code>是自动定义的特殊变量，它是函数收到的第一个参数。比如当我们调用<code>mcd testmcd</code>时，<code>$1</code>就是<code>testmcd</code>。</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb50-1" title="1"><span class="ex">/mnt/d/Advance</span>$ <span class="ex">mcd</span> testmcd</a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="ex">/mnt/d/Advance/testmcd</span>$</a></code></pre></div>
+<p>这样的特殊变量还有很多，下面是一些常用的</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">特殊变量</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>$0</code></td>
+<td style="text-align: center;">当前脚本的名字</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>$1</code>到<code>$9</code></td>
+<td style="text-align: center;">传入脚本的第x个参数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>$@</code></td>
+<td style="text-align: center;">所有参数</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>$#</code></td>
+<td style="text-align: center;">参数的数目</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>$$</code></td>
+<td style="text-align: center;">当前脚本的PID</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>$?</code></td>
+<td style="text-align: center;">上一条指令的==返回值==</td>
+</tr>
+</tbody>
+</table>
+<p>注意到最后一条，我们特意标记了返回值，这是因为我们之前的操作(比如赋值，管道，echo)都是针对指令的==输出==，而返回值则是另外一件事情。</p>
+<p>这里的返回值一般代表函数的运行状态，一般来讲<code>0</code>代表正常结束，其余值代表异常退出。这也是我们之前的操作不针对返回值的原因：它代表的信息很少。下面是一个关于返回值和输出的实验：</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb51-1" title="1"><span class="co">#! /usr/bin/bash</span></a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="fu">foo()</span><span class="kw">{</span></a>
+<a class="sourceLine" id="cb51-3" title="3"><span class="bu">echo</span> <span class="st">&quot;I&#39;m output&quot;</span></a>
+<a class="sourceLine" id="cb51-4" title="4"><span class="bu">return</span> 33</a>
+<a class="sourceLine" id="cb51-5" title="5"><span class="kw">}</span></a>
+<a class="sourceLine" id="cb51-6" title="6"></a>
+<a class="sourceLine" id="cb51-7" title="7"><span class="va">a=$(</span><span class="ex">foo</span><span class="va">)</span></a>
+<a class="sourceLine" id="cb51-8" title="8"></a>
+<a class="sourceLine" id="cb51-9" title="9"><span class="bu">echo</span> <span class="va">$?</span></a>
+<a class="sourceLine" id="cb51-10" title="10"><span class="bu">echo</span> <span class="va">$a</span></a></code></pre></div>
+<p>这里我们定义了一个<code>foo</code>函数，其输出<code>I'm output</code>，返回<code>33</code>。赋值语句<code>a=$(foo)</code>中，<code>()</code>的作用是表示其内的东西不是变量，而是需要运行的语句。这个脚本的输出如下 <code>shell = bash 33   I'm output</code></p>
+<p>其中<code>33</code>是上一条语句的返回值，由于上一条语句是<code>a=$(foo)</code>为赋值语句，返回值为右侧的返回值，故而为<code>33</code>。</p>
+<p>但是返回值也不是完全无法利用，比如就逻辑运算符会使用命令的返回值而不是输出值，只不过会把<code>0</code>(正常结束)当作正确的布尔值，而其余值当成错误的布尔值(与其他语言相反)。比如bash有一条命令叫做<code>true</code>，其什么也不做，只返回<code>0</code>，相对地，有一条命令叫<code>false</code>，其返回<code>1</code>。我们就可以进行如下验证：</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb52-1" title="1"><span class="kw">$</span> <span class="fu">true</span></a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="kw">$</span> <span class="bu">echo</span> <span class="va">$?</span> <span class="co">#验证返回值</span></a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="ex">0</span></a>
+<a class="sourceLine" id="cb52-4" title="4"></a>
+<a class="sourceLine" id="cb52-5" title="5"><span class="kw">$</span> <span class="fu">false</span></a>
+<a class="sourceLine" id="cb52-6" title="6"><span class="kw">$</span> <span class="bu">echo</span> <span class="va">$?</span> <span class="co"># 验证返回值</span></a>
+<a class="sourceLine" id="cb52-7" title="7"><span class="ex">1</span></a>
+<a class="sourceLine" id="cb52-8" title="8"></a>
+<a class="sourceLine" id="cb52-9" title="9"><span class="kw">$</span> <span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Oops, fail&quot;</span></a>
+<a class="sourceLine" id="cb52-10" title="10"><span class="ex">Oops</span>, fail</a>
+<a class="sourceLine" id="cb52-11" title="11"><span class="kw">$</span> <span class="fu">true</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Will not be printed&quot;</span></a></code></pre></div>
+<p>在最后的操作里，<code>true || xxxx</code>没有执行后面的操作，这是因为其</p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="http://c.biancheng.net/view/707.html">Linux和UNIX的关系及区别</a></li>

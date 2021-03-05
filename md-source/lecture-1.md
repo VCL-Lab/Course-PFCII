@@ -177,7 +177,7 @@ drwxr-xr-x   3 root root   4096 Dec  4 20:58 home
 环境变量是一组操作系统能访问到的变量，在Shell中输入`env`就能查看当前所有的环境变量
 ```
 dd@ubuntu~:$ env
-SHELL=/bin/bash
+/bin/bash
 USER=dd
 ...
 PATH=/home/dd/.local/bin:/home/dd/.local/bin:/usr/local/sbin:
@@ -251,7 +251,7 @@ export PATH=/path/to/bin:$PATH
 
 具体来讲，当你在Windows下用cmd打开一个文件夹，其界面会是这样：
 
-```shell=cmd
+```bash
 Windows PowerShell
 版权所有 (C) Microsoft Corporation。保留所有权利。
 
@@ -263,7 +263,7 @@ PS D:\Advance>
 
 而此时在cmd里键入`bash`，则会切换成Linux的**bash**界面。
 
-```shell=cmd
+```bash
 PS D:\Advance>bash
 yhy@xxx:/mnt/d/Advance$
 ```
@@ -274,7 +274,7 @@ yhy@xxx:/mnt/d/Advance$
 
 大多数情况下，我们都是希望在Linux上运行一个`server`，在Windows下对其进行访问。此时可以通过`localhost`直接访问。比如在bash内运行如下命令
 
-```shell=bash
+```bash
 # for python2
 yhy@xxx:/mnt/d/Advance$ python -m SimpleHTTPServer 8001
 
@@ -299,7 +299,7 @@ yhy@xxx:/mnt/d/Advance$ python3 -m http.server 8001
 
 在**Windows内**安装好VS code。安装`Remote Development`插件包(在extension内搜索即得)。之后在WSL的文件系统内，你可以通过输入下面的代码直接打开当前文件夹(例子为/home文件夹)
 
-```shell=bash
+```bash
 yhy@xxx:/home$ code .
 ```
 
@@ -316,25 +316,25 @@ Windows Terminal让我们用多标签管理多个终端，并且支持更多的�
 
 除了在cmd内键入bash，然后再执行Linux命令以外，可以直接在cmd内运行并保持cmd不变，比如执行`ls -la`代码只需要在前面加上`wsl`，即 
 
-```shell=cmd
+```bash
 PS D:\Advance>wsl ls -la
 ```
 
 由于cmd同样有管道和重定向机制，我们就可以把Windows和Linux特有的命令混合起来，比如Linux特有的`ls`输入给Windows特有的`findstr`
 
-```shell=cmd
+```bash
 PS D:\Advance>wsl ls -la | findstr "figure"
 ```
 
 或者反过来
 
-```shell=cmd
+```bash
 PS D:\Advance>dir | wsl grep git
 ```
 
 注意这里的管道是`cmd`的管道，不是和wsl结合的，也就是说
 
-```shell=cmd
+```bash
 PS D:\Advance> wsl ls -la | grep git
 # grep : 无法将“grep”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。
 
@@ -346,7 +346,7 @@ PS D:\Advance> wsl ls -la | wsl grep git
 
 可以通过在bash内使用`[tool-name].exe`来调用Windows工具，比如
 
-```shell=bash
+```bash
 yhy@xxx:/home$ explorer.exe .
 ```
 
@@ -354,11 +354,181 @@ yhy@xxx:/home$ explorer.exe .
 
 特别地，`cmd.exe`可以让我们在bash内直接使用cmd命令(就像我们在cmd内使用bash命令一样)
 
-```shell=bash
+```bash
 cmd.exe /C dir
 ```
 
+## Shell Script
 
+### 如何运行脚本
+
+脚本语言本身只是区别于那些传统的，需要通过编译、链接才能运行的编程语言，其需要解释器来运行。
+
+比如我们熟知的`python`就是一种脚本语言。在编写python的时候，我们可以交互式地逐行输入，也可以将程序写到一个文件里(如`helloworld.py`)，然后再在终端里输入`python3 helloworld.py`运行。
+
+```python
+print("hello world") 
+# helloworld.py 的内容
+```
+
+```bash
+$ python3 helloworld.py 
+hello world #这是上面命令的输出
+```
+
+在上面的过程中，`helloworld.py`文件就是一个**脚本**，而`python3`则是我们给它指定的**解释器**。
+
+同样的，我们也可以把`bash`的语句写到`xxx.sh`文件里，然后用`bash xxx.sh`运行脚本。此时，会运行一个新的`bash`解释器，并执行脚本`xxx.sh`。
+
+```bash
+echo 'hello world' 
+# test.sh 的内容
+```
+
+```bash
+$ bash test.sh
+hello world #这是上面命令的输出
+```
+
+当然这只是一种运行脚本的方法，即将文件名当作参数传给要运行的解释器。
+
+实际上，我们可以直接在文件里指定解释器，比如下面的`test.py文件`和`test.sh文件`
+
+```python
+#!/usr/bin/python3
+print("hello world")
+```
+
+```bash
+#! /usr/bin/bash
+echo 'hello world' 
+```
+
+```bash
+$ ./test.py
+hello world
+$ ./test.sh
+hello world
+```
+
+其中`#!`称为`shebang`，是`sharp bang`的缩写，前者表示井号，后者是感叹号。其后跟着的路径会让内核能够找到该脚本的解释器，`shebang`需要写在首行。
+
+有些时候，我们不知道解释器在哪个位置，只知道能通过环境变量`PATH`找到，此时可以把绝对路径改成下面的形式
+
+```python
+#! /usr/bin/env python3
+print("hello world")
+```
+
+`/usr/bin/env`会帮助你运行环境变量中的解释器。
+
+### 简单的bash语法
+
+> 为了方便展示，短一点的语句我们可能在终端内交互式输入，长一些的则会写入文件运行，前者会在命令前加`$`表示这是输入的命令，其余部分为输出。后者会在代码块最上方加上shebang
+
+#### 定义变量和简单输出
+
+同python一样，bash shell作为编程语言同样有定义变量，控制流，函数等。但有些不同的是，空格在bash shell的语法里起着比较重要的作用，比如在定义变量时
+
+```bash
+$ a="hello world"
+$ echo $a
+hello world
+```
+
+定义了一个字符串变量`a`，想要获取它的值需要使用`$a`，`echo`负责把传给它的值输出到终端上。
+
+而如果我们在等号周围加上了空格`a = "hello world"`，其就不再是一个赋值操作，而是试图调用程序`a`，并且传入参数`=`和`"hello world"`。
+
+除此之外，赋值语句`a="hello world"`的形式是`var=value`，如果`value`本身不含有空格，可以把外面的引号删掉，比如
+
+```bash
+$ a=hello
+$ echo $a
+hello
+```
+
+这时hello虽然没加引号，但是依然被视为了字符串变量。bash shell的字符串同样面临转义的问题，一般来讲，单引号`''`包含的字符串是纯文本，不需要也不会进行转义，而双引号`""`中则是可以引用变量和转义的，比如
+
+```bash
+$ name=yhy
+$ echo "your name is $name"
+your name is yhy
+$ echo 'your name is $name'
+your name is $name
+```
+
+#### 函数，特殊变量，返回值和输出值
+
+bash shell 同样可以定义函数，比如下面定义的`mcd`函数是`mkdir`和`cd`的结合，其会建立一个文件夹并切换进去。
+
+```bash
+mcd () {
+    mkdir -p "$1"
+    cd "$1"
+}
+```
+
+这里`$1`是自动定义的特殊变量，它是函数收到的第一个参数。比如当我们调用`mcd testmcd`时，`$1`就是`testmcd`。
+
+```bash
+/mnt/d/Advance$ mcd testmcd
+/mnt/d/Advance/testmcd$
+```
+
+这样的特殊变量还有很多，下面是一些常用的
+
+|特殊变量|含义|
+|:---:|:---:|
+|`$0`|当前脚本的名字|
+|`$1`到`$9`| 传入脚本的第x个参数|
+|`$@`|所有参数|
+|`$#`|参数的数目|
+|`$$`|当前脚本的PID|
+|`$?`|上一条指令的==返回值==|
+
+注意到最后一条，我们特意标记了返回值，这是因为我们之前的操作(比如赋值，管道，echo)都是针对指令的==输出==，而返回值则是另外一件事情。
+
+这里的返回值一般代表函数的运行状态，一般来讲`0`代表正常结束，其余值代表异常退出。这也是我们之前的操作不针对返回值的原因：它代表的信息很少。下面是一个关于返回值和输出的实验：
+
+```bash
+#! /usr/bin/bash
+foo(){
+echo "I'm output"
+return 33
+}
+
+a=$(foo)
+
+echo $?
+echo $a
+```
+
+这里我们定义了一个`foo`函数，其输出`I'm output`，返回`33`。赋值语句`a=$(foo)`中，`()`的作用是表示其内的东西不是变量，而是需要运行的语句。这个脚本的输出如下
+```shell = bash
+33  
+I'm output 
+```
+
+其中`33`是上一条语句的返回值，由于上一条语句是`a=$(foo)`为赋值语句，返回值为右侧的返回值，故而为`33`。
+
+但是返回值也不是完全无法利用，比如就逻辑运算符会使用命令的返回值而不是输出值，只不过会把`0`(正常结束)当作正确的布尔值，而其余值当成错误的布尔值(与其他语言相反)。比如bash有一条命令叫做`true`，其什么也不做，只返回`0`，相对地，有一条命令叫`false`，其返回`1`。我们就可以进行如下验证：
+
+```bash
+$ true
+$ echo $? #验证返回值
+0
+
+$ false
+$ echo $? # 验证返回值
+1
+
+$ false || echo "Oops, fail"
+Oops, fail
+$ true || echo "Will not be printed"
+```
+
+在最后的操作里，`true || xxxx`没有执行后面的操作，这是因为其
 
 ## Reference
 
