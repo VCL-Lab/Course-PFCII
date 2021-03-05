@@ -57,7 +57,7 @@ Ubuntu默认的Shell是Bourne Again Shell(bash)，打开终端出现的紫框就
 ## 权限
 
 在Linux中所有东西都可以视为文件，应用、目录、锁等等，每个文件都有对应权限，当我们使用`ls -l`命令时就能查看目录下所有文件的权限：
-```
+```bash
 dd@ubuntu~:$ ls -l /
 total 684
 lrwxrwxrwx   1 root root      7 Aug  5  2020 bin -> usr/bin
@@ -68,33 +68,33 @@ drwxr-xr-x   2 root root   4096 Aug  5  2020 boot
 ```
 首先是文件的所有者，对应第三栏和第四栏，第三栏的`root`表示文件的所有者是root，也就是超级用户(superuser)，第四栏表示文件的所有组，Linux会默认为每个用户单独创建一个组，用户也可以自己创建。Linux针对每个文件为文件的所有者、所在组以及其他用户分配了不同的权限，在第一栏显示。第一栏一共10个字符，第一个字符是文件的种类，第二到第四个字符表示文件的所有者权限，第五到第七个字符表示文件所有组的权限，第八到第十个字符表示其他人的权限。首先是文件种类，这里`d`表示文件是一个目录，`-`表示是单纯的文件，`l`表示文件是一个软连接，这是一个文件系统的概念，可以认为软连接是一个类似指针的东西，只存储了目标在文件系统中的位置，与之相对的还有硬链接，之间的区别可以看[这篇文章](https://www.jianshu.com/p/dde6a01c4094)。后面每三个字符表示一组权限，`r`表示可读，`w`表示可写，`x`表示可执行。于是我们就明白了`bin`是一个指向`usr/bin`的软链接，所有人可读、可写、可执行，但`boot`目录直有root用户可读、可写、可执行，其他用户只能读和执行。  
 为了保护操作系统的稳定性和用户的安全，Linux限制了很多任务只能由root来执行，比如安装软件，删除某些重要文件，因此当用户尝试想要进行这些操作时，必须使用root账户。Linux提供了一个非常方便的命令`sudo`，也就是substitute user, and do，来使用户借用root账户来进行一些操作。比如当我们尝试用`apt-get`安装软件(下面会介绍)
-```
+```bash
 dd@ubuntu:~$ apt-get install python
 E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
 E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
 ```
 系统会报错提示我们权限不够，这个时候只需要在前面加上`sudo`就没有问题了
-```
+```bash
 dd@ubuntu:~$ sudo apt-get install python
 ```
 系统会提示你输入密码然后执行安装命令。如果你有大量的命令需要在root权限下执行，也可以通过`su`命令进入root模式，就不需要在每个命令前加上`sudo`。  
 另外一个重要的命令是改变文件权限的命令`chmod`，也就是change mode。比如我们新建了一个Shell脚本
-```
+```bash
 dd@ubuntu:~$ touch hello.sh && echo "echo hello world" > hello.sh
 dd@ubuntu:~$ ls -l
 -rw-r--r-- 1 dd dd 17 Mar  3 13:54 hello.sh
 ```
 可以看到此时脚本是可读可写但是不可执行的，直接执行就会报错
-```
+```bash
 dd@ubuntu:~$ ./hello.sh
 -bash: ./hello.sh: Permission denied
 ```
 这时就需要通过`chmod`命令来为文件增加可执行的权限。`chmod`命令可以通过两种方法设定权限，一是通过数字直接指定权限，比如
-```
+```bash
 chmod 744 hello.sh
 ```
 这里的三个数字7、4、4分别表示所有者、所有组、其他人的权限，其中`x`对应1，`w`对应2，`r`对应4，那么`rwx`也就是4+2+1=7，换言之，744也就是表示所有者可读可写可执行，但是其他人只能读。或者我们也可以通过字符的方式，比如
-```
+```bash
 chmod u+x hello.sh 
 ```
 这里`u`表示user即所有者，类似的`g`表示group即所有组，`o`表示other即其他用户，`a`表示all即所有用户。中间的连接符可以是`+`、`-`、`=`表示增加、删除、指定某些权限，后面的`x`表示的就是执行权限，换言之`u+x`也就是为所有者增加执行权限。  
@@ -152,20 +152,20 @@ apt会自动处理依赖并调用dpkg来安装这些包。apt和apt-get在使用
 
 每个程序都是一个单独的进程，在Shell中执行命令实际上是fork出一个新的进程然后再执行命令，不同的进程之间虚拟内存地址不同，因而需要特别的机制来实现不同程序之间的通信，管道(pipeline)就是Linux的一个进程间的通信方式。  
 在了解管道之前我们先看Linux是怎么完成输入和输出的重定向的。Linux下可以通过输出重定位符`>`和输入重定位符`<`重定位程序的输入和输出，比如
-```
+```bash
 echo 'hello world' > hello.txt
 ```
 就可以将`echo`的输出重定位到`hello.txt`中，如果想在文件末尾添加而不是覆盖，可以使用`>>`
-```
+```bash
 echo 'hello world' >> hello.txt
 ```
 这样就可以不覆盖文件原来的内容。类似的我们可以
-```
+```bash
 cat < hello.txt
 ```
 将`hello.txt`作为`cat`的输入。  
 有了重定向的机制后，假如我们想将命令A的输出作为命令B的输入，就可以先将A的输出保存到一个文件中，然后再将文件作为B的输入，但这样做无疑是麻烦而且低效的，而如果使用管道机制，我们就可以直接一行命令`A | B`将A的输出作为B的输入，同时B可以在A还没有结束时就启动，并行运行提高效率。比如我们可以先`ls`目录信息然后查找其中的文件夹
-```
+```bash
 dd@ubuntu~:$ ls -l / | grep 'home'
 drwxr-xr-x   3 root root   4096 Dec  4 20:58 home
 ```
@@ -175,7 +175,7 @@ drwxr-xr-x   3 root root   4096 Dec  4 20:58 home
 ## 环境变量
 
 环境变量是一组操作系统能访问到的变量，在Shell中输入`env`就能查看当前所有的环境变量
-```
+```bash
 dd@ubuntu~:$ env
 /bin/bash
 USER=dd
@@ -185,51 +185,51 @@ PATH=/home/dd/.local/bin:/home/dd/.local/bin:/usr/local/sbin:
 ...
 ```
 环境变量可以保存默认设置、搜索路径等，比如我们可以看到系统的默认Shell是`bin/bash`，用户名是`dd`。我们可以在Shell和程序中使用这些变量，比如
-```
+```bash
 dd@ubuntu~:$ echo $SHELL
 /bin/bash
 ```
 使用方法就是在环境变量名之间加上`$`，或者用大括号括起来之后再加`$`。一些软件在编译运行时需要依赖其他软件，这时如果可以在环境变量中找到已经安装的软件路径，就可以很方便地通过环境变量找到依赖，比如CMake中的`find_package`命令就会在环境变量中寻找匹配的包。  
 环境变量中非常重要的一个是`PATH`，它指定了Shell寻找可执行文件的路径。可以看到`PATH`中包含了`usr/bin`，所以所有我们通过`apt-get`安装的软件都可以直接在Shell中使用。如果我们已经安装了某个软件但是在Shell中依然无法使用时，大概率是没有将安装的位置加入到`PATH`中。  
 除了环境变量之外，还有Shell的变量，在命令行中输入`set | less`就能查看当前所有的Shell变量，只能在当前的Shell窗口下访问到，比如当我们定义
-```
+```bash
 dd@ubuntu~:$ HELLO=hello
 ```
 就可以在`set`中看到
-```
+```bash
 dd@ubuntu~:$ set | grep "HELLO"
 HELLO=hello
 ```
 但是在环境变量中看不到
-```
+```bash
 dd@ubuntu~:$ env | grep "HELLO"
 ```
 并且如果我们进入一个子进程比如再打开一个bash
-```
+```bash
 dd@ubuntu~:$ bash
 dd@ubuntu~:$ set | grep "HELLO"
 ```
 这时也看不到我们刚定义的变量了，输入`exit`退出子进程可以再次看到定义的变量
-```
+```bash
 dd@ubuntu~:$ exit
 dd@ubuntu~:$ set | grep "HELLO"
 HELLO=hello
 ```
 那么要怎么在Shell中定义和修改环境变量呢？可以使用`export`命令
-```
+```bash
 export HELLO=hello
 ```
 这时就可以在环境变量里找到定义的变量
-```
+```bash
 dd@ubuntu~:$ env | grep "HELLO"
 HELLO=hello
 ```
 但是这时如果我们退回父进程或者重开一个控制台窗口，我们又不能看到定义的变量了。这是因为Shell中定义的环境变量之后影响子进程，为了避免我们每次都需要在使用前定义环境变量，我们可以将这一设置写进`~/.bashrc`里，这个配置文件会在每次启动bash时执行。`~/.bashrc`中已经包含了很多配置，我们要做的就是在最后添加
-```
+```bash
 export HELLO=hello
 ```
 然后执行`source ~/.bashrc`，这样就可以在每次打开Shell的时候定义这一环境变量。利用这个机制，假如我们想把自定义的命令加入`PATH`中时就可以在`~/.bashrc`中添加
-```
+```bash
 export PATH=/path/to/bin:$PATH
 ```
 这样命令就会添加到Shell的搜索路径中。需要注意的一点是，如果使用的是zsh，需要修改的就不是`~/.bashrc`，而是`~/.zshrc`。
