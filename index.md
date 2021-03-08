@@ -9,7 +9,7 @@ Email：baoquan@pku.edu.cn
 **助教**：
 
 * 阮良旺，图灵班大四本科生，ruanliangwang@pku.edu.cn
-* 姚贺源，图灵班大四本科生，18811711520@163.com
+* 姚贺源，图灵班大四本科生，heyuanyao@pku.edu.cn
 
 # 课程简介
 
