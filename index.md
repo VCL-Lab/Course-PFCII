@@ -19,7 +19,7 @@ Email：baoquan@pku.edu.cn
 
 |日期|课程内容|讲座|报告|
 |:-:|:-:|:-:|:-:|
-|3-10|课程介绍，高年级同学分享|||
+|3-10|课程介绍，高年级同学分享([Slides](./assets/sharing-slides.zip))|||
 |3-17|Lecture 1(Linux基础)|待定||
 |3-24|Lecture 2(编辑器)|待定||
 |3-31|||第一轮，第一组|
