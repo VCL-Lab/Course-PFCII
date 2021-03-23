@@ -621,3 +621,4 @@ linux的常用命令很多，各个选项也十分复杂，我们不大可能全
 * [5分钟让你明白“软链接”和“硬链接”的区别](https://www.jianshu.com/p/dde6a01c4094)
 * [How to Set and List Environment Variables in Linux](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux#setting-shell-and-environmental-variables)
 * [WSL 官方文档](https://docs.microsoft.com/en-us/windows/wsl/)
+* [同学推荐的 WSL 教程](https://dowww.spencerwoo.com/)
