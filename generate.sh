@@ -10,8 +10,8 @@ do
     # pandoc -s ./md-source/$file -o ./html-gen/${file%.*}.html --template ./template/GitHub.html5 --highlight-style my.theme --syntax-definition syn.xml --toc --toc-depth 2
     # pandoc -s $file -o ../html-gen/${file%.*}.html --template ../template/bootstrap.html --css ../template/bootstrap.css --toc --toc-depth 2 \
     # --highlight-style ../my.theme --syntax-definition ../syn.xml
-    pandoc -s $file -o ../html-gen/${file%.*}.html --template ../template/uikit.html --toc --toc-depth 2 \
-    --highlight-style ../my.theme --syntax-definition ../syn.xml
+    pandoc -s $file -o ../html-gen/${file%.*}.html --template ../template/uikit.html --toc --toc-depth 3 \
+    --highlight-style ../my.theme --syntax-definition ../syn.xml --mathjax
     # Hack! 让标题可以指向index.html
     sed -e "s/前沿计算实践II<\/h1>/<a href=\'..\/index.html\'>前沿计算实践II<\/a><\/h1>/g" ../html-gen/${file%.*}.html -i
 done
