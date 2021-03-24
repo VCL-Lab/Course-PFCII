@@ -25,27 +25,26 @@
                         <title>前沿计算实践II</title>
         <style type="text/css">code{white-space: pre;}</style>
                         <style type="text/css">
-            pre > code.sourceCode { white-space: pre; position: relative; }
-            pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-            pre > code.sourceCode > span:empty { height: 1.2em; }
-            code.sourceCode > span { color: inherit; text-decoration: inherit; }
+            a.sourceLine { display: inline-block; line-height: 1.25; }
+            a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+            a.sourceLine:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
+            code.sourceCode { white-space: pre; position: relative; }
             div.sourceCode { margin: 1em 0; }
             pre.sourceCode { margin: 0; }
             @media screen {
             div.sourceCode { overflow: auto; }
             }
             @media print {
-            pre > code.sourceCode { white-space: pre-wrap; }
-            pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+            code.sourceCode { white-space: pre-wrap; }
+            a.sourceLine { text-indent: -1em; padding-left: 1em; }
             }
-            pre.numberSource code
-              { counter-reset: source-line 0; }
-            pre.numberSource code > span
-              { position: relative; left: -4em; counter-increment: source-line; }
-            pre.numberSource code > span > a:first-child::before
-              { content: counter(source-line);
+            pre.numberSource a.sourceLine
+              { position: relative; left: -4em; }
+            pre.numberSource a.sourceLine::before
+              { content: attr(title);
                 position: relative; left: -1em; text-align: right; vertical-align: baseline;
-                border: none; display: inline-block;
+                border: none; pointer-events: all; display: inline-block;
                 -webkit-touch-callout: none; -webkit-user-select: none;
                 -khtml-user-select: none; -moz-user-select: none;
                 -ms-user-select: none; user-select: none;
@@ -54,9 +53,9 @@
               }
             pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
             div.sourceCode
-              {   }
+              {  }
             @media screen {
-            pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+            a.sourceLine::before { text-decoration: underline; }
             }
             code span.al { color: #ff0000; } /* Alert */
             code span.an { color: #008000; } /* Annotation */
@@ -83,9 +82,8 @@
             code span.vs { color: #008080; } /* VerbatimString */
             code span.wa { color: #008000; font-weight: bold; } /* Warning */
         </style>
-                                            <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
-                               
-    </head>
+                                            <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+                                </head>
 
     <body>
 
@@ -104,39 +102,34 @@
                         <div class="uk-panel uk-panel-box menu-begin" >
 
                                                         <ul>
-                                                        <li><a href="#lecture-2-code-editor-documentation">Lecture 2: Code Editor &amp; Documentation</a>
-                                                        <ul>
-                                                        <li><a href="#vim">Vim</a>
-                                                        <ul>
-                                                        <li><a href="#vim哲学">Vim哲学</a></li>
-                                                        <li><a href="#vim模式">Vim模式</a></li>
-                                                        <li><a href="#移动光标">移动光标</a></li>
-                                                        <li><a href="#编辑">编辑</a></li>
-                                                        <li><a href="#选择">选择</a></li>
-                                                        <li><a href="#命令行">命令行</a></li>
-                                                        <li><a href="#扩展">扩展</a></li>
-                                                        </ul></li>
-                                                        <li><a href="#vs-code">VS Code</a>
-                                                        <ul>
-                                                        <li><a href="#vs-code总览">VS Code总览</a></li>
-                                                        <li><a href="#vs-code-remote">VS Code Remote</a></li>
-                                                        </ul></li>
-                                                        <li><a href="#markdown">Markdown</a>
-                                                        <ul>
-                                                        <li><a href="#markdown-简介">Markdown 简介</a></li>
-                                                        <li><a href="#推荐的markdown编辑器">推荐的Markdown编辑器</a></li>
-                                                        <li><a href="#markdown的常用语法">Markdown的常用语法</a></li>
-                                                        </ul></li>
-                                                        <li><a href="#latex">LaTeX</a>
-                                                        <ul>
-                                                        <li><a href="#latex的配置">Latex的配置</a></li>
-                                                        <li><a href="#latex基本例子">Latex基本例子</a></li>
-                                                        <li><a href="#latex常用语法">Latex常用语法</a></li>
-                                                        </ul></li>
-                                                        <li><a href="#工具组合">工具组合</a></li>
-                                                        <li><a href="#reference">Reference</a></li>
-                                                        </ul></li>
-                                                        </ul>
+                            <li><a href="#lecture-2-code-editor-documentation">Lecture 2: Code Editor &amp; Documentation</a><ul>
+                            <li><a href="#vim">Vim</a><ul>
+                            <li><a href="#vim哲学">Vim哲学</a></li>
+                            <li><a href="#vim模式">Vim模式</a></li>
+                            <li><a href="#移动光标">移动光标</a></li>
+                            <li><a href="#编辑">编辑</a></li>
+                            <li><a href="#选择">选择</a></li>
+                            <li><a href="#命令行">命令行</a></li>
+                            <li><a href="#扩展">扩展</a></li>
+                            </ul></li>
+                            <li><a href="#vs-code">VS Code</a><ul>
+                            <li><a href="#vs-code总览">VS Code总览</a></li>
+                            <li><a href="#vs-code-remote">VS Code Remote</a></li>
+                            </ul></li>
+                            <li><a href="#markdown">Markdown</a><ul>
+                            <li><a href="#markdown-简介">Markdown 简介</a></li>
+                            <li><a href="#推荐的markdown编辑器">推荐的Markdown编辑器</a></li>
+                            <li><a href="#markdown的常用语法">Markdown的常用语法</a></li>
+                            </ul></li>
+                            <li><a href="#latex">LaTeX</a><ul>
+                            <li><a href="#latex的配置">Latex的配置</a></li>
+                            <li><a href="#latex基本例子">Latex基本例子</a></li>
+                            <li><a href="#latex常用语法">Latex常用语法</a></li>
+                            </ul></li>
+                            <li><a href="#工具组合">工具组合</a></li>
+                            <li><a href="#reference">Reference</a></li>
+                            </ul></li>
+                            </ul>
                             
                         </div>
                     </div>
@@ -159,14 +152,17 @@
 <h3 id="移动光标">移动光标</h3>
 <p>Vim中所有键盘输入都可以视为命令，可以被记录下来映射到快捷键。在Normal模式下，最基本的命令是控制光标移动的命令<code>hjkl</code>，其中<code>jk</code>控制上下，<code>hl</code>控制左右，方向键同样可以控制光标，但是因为方向键盘离打字的范围比较远，所以推荐大家熟悉<code>hjkl</code>这四个键。在没有鼠标的情况下想实现长距离的光标跳转，每次只能移动一个单位显然是低效的，好在Vim为光标跳转提供了多种命令：</p>
 <ul>
-<li>单词间：<code>w</code>可以跳转到下一个单词的开头，<code>b</code>跳转到当前单词的开头，继续按跳转到上一个单词的开头，<code>e</code>跳转到当前单词的结尾，继续按跳转到下一个单词的结尾 &gt; 遗憾的是中文很难分词，所以在中文中键入<code>w</code>会跳转到下一个短句</li>
+<li><p>单词间：<code>w</code>可以跳转到下一个单词的开头，<code>b</code>跳转到当前单词的开头，继续按跳转到上一个单词的开头，<code>e</code>跳转到当前单词的结尾，继续按跳转到下一个单词的结尾</p>
+<blockquote>
+<p>遗憾的是中文很难分词，所以在中文中键入<code>w</code>会跳转到下一个短句</p>
+</blockquote></li>
 <li>括号、引号间：如果光标在括号或者引号中间，<code>%</code>会高亮显示括号或引号，继续按会在头和尾反复横跳</li>
 <li>行内：<code>0</code>跳转到行的开头，<code>^</code>跳转到行的第一个非空格的字符，<code>$</code>跳转到行的结尾</li>
 <li>段落间：<code>{</code>跳转到上一段，<code>}</code>跳转到下一段</li>
 <li>屏幕内：<code>H</code>跳转到屏幕最上面，<code>M</code>跳转到屏幕最中间，<code>L</code>跳转到屏幕最下面</li>
 <li>屏幕滑动：<code>&lt;C-u&gt;</code>向上滑动，<code>&lt;C-d&gt;</code>向下滑动</li>
 <li>文件内：<code>gg</code>跳转到文件开头，<code>G</code>跳转到文件结尾</li>
-<li>其他：<code>zz</code>会将光标置于屏幕中心</li>
+<li><p>其他：<code>zz</code>会将光标置于屏幕中心</p></li>
 </ul>
 <p>这些基本命令可以和数字进行组合，输入任意数字（默认情况下显示在右下角），然后输入<code>j</code>就会向下移动对应行数，同理，如果是数字+<code>w</code>，就会移动对应单词数。另外，数字+<code>&lt;CR&gt;</code>等同于数字+<code>j</code>，数字+<code>G</code>会跳转到整个文件的第几行。<br />
 除了这些直接跳转命令，Vim也提供了搜索机制。首先是行内的搜索，<code>f</code>、<code>t</code>、<code>F</code>、<code>T</code>后面加上任意字符x，代表跳转到当前光标下一个x、跳转到下一个x之前、跳转到上一个x、跳转到上一个x之后，搜索到了之后也可以继续按<code>,</code>和<code>;</code>在搜索结果之间前后移动。然后是文件内的搜索，直接键入<code>/</code>或者<code>?</code>会进入命令行搜索模式，<code>/</code>是从开头开始搜索，<code>?</code>是从结尾开始搜索，后面可以加上任意长度的字符，然后键入<code>&lt;CR&gt;</code>就可以高亮显示所有的搜索结果，按<code>n</code>和<code>N</code>就可以在搜索结果之间向前和向后移动。搜索模式支持正则表达式，关于正则表达式的详细内容我们之后再介绍。最后如果想要关闭搜索结果的高亮，需要借助命令行命令，输入<code>:noh</code>即可关闭高亮。</p>
@@ -264,25 +260,25 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <p>此外，还可以用<code>*</code>将文本标记为<strong>黑体</strong>和<em>斜体</em>。黑体需要在文字两侧各加<strong>两个</strong><code>*</code>，斜体则是一个(用下划线也有一样的效果)。</p>
 <h4 id="段落">段落</h4>
 <p>当我们正文很长时，我们需要对其进行分段或者换行。对于一个<strong>传统的</strong>Markdown编辑器来讲，这并不是一个回车能解决的问题，比如下面的代码。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>我有自相矛盾么？</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>很好，那我是在自相矛盾了，</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>（我是庞大的，我承载着很多个自己。）</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb3-1" title="1">我有自相矛盾么？</a>
+<a class="sourceLine" id="cb3-2" title="2">很好，那我是在自相矛盾了，</a>
+<a class="sourceLine" id="cb3-3" title="3">（我是庞大的，我承载着很多个自己。）</a></code></pre></div>
 <p>你得到的结果会是这三句话跑到了一行。这是因为单独的一个回车在Markdown编辑器看来，是你为了防止一行代码过长而做的操作，连续的两个回车才代表着开始下一个段落，即如下面的</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>我有自相矛盾么？</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>很好，那我是在自相矛盾了，</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>（我是庞大的，我承载着很多个自己。）</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb4-1" title="1">我有自相矛盾么？</a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">很好，那我是在自相矛盾了，</a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5">（我是庞大的，我承载着很多个自己。）</a></code></pre></div>
 <p>这种连续两个回车(即多一个空行)的行为叫做<code>段落换行</code>，其渲染结果两行之间有很大的间隔。然而对于诗歌这种文体，其换行并不是换段，这样的大的间隔过于稀疏了，我们可以使用<code>段落间换行</code>，其间隔很小，实现方式是把<code>两个回车</code>换成<code>两个空格</code>。</p>
 <blockquote>
 <p>但是现在的编辑器很多都不遵循这套了，单个回车就直接换行了。。。(甚至没找到两个回车才能换行的编辑器拿来做demo)</p>
 </blockquote>
 <h4 id="列表">列表</h4>
 <p>列表可能是用Markdown来做笔记最方便的功能，列表的标记是行首加一个<code>-</code>或者<code>*</code>，比如</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ss">- </span>操作系统</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="ss">- </span>计算机网络</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="ss">- </span>编译原理</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="ss">- </span>计算机组成与体系结构</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb5-1" title="1">- <span class="fl">操作系统</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="fl">- 计算机网络</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fl">- 编译原理</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="fl">- 计算机组成与体系结构</span></a></code></pre></div>
 <p>会显示成</p>
 <ul>
 <li>操作系统</li>
@@ -291,15 +287,15 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <li>计算机组成与体系结构</li>
 </ul>
 <p>列表中的每个项目都可以进行加粗，斜体等行为，就像其在正文一样。甚至可以更换段落，更换方式是执行换行操作后，在行首加空格(具体数目取决于编译器)，这样新的一行会和这个项目的缩进对齐。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="ss">- </span>操作系统</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a> 操作系统（operation system，简称OS）是**管理计算机硬件与软件资源的计算机程序**。</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>  </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a> 操作系统需要处理如管理与配置内存、决定系统资源供需的优先次序</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="ss">- </span>计算机网络</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="ss">- </span>编译原理</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="ss">- </span>计算机组成与*体系结构*</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb6-1" title="1">- <span class="fl">操作系统</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"> 操作系统（operation system，简称OS）是**管理计算机硬件与软件资源的计算机程序**。</a>
+<a class="sourceLine" id="cb6-4" title="4">  </a>
+<a class="sourceLine" id="cb6-5" title="5"> 操作系统需要处理如管理与配置内存、决定系统资源供需的优先次序</a>
+<a class="sourceLine" id="cb6-6" title="6"> </a>
+<a class="sourceLine" id="cb6-7" title="7">- <span class="fl">计算机网络</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="fl">- 编译原理</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="fl">- 计算机组成与*体系结构*</span></a></code></pre></div>
 <ul>
 <li>操作系统</li>
 </ul>
@@ -311,9 +307,9 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <li>计算机组成与<em>体系结构</em></li>
 </ul>
 <p>列表还可以拥有子列表，其语法与列表完全相同，但是子列表需要进行缩进。</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="ss">- </span>操作系统</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="ss">    - </span>周八3.4节</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="ss">    - </span>周一-1,-2节</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb7-1" title="1">- <span class="fl">操作系统</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="fl">    - 周八3.4节</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="fl">    - 周一-1,-2节</span></a></code></pre></div>
 <ul>
 <li>操作系统
 <ul>
@@ -322,20 +318,20 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 </ul></li>
 </ul>
 <p>最后，编辑器一般还会对列表进行<code>待做/已完成</code>的拓展，方式是在<code>-</code>后面加上<code>[ ]</code>或者<code>[x]</code>(注意前者括号间有空格)。</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="ss">- </span><span class="co">[ ]</span>工作</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="ss">- </span><span class="co">[</span><span class="ot">x</span><span class="co">]</span>摸鱼</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb8-1" title="1">- <span class="fl">[ ]工作</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="fl">- [x]摸鱼</span></a></code></pre></div>
 <ul>
 <li>[ ]工作</li>
 <li>[x]摸鱼</li>
 </ul>
 <h4 id="引用公式和代码块">引用，公式和代码块</h4>
 <p>有时我们引入了其他来源的内容，我们希望给它特别的格式，这时一般使用<code>&gt;</code>进行标记。</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>他曾经讲过</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="at">&gt;苟利国家生死以</span>  </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="at">&gt;岂因祸福避趋之</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="at">&gt;&gt;不要见着风是得雨</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb9-1" title="1">他曾经讲过</a>
+<a class="sourceLine" id="cb9-2" title="2"></a>
+<a class="sourceLine" id="cb9-3" title="3">&gt;<span class="dt">苟利国家生死以</span>  </a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="dt">&gt;岂因祸福避趋之</span></a>
+<a class="sourceLine" id="cb9-5" title="5"></a>
+<a class="sourceLine" id="cb9-6" title="6">&gt;<span class="dt">&gt;不要见着风是得雨</span></a></code></pre></div>
 <p>他曾经讲过</p>
 <blockquote>
 <p>苟利国家生死以<br />
@@ -347,9 +343,9 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 </blockquote>
 </blockquote>
 <p>而Markdown一般也支持公式块，其标记为前后各一个<code>$$</code>，比如</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>$$</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>\frac{a}{b} = c</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>$$</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb10-1" title="1">$$</a>
+<a class="sourceLine" id="cb10-2" title="2">\frac{a}{b} = c</a>
+<a class="sourceLine" id="cb10-3" title="3">$$</a></code></pre></div>
 <p><span class="math display">\[
 \frac{a}{b} = c
 \]</span></p>
@@ -359,18 +355,18 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <p><img src="../figures/code_block.png" /></p>
 <h4 id="超链接图片锚">超链接，图片，锚</h4>
 <p>Markdown可以置入超链接，这让你在浏览渲染结果时，可以点击链接直接跳转，下面是一个例子</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>欢迎大家点击<span class="co">[</span><span class="ot">课程主页</span><span class="co">](http://vcl.pku.edu.cn/course/PFCII/index.html)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb11-1" title="1">欢迎大家点击<span class="ot">[课程主页](http://vcl.pku.edu.cn/course/PFCII/index.html)</span></a></code></pre></div>
 <p>欢迎大家点击<a href="http://vcl.pku.edu.cn/course/PFCII/index.html">课程主页</a></p>
 <p><code>[]</code>里是该链接显示出的字，<code>()</code>里是链接的地址。</p>
 <p>另外一种超链接基于锚点的机制。</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">点击此处，转到课程主页</span><span class="co">][main-page]</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="co">[</span><span class="ot">main-page</span><span class="co">]</span>:../index.html</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb12-1" title="1"><span class="ot">[点击此处，转到课程主页][main-page]</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3">[main-page]:../index.html</a></code></pre></div>
 <p><a href="../index.html">点击此处，转到课程主页</a></p>
 <p>其中第二个<code>[]</code>里是参考链接，我们需要在后面手动定义这个链接是什么，可以是一个网页的超链接，可以是本文的某个标题，甚至是一个图片的编码，比如</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">点击此处，转到上一节标题</span><span class="co">][local-section]</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="co">[</span><span class="ot">local-section</span><span class="co">]</span>:#推荐的markdown编辑器</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb13-1" title="1"><span class="ot">[点击此处，转到上一节标题][local-section]</span></a>
+<a class="sourceLine" id="cb13-2" title="2"></a>
+<a class="sourceLine" id="cb13-3" title="3">[local-section]:#推荐的markdown编辑器</a></code></pre></div>
 <p><a href="#推荐的markdown编辑器">点击此处，转到上一节标题</a></p>
 <p>这种情况下不论第几级标题，一个<code>#</code>就可以了。</p>
 <p>这个机制甚至可以用来插入图片。一般来讲，Markdown图片的插入语法是</p>
@@ -383,17 +379,17 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 ![](/figure/1.png =100x100)</code></pre>
 <p>如果你的图片在本地，但是你需要和别人共享文档，一般会找所谓的<code>图床</code>服务，它会为你上床的图片提供一个网页链接，从而可以使用网页图片链接。</p>
 <p>另外一个暴力的方法就是把图片编码进md文件。这是因为图片往往还支持这样的语法</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="al">![](data:image/png;base64,iVBORw0......)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb15-1" title="1">![](data:image/png;base64,iVBORw0......)</a></code></pre></div>
 <p><code>data:image/png;base64,iVBORw0......</code>是图片的base64编码。所以你可以将图片的base64编码放在文档最后，然后用锚点机制插入图片(使用此方法请注意和同学/同事的亲切友好关系)。</p>
 <h4 id="目录表格分割线">目录，表格，分割线</h4>
 <p>很多Markdown都支持一键生成目录(知乎等网站除外)，方式是在插入目录的地方打入</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">toc</span><span class="co">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb16-1" title="1">[toc]</a></code></pre></div>
 <p>另外还可以加入表格比如</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>|命令|功能|命令|功能|</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>|:---:|:---:|:---:|:---:|</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>|date|显示时间|rm|删除|</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>|shutdown -h now|关闭系统|mv|移动、重命名|</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>|man|查看帮助文档|cp|复制|</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb17-1" title="1">|命令|功能|命令|功能|</a>
+<a class="sourceLine" id="cb17-2" title="2">|:---:|:---:|:---:|:---:|</a>
+<a class="sourceLine" id="cb17-3" title="3">|date|显示时间|rm|删除|</a>
+<a class="sourceLine" id="cb17-4" title="4">|shutdown -h now|关闭系统|mv|移动、重命名|</a>
+<a class="sourceLine" id="cb17-5" title="5">|man|查看帮助文档|cp|复制|</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -447,82 +443,82 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <h3 id="latex基本例子">Latex基本例子</h3>
 <p>本部分只简单介绍Latex的基本语法，对Latex有一定了解的同学可以略过。</p>
 <p>程序员们学习一门新语言的最好方法无外乎直接读该语言的代码。下面是一个Latex的简单例子。</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a><span class="co">%---------------------%</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="co">% 这是导言区</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a><span class="co">%---------------------%</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a>    <span class="co">% 这是正文</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>    This is my first document.</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a>    Happy <span class="fu">\LaTeX</span> ing!</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb18-1" title="1"><span class="bu">\documentclass</span>{<span class="ex">article</span>}</a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="co">%---------------------%</span></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="co">% 这是导言区</span></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="co">%---------------------%</span></a>
+<a class="sourceLine" id="cb18-6" title="6"></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="kw">\begin</span>{<span class="ex">document</span>}</a>
+<a class="sourceLine" id="cb18-8" title="8">    <span class="co">% 这是正文</span></a>
+<a class="sourceLine" id="cb18-9" title="9">    This is my first document.</a>
+<a class="sourceLine" id="cb18-10" title="10"></a>
+<a class="sourceLine" id="cb18-11" title="11">    Happy <span class="fu">\LaTeX</span> ing!</a>
+<a class="sourceLine" id="cb18-12" title="12"><span class="kw">\end</span>{<span class="ex">document</span>}</a></code></pre></div>
 <p><img src="../figures/latex0demo.png" /></p>
 <p>不难看出，第一行为声明本文档的类型为<code>article</code>。<code>%</code>则是Latex的注释符号，<code>\begin{document}</code>和<code>\end{document}</code>之间的则是文档的正文。</p>
 <p>其中<code>\begin{document}</code>之前的区域称为导言区，其并不被渲染，是为了后面的书写做准备。导言区可以有的内容比如使用<code>\usepackage{xxx}</code>导入包，用<code>\author{xxx}</code>命令声明作者，用<code>\newcommand</code>定义新的命令等等。</p>
 <p>需要注意的是，Latex本身设计时是面向英文的，如果想要使用中文，请把文档类型从<code>article</code>改为<code>ctexart</code>。</p>
 <h3 id="latex常用语法">Latex常用语法</h3>
 <h4 id="章节">章节</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="bu">\documentclass</span>{<span class="ex">ctexart</span>}</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>    <span class="fu">\title</span>{前沿计算研究与实践II}</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>    <span class="fu">\author</span>{姚贺源}</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>    <span class="fu">\date</span>{<span class="fu">\today</span>}</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a>    <span class="fu">\maketitle</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a>    <span class="kw">\section</span>{前沿计算研究总述}</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true"></a>    <span class="kw">\subsection</span>{简介}</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true"></a></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true"></a></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb19-1" title="1"><span class="bu">\documentclass</span>{<span class="ex">ctexart</span>}</a>
+<a class="sourceLine" id="cb19-2" title="2"></a>
+<a class="sourceLine" id="cb19-3" title="3">    <span class="fu">\title</span>{前沿计算研究与实践II}</a>
+<a class="sourceLine" id="cb19-4" title="4">    <span class="fu">\author</span>{姚贺源}</a>
+<a class="sourceLine" id="cb19-5" title="5">    <span class="fu">\date</span>{<span class="fu">\today</span>}</a>
+<a class="sourceLine" id="cb19-6" title="6"></a>
+<a class="sourceLine" id="cb19-7" title="7"><span class="kw">\begin</span>{<span class="ex">document</span>}</a>
+<a class="sourceLine" id="cb19-8" title="8"></a>
+<a class="sourceLine" id="cb19-9" title="9">    <span class="fu">\maketitle</span></a>
+<a class="sourceLine" id="cb19-10" title="10"></a>
+<a class="sourceLine" id="cb19-11" title="11">    <span class="kw">\section</span>{前沿计算研究总述}</a>
+<a class="sourceLine" id="cb19-12" title="12">    <span class="kw">\subsection</span>{简介}</a>
+<a class="sourceLine" id="cb19-13" title="13"></a>
+<a class="sourceLine" id="cb19-14" title="14"></a>
+<a class="sourceLine" id="cb19-15" title="15"><span class="kw">\end</span>{<span class="ex">document</span>}</a></code></pre></div>
 <p><img src="../figures/latex1demo.png" /></p>
 <p>在这个例子里我们在导言区定义了<code>titile</code>的各个属性，并在正文的开头使用了<code>\maketitle</code>命令，这产生了渲染结果的前三行(标题，作者，日期)。</p>
 <p>之后我们用<code>\section</code>命令产生了一级标题，后面的文字就是标题的内容。如果想产生子标题则是<code>\subsection</code>，并还有<code>\subsubsection</code>可以使用。</p>
 <h4 id="列表-1">列表</h4>
 <p>Latex同样有列表环境，具体的使用方式是</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="co">% 以圆点开头的列表</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">itemize</span>}</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>    <span class="fu">\item</span> 条目1</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>    <span class="fu">\item</span> 条目2</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">itemize</span>}</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a><span class="co">% 以数字开头的列表</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">enumerate</span>}</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>    <span class="fu">\item</span> 条目1</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a>    <span class="fu">\item</span> 条目2</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">enumerate</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb20-1" title="1"></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="co">% 以圆点开头的列表</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="kw">\begin</span>{<span class="ex">itemize</span>}</a>
+<a class="sourceLine" id="cb20-4" title="4">    <span class="fu">\item</span> 条目1</a>
+<a class="sourceLine" id="cb20-5" title="5">    <span class="fu">\item</span> 条目2</a>
+<a class="sourceLine" id="cb20-6" title="6"><span class="kw">\end</span>{<span class="ex">itemize</span>}</a>
+<a class="sourceLine" id="cb20-7" title="7"></a>
+<a class="sourceLine" id="cb20-8" title="8"><span class="co">% 以数字开头的列表</span></a>
+<a class="sourceLine" id="cb20-9" title="9"></a>
+<a class="sourceLine" id="cb20-10" title="10"><span class="kw">\begin</span>{<span class="ex">enumerate</span>}</a>
+<a class="sourceLine" id="cb20-11" title="11">    <span class="fu">\item</span> 条目1</a>
+<a class="sourceLine" id="cb20-12" title="12">    <span class="fu">\item</span> 条目2</a>
+<a class="sourceLine" id="cb20-13" title="13"><span class="kw">\end</span>{<span class="ex">enumerate</span>}</a></code></pre></div>
 <p><img src="../figures/latex2list.png" /></p>
 <p>Latex的列表同样可以嵌套，并且可以自己指定编码样式，可以查看<a href="https://linux.cn/article-13112-1.html">更多Latex列表操作</a></p>
 <h4 id="插入公式">插入公式</h4>
 <p>latex有自己独特的数学公式描述方式。首先，为了表明这段内容是一段公式，我们需要将其写在公式环境里</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="ss">1+1=2</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}</a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="ss">1+1=2</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">\end</span>{<span class="ex">equation</span>}</a></code></pre></div>
 <p><span class="math display">\[
 1+1=2
 \]</span></p>
 <p>当然，如果你想在行内写公式的话，和Markdown一样，只需要在行内用<code>$</code>将公式包围即可。</p>
 <p>并不是所有的字母都能通过键盘直接输入，比如<span class="math inline">\(\alpha\)</span>，它们有自己的代号，比如<span class="math inline">\(\alpha\)</span>写作<code>\alpha</code>，<span class="math inline">\(\beta\)</span>写作<code>\beta</code>。具体的符号表参见<a href="https://www.zybuluo.com/codeep/note/163962">Markdown符号表</a>和<a href="https://www.overleaf.com/latex/templates/symbol-table/fhqmttqvrnhk">Latex符号表</a>。</p>
 <p>当然，公式并不只有简单的从左到右的符号堆积，其往往还有一定的层次结构，比如上下角标，分式，甚至是矩阵。Latex基本的描述方式是从左到右，从大到小。比如<span class="math inline">\(e^x\)</span> 的主体是<code>e</code>，<span class="math inline">\(x\)</span>是其上角标(用<code>^</code>表示)，故而写作<code>e^x</code>。而下角标用<code>_</code>表示。故而</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>y_i = e^x</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb22-1" title="1">y_i = e^x</a></code></pre></div>
 <p>就是<span class="math inline">\(y_i = e^x\)</span>。然而需要注意，<code>^</code>默认只结合后面一个字母，如果上/下角标不止一个字母，则需要用<code>{}</code>包围起来。比如<span class="math inline">\(e^{x_i}\)</span>写作<code>e^{x_i}</code>。分式的主体则是分式本身，分子和分母都是它的两个参数，比如<span class="math inline">\(\frac{a}{b}\)</span>写作<code>\frac{a}{b}</code>，其中<code>frac</code>是分数<code>fraction</code>的缩写。</p>
 <p>下面是一个复杂的公式</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="ss">$$</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="sc">\rho</span><span class="ss"> </span><span class="sc">\frac</span><span class="ss">{dV}{dt} = pg - </span><span class="sc">\nabla</span><span class="ss"> p + </span><span class="sc">\mu</span><span class="ss"> </span><span class="sc">\nabla</span><span class="ss">^2 V</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a><span class="ss">$$</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb23-1" title="1"><span class="ss">$$</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="sc">\rho</span><span class="ss"> </span><span class="sc">\frac</span><span class="ss">{dV}{dt} = pg - </span><span class="sc">\nabla</span><span class="ss"> p + </span><span class="sc">\mu</span><span class="ss"> </span><span class="sc">\nabla</span><span class="ss">^2 V</span></a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="ss">$$</span></a></code></pre></div>
 <p><span class="math display">\[
 \rho \frac{dV}{dt} = pg - \nabla p + \mu \nabla^2 V
 \]</span></p>
 <p>我们再提一些重要细节。</p>
 <ul>
-<li>首先 <span class="math inline">\(\varepsilon\)</span> 确实读作 <code>\epsilon</code>，但是其写作 <code>\varepsilon</code>。单纯的 <code>\epsilon</code>会变成 <span class="math inline">\(\epsilon\)</span>。
+<li><p>首先 <span class="math inline">\(\varepsilon\)</span> 确实读作 <code>\epsilon</code>，但是其写作 <code>\varepsilon</code>。单纯的 <code>\epsilon</code>会变成 <span class="math inline">\(\epsilon\)</span>。</p>
 <ul>
 <li>同理还有 <span class="math inline">\(\varphi\)</span> 和 <span class="math inline">\(\phi\)</span>，分别是 <code>\varphi</code> 和 <code>\phi</code></li>
 </ul></li>
@@ -531,7 +527,7 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <li><span class="math inline">\(\mathrm{m a t h r m}\)</span>会吃掉你的空格，但是<span class="math inline">\(\text{t e x t}\)</span>不会。</li>
 <li>当然可以在<span class="math inline">\(\mathrm{m~a~t~h~r~m}\)</span>里和正常公式环境一样用波浪线代表空格</li>
 </ul></li>
-<li>花体字母一般使用<code>\mathcal{}</code>，比如<span class="math inline">\(\mathcal{ABC}\)</span>。
+<li><p>花体字母一般使用<code>\mathcal{}</code>，比如<span class="math inline">\(\mathcal{ABC}\)</span>。</p>
 <ul>
 <li>但是注意区分<span class="math inline">\(\chi\)</span>和<span class="math inline">\(\mathcal{X}\)</span>，前者写作<code>\chi</code>，后者才是花体X</li>
 </ul></li>
@@ -540,27 +536,27 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <li>需要在导言区引入包<code>\usepackage{amsmath}</code></li>
 <li>此时还可以用<code>&amp;</code>指定对齐位置，每行的<code>&amp;</code>会对到一起。 比如下面式子会把等号对齐</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="fu">\rho</span> <span class="fu">\frac</span>{dV}{dt} &amp;= pg - <span class="fu">\nabla</span> p + <span class="fu">\mu</span> <span class="fu">\nabla</span>^2 V <span class="fu">\\</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>1+1 &amp;= 2</span></code></pre></div></li>
-<li>Latex默认给公式标号，如果不想要标号可以把<code>equation</code>换成<code>equation*</code>，其余自动标号的环境同理</li>
+<div class="sourceCode" id="cb24"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb24-1" title="1"><span class="fu">\rho</span> <span class="fu">\frac</span>{dV}{dt} &amp;= pg - <span class="fu">\nabla</span> p + <span class="fu">\mu</span> <span class="fu">\nabla</span>^2 V <span class="fu">\\</span></a>
+<a class="sourceLine" id="cb24-2" title="2">1+1 &amp;= 2</a></code></pre></div></li>
+<li><p>Latex默认给公式标号，如果不想要标号可以把<code>equation</code>换成<code>equation*</code>，其余自动标号的环境同理</p></li>
 </ul>
 <h4 id="插入图片和表格">插入图片和表格</h4>
 <p>图片的插入语法为</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="bu">\includegraphics</span>[parameter]{<span class="ex">picturename.jpg</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb25-1" title="1"><span class="bu">\includegraphics</span>[parameter]{<span class="ex">picturename.jpg</span>}</a></code></pre></div>
 <p>其中parameter指定图片呈现的参数，一般是大小，比如</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="bu">\includegraphics</span>[width = 0.7<span class="fu">\textwidth</span>]{<span class="ex">figure/dragon.jpg</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb26-1" title="1"><span class="bu">\includegraphics</span>[width = 0.7<span class="fu">\textwidth</span>]{<span class="ex">figure/dragon.jpg</span>}</a></code></pre></div>
 <p>表示插入<code>figure</code>文件夹下的<code>dragon.jpg</code>，大小为当前文档文本宽度的0.7倍。</p>
 <blockquote>
 <p>jpg格式其实不能直接插入，需要<code>\usepackage{graphicx}</code></p>
 </blockquote>
 <p>一般情况下我们很少会把图片直接插入到我们的文本当中，而是会给它放置在一个叫做浮动体的东西中。这样图片可以有一些相对位置的变换，不会造成分页困难等问题。<a href="https://www.moonpapers.com/blog/5f7ce3cb30a4195e92392776">复制自MOON论坛</a></p>
 <p>常用的格式如下</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}[htb]</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a>        <span class="fu">\centering</span> <span class="co">% 表示居中</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a>        <span class="bu">\includegraphics</span>[width = 0.7<span class="fu">\textwidth</span>]{<span class="ex">figure/dragon.jpg</span>}</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a>        <span class="fu">\caption</span>{肥宅龙} <span class="co">% 图片会呈现的标题</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a>        <span class="kw">\label</span>{<span class="ex">fig:dragon</span>}</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">\begin</span>{<span class="ex">figure</span>}[htb]</a>
+<a class="sourceLine" id="cb27-2" title="2">        <span class="fu">\centering</span> <span class="co">% 表示居中</span></a>
+<a class="sourceLine" id="cb27-3" title="3">        <span class="bu">\includegraphics</span>[width = 0.7<span class="fu">\textwidth</span>]{<span class="ex">figure/dragon.jpg</span>}</a>
+<a class="sourceLine" id="cb27-4" title="4">        <span class="fu">\caption</span>{肥宅龙} <span class="co">% 图片会呈现的标题</span></a>
+<a class="sourceLine" id="cb27-5" title="5">        <span class="kw">\label</span>{<span class="ex">fig:dragon</span>}</a>
+<a class="sourceLine" id="cb27-6" title="6"><span class="kw">\end</span>{<span class="ex">figure</span>}</a></code></pre></div>
 <p>这里<code>figure</code>就是浮动环境，Latex会基于自己的美学概念把它放到合适的位置，<code>[]</code>内是对Latex的<strong>建议</strong></p>
 <ul>
 <li>h:here</li>
@@ -574,43 +570,42 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 </blockquote>
 <p>如果要指定图片的话，<code>引用</code>是一个不错的替代。因为在figure里我们定义了<code>label{fig:dragon}</code>，我们可以使用<code>\ref{{fig:dragon}}</code>来获得图片的标号。</p>
 <p>比如</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a>图片(<span class="kw">\ref</span>{<span class="ex">fig:dragon</span>})真可爱。</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb28-1" title="1">图片(<span class="kw">\ref</span>{<span class="ex">fig:dragon</span>})真可爱。</a></code></pre></div>
 <p>会变成<code>图片 (1) 真可爱。</code>，其中<code>1</code>就是图片此时的编号。</p>
 <blockquote>
 <p>不过如果你直接编译的话，大概率获得<code>图片 (??) 真可爱</code>。这是因为第一次从前往后遍历时候Latex无法解析此处的引用。它会把等着填的引用放入<code>.aux</code>文件里。再编译一次就会恢复正常了。 如果你编译两次还是不正常，检查下你的编辑器是否自动删除了<code>aux</code>文件</p>
 </blockquote>
 <p>表格的语法就比较复杂。 简单的表格只需要用tabular环境就可以了</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">\begin</span>{<span class="ex">table</span>}[htb] <span class="co">% 表格外层的环境，没什么用</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a>    <span class="fu">\centering</span> <span class="co">% 表示后面的居中</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a>    <span class="kw">\begin</span>{<span class="ex">tabular</span>}{cc} </span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true"></a>    <span class="co">% {}中的字母数代表表格的栏数</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true"></a>    <span class="co">% cc表示都居中，cl表示第一栏居中，第二栏左对齐，类似的还有cr</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true"></a>    a  <span class="op">&amp;</span> b <span class="fu">\\</span> <span class="co">% \\ 换行， &amp; 表示一列结束开始下一列</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true"></a>    c  <span class="op">&amp;</span> d</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true"></a></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true"></a>    <span class="kw">\end</span>{<span class="ex">tabular</span>}</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true"></a>    <span class="fu">\caption</span>{一个最简单的表格}</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true"></a>    <span class="kw">\label</span>{<span class="ex">tab:my_label</span>}</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true"></a><span class="kw">\end</span>{<span class="ex">table</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">\begin</span>{<span class="ex">table</span>}[htb] <span class="co">% 表格外层的环境，没什么用</span></a>
+<a class="sourceLine" id="cb29-2" title="2">    <span class="fu">\centering</span> <span class="co">% 表示后面的居中</span></a>
+<a class="sourceLine" id="cb29-3" title="3">    <span class="kw">\begin</span>{<span class="ex">tabular</span>}{cc} </a>
+<a class="sourceLine" id="cb29-4" title="4"></a>
+<a class="sourceLine" id="cb29-5" title="5">    <span class="co">% {}中的字母数代表表格的栏数</span></a>
+<a class="sourceLine" id="cb29-6" title="6">    <span class="co">% cc表示都居中，cl表示第一栏居中，第二栏左对齐，类似的还有cr</span></a>
+<a class="sourceLine" id="cb29-7" title="7"></a>
+<a class="sourceLine" id="cb29-8" title="8">    a  <span class="op">&amp;</span> b <span class="fu">\\</span> <span class="co">% \\ 换行， &amp; 表示一列结束开始下一列</span></a>
+<a class="sourceLine" id="cb29-9" title="9">    c  <span class="op">&amp;</span> d</a>
+<a class="sourceLine" id="cb29-10" title="10"></a>
+<a class="sourceLine" id="cb29-11" title="11">    <span class="kw">\end</span>{<span class="ex">tabular</span>}</a>
+<a class="sourceLine" id="cb29-12" title="12">    <span class="fu">\caption</span>{一个最简单的表格}</a>
+<a class="sourceLine" id="cb29-13" title="13">    <span class="kw">\label</span>{<span class="ex">tab:my_label</span>}</a>
+<a class="sourceLine" id="cb29-14" title="14"><span class="kw">\end</span>{<span class="ex">table</span>}</a></code></pre></div>
 不过这样的表格是没有线的，加上竖线的方法是在cc之间加入|变成c|c。这表示两列之间有竖线。|c|c|表示两列的两边也有竖线。 ```latex
-<pre><code>
-如何加入横线呢？方法是给每行加上上划线hline，这样看起来就是有横线了。（注意还要在多加一空白行来弄出最后一行内容的下划线）
 
-```latex
-\begin{table}[H] 
-    \centering % 表示后面的居中
-    \begin{tabular}{|c|c|} 
-    \hline
-    a  &amp; b \\ 
-    \hline
-    c  &amp; d \\
-    \hline
-    \end{tabular}
-    \caption{带横线的表格}
-    \label{tab:my_label}
-\end{table}</code></pre>
+<p>```</p>
+<p>如何加入横线呢？方法是给每行加上上划线hline，这样看起来就是有横线了。（注意还要在多加一空白行来弄出最后一行内容的下划线）</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">\begin</span>{<span class="ex">table</span>}[H] </a>
+<a class="sourceLine" id="cb30-2" title="2">    <span class="fu">\centering</span> <span class="co">% 表示后面的居中</span></a>
+<a class="sourceLine" id="cb30-3" title="3">    <span class="kw">\begin</span>{<span class="ex">tabular</span>}{|c|c|} </a>
+<a class="sourceLine" id="cb30-4" title="4">    <span class="fu">\hline</span></a>
+<a class="sourceLine" id="cb30-5" title="5">    a  <span class="op">&amp;</span> b <span class="fu">\\</span> </a>
+<a class="sourceLine" id="cb30-6" title="6">    <span class="fu">\hline</span></a>
+<a class="sourceLine" id="cb30-7" title="7">    c  <span class="op">&amp;</span> d <span class="fu">\\</span></a>
+<a class="sourceLine" id="cb30-8" title="8">    <span class="fu">\hline</span></a>
+<a class="sourceLine" id="cb30-9" title="9">    <span class="kw">\end</span>{<span class="ex">tabular</span>}</a>
+<a class="sourceLine" id="cb30-10" title="10">    <span class="fu">\caption</span>{带横线的表格}</a>
+<a class="sourceLine" id="cb30-11" title="11">    <span class="kw">\label</span>{<span class="ex">tab:my_label</span>}</a>
+<a class="sourceLine" id="cb30-12" title="12"><span class="kw">\end</span>{<span class="ex">table</span>}</a></code></pre></div>
 <p><img src="../figures/latex3table.png" /></p>
 <p>不过有时候我们需要打很大的表格，这样打肯定没有excel方便，我们可以用工具把excel转成latex，一个有用的工具是<a href="https://www.ctan.org/tex-archive/support/excel2latex">excel2latex</a>(细节可以自行百度)。</p>
 <h4 id="论文引用">论文引用</h4>
@@ -621,17 +616,17 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <ul>
 <li>其内的每一条对应一个文献的简称，标题，作者，出版年份等信息</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a>@article{einstein,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>author =       &quot;Albert Einstein&quot;,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a>title =        &quot;{Zur Elektrodynamik bewegter K{<span class="fu">\&quot;</span>o}rper}. ({German})</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a>[{On} the electrodynamics of moving bodies]&quot;,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a>journal =      &quot;Annalen der Physik&quot;,</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a>volume =       &quot;322&quot;,</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a>number =       &quot;10&quot;,</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a>pages =        &quot;891--921&quot;,</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a>year =         &quot;1905&quot;,</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a>DOI =          &quot;http://dx.doi.org/10.1002/andp.19053221004&quot;,</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb31"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb31-1" title="1">@article{einstein,</a>
+<a class="sourceLine" id="cb31-2" title="2">author =       &quot;Albert Einstein&quot;,</a>
+<a class="sourceLine" id="cb31-3" title="3">title =        &quot;{Zur Elektrodynamik bewegter K{<span class="fu">\&quot;</span>o}rper}. ({German})</a>
+<a class="sourceLine" id="cb31-4" title="4">[{On} the electrodynamics of moving bodies]&quot;,</a>
+<a class="sourceLine" id="cb31-5" title="5">journal =      &quot;Annalen der Physik&quot;,</a>
+<a class="sourceLine" id="cb31-6" title="6">volume =       &quot;322&quot;,</a>
+<a class="sourceLine" id="cb31-7" title="7">number =       &quot;10&quot;,</a>
+<a class="sourceLine" id="cb31-8" title="8">pages =        &quot;891--921&quot;,</a>
+<a class="sourceLine" id="cb31-9" title="9">year =         &quot;1905&quot;,</a>
+<a class="sourceLine" id="cb31-10" title="10">DOI =          &quot;http://dx.doi.org/10.1002/andp.19053221004&quot;,</a>
+<a class="sourceLine" id="cb31-11" title="11">}</a></code></pre></div></li>
 <li>在正文里做三件事
 <ul>
 <li>用<code>\bibliographystyle{}</code>指定引用的风格</li>
@@ -639,8 +634,8 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <li>在文章末尾指定使用的<code>bib</code>文件，命令是<code>\bibliography{example}</code>
 <ul>
 <li>这会在末尾生成参考文献列表</li>
-<li>这只会显示出被<code>cite</code>的文章，如果有文章没被<code>cite</code>但是你想显示，需要在这之前<code>notice{xxx}</code>，假装引用它</li>
-<li>如果<code>bib</code>里所有文件都需要显示，可以直接<code>notice{*}</code></li>
+<li>这只会显示出被<code>cite</code>的文章，如果有文章没被<code>cite</code>但是你想显示，需要在这之前<code>nocite{xxx}</code>，假装引用它</li>
+<li>如果<code>bib</code>里所有文件都需要显示，可以直接<code>nocite{*}</code></li>
 </ul></li>
 </ul></li>
 <li>编译时，需要编译四次，分别是<code>xelatex-&gt;bibtex-&gt;xelatex-&gt;xelatex</code>
@@ -652,18 +647,18 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 <h2 id="工具组合">工具组合</h2>
 <p>我们已经介绍了两种最常用的编辑器Vim和VS Code，以及两种文本语言Markdown和Latex，这对于我们日常的文档需求已经非常足够了，比如上课做笔记的时候使用Markdown，在写正式文档或者论文时使用Latex。使用Vim+LaTeX可以达到令人惊讶的高效率和高质量，比如Gilles Castel展示的他<a href="https://castel.dev/post/lecture-notes-1/">如何在数学课上使用LaTeX和Vim记笔记</a>。<br />
 值得一提的是Markdown作为为Web而生的轻量语言，可以轻松被转换成为html，例如本网站就全部使用Markdown编写。在VS Code下，<a href="https://github.com/yzhang-gh/vscode-markdown">Markdown插件</a>可以将Markdown转换为html和pdf等格式，一些静态网站架构比如<a href="http://jekyllcn.com/">jekyll</a>能够在线完成这一功能，在本地则可使用强大的<a href="https://pandoc.org/">pandoc</a>工具完成这一工作</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="ex">pandoc</span> demo.md -o demo.html</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb32-1" title="1"><span class="ex">pandoc</span> demo.md -o demo.html</a></code></pre></div>
 <p>本网站使用的正是pandoc，生成的脚本文件如下</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="bu">echo</span> generate index.html</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a><span class="ex">pandoc</span> -s index.md -o index.html --template ./template/uikit.html  --toc --toc-depth 2</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a><span class="fu">mkdir</span> -p html-gen</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a><span class="bu">cd</span> md-source</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a><span class="kw">for</span> <span class="fu">file</span> in <span class="va">$(</span><span class="fu">ls</span><span class="va">)</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a><span class="kw">do</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true"></a>    <span class="bu">echo</span> generate <span class="va">${file%</span>.*<span class="va">}</span>.html</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true"></a>    <span class="ex">pandoc</span> -s <span class="va">$file</span> -o ../html-gen/<span class="va">${file%</span>.*<span class="va">}</span>.html --template ../template/uikit.html --toc --toc-depth 2 \</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true"></a>    --highlight-style ../my.theme --syntax-definition ../syn.xml --mathjax</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true"></a><span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode syn"><a class="sourceLine" id="cb33-1" title="1"><span class="bu">echo</span> generate index.html</a>
+<a class="sourceLine" id="cb33-2" title="2"><span class="ex">pandoc</span> -s index.md -o index.html --template ./template/uikit.html  --toc --toc-depth 2</a>
+<a class="sourceLine" id="cb33-3" title="3"><span class="fu">mkdir</span> -p html-gen</a>
+<a class="sourceLine" id="cb33-4" title="4"><span class="bu">cd</span> md-source</a>
+<a class="sourceLine" id="cb33-5" title="5"><span class="kw">for</span> <span class="fu">file</span> in <span class="va">$(</span><span class="fu">ls</span><span class="va">)</span></a>
+<a class="sourceLine" id="cb33-6" title="6"><span class="kw">do</span></a>
+<a class="sourceLine" id="cb33-7" title="7">    <span class="bu">echo</span> generate <span class="va">${file%</span>.*<span class="va">}</span>.html</a>
+<a class="sourceLine" id="cb33-8" title="8">    <span class="ex">pandoc</span> -s <span class="va">$file</span> -o ../html-gen/<span class="va">${file%</span>.*<span class="va">}</span>.html --template ../template/uikit.html --toc --toc-depth 2 \</a>
+<a class="sourceLine" id="cb33-9" title="9">    --highlight-style ../my.theme --syntax-definition ../syn.xml --mathjax</a>
+<a class="sourceLine" id="cb33-10" title="10"><span class="kw">done</span></a></code></pre></div>
 <p>大家也可以通过这个例子看到我们是如何将之前介绍的工具整合在一起的。事实上pandoc能够完成的格式转换是非常多的，常用的输入格式有<code>markdown</code>、<code>ipynb</code>、<code>html</code>等等，输出则可以是<code>html</code>、<code>docx</code>、<code>latex</code>等等，同时每种转换都可以自定义模板。这意味着我们可以先用markdown打一个草稿，然后转换成docx调整格式，最后输出pdf。对于幻灯片制作也可以采取类似的思路，从markdown开始到pptx，或者到latex的beamer，甚至可以利用前端插件比如<a href="https://revealjs.com/">revealjs</a>将幻灯片挂到网站上动态展示，比如<a href="http://www.lwruan.com/_slides/mgpcg.html#/title-slide">这个例子</a>。</p>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -677,7 +672,6 @@ OS: Windows_NT x64 10.0.18363</code></pre>
 </ul>                    
                 </div>
             </div>
-
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
         </div>
     </body>
