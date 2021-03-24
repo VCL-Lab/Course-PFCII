@@ -232,8 +232,11 @@ Markdown代码的后缀名是`.md`，而从Markdown的发展来看，其编辑�
 ```
 
 - 操作系统
+
  操作系统（operation system，简称OS）是**管理计算机硬件与软件资源的计算机程序**。
+  
  操作系统需要处理如管理与配置内存、决定系统资源供需的优先次序
+ 
 - 计算机网络
 - 编译原理
 - 计算机组成与*体系结构*
@@ -266,14 +269,18 @@ Markdown代码的后缀名是`.md`，而从Markdown的发展来看，其编辑�
 
 ```markdown
 他曾经讲过
->苟利国家生死以
+
+>苟利国家生死以  
 >岂因祸福避趋之
+
 >>不要见着风是得雨
 ```
 
 他曾经讲过
->苟利国家生死以
+
+>苟利国家生死以  
 >岂因祸福避趋之
+
 >>不要见着风是得雨
 
 而Markdown一般也支持公式块，其标记为前后各一个`$$`，比如
@@ -313,24 +320,24 @@ Markdown可以置入超链接，这让你在浏览渲染结果时，可以点击
 ```markdown
 [点击此处，转到课程主页][main-page]
 
-[main-page]:http://vcl.pku.edu.cn/course/PFCII/index.html
+[main-page]:../index.html
 ```
 
 [点击此处，转到课程主页][main-page]
 
-[main-page]:http://vcl.pku.edu.cn/course/PFCII/index.html
+[main-page]:../index.html
 
 其中第二个`[]`里是参考链接，我们需要在后面手动定义这个链接是什么，可以是一个网页的超链接，可以是本文的某个标题，甚至是一个图片的编码，比如
 
 ```markdown
 [点击此处，转到上一节标题][local-section]
 
-[local-section]:#引用，公式和代码块
+[local-section]:#推荐的markdown编辑器
 ```
 
-[点击此处，转到上一节标题][local-section](在html下不太一样)
+[点击此处，转到上一节标题][local-section]
 
-[local-section]:#引用，公式和代码块
+[local-section]:#推荐的markdown编辑器
 
 这种情况下不论第几级标题，一个`#`就可以了。
 
