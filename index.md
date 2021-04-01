@@ -21,7 +21,7 @@ title: 前沿计算实践II(2021年春)
 |3-10|课程介绍，高年级同学分享([Slides](./assets/sharing-slides.zip))|||
 |3-17|Lecture 1(Linux基础,[Note](./html-gen/lecture-1.html))|孔雨晴老师([Materials](./assets/lecture-by-kong.zip))||
 |3-24|Lecture 2(编辑器,[Note](./html-gen/lecture-2.html))|陈宝权老师||
-|3-31|||第一轮，第一组|
+|3-31|||第一轮，第一组([Materials](./assets/1-1.zip))|
 |4-07|||第一轮，第二组|
 |||||
 |4-14|||第一轮，第三组|
