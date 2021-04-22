@@ -318,7 +318,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@domain.com"
 ```
 这里`id_rsa.pub`就是公钥。然后我们只需要将公钥复制到服务器上就可以无密码登陆了：
 ```bash
-ssh-copy-ide [remote_username]@[server_ip_address]
+ssh-copy-id [remote_username]@[server_ip_address]
 ```
 
 ### SFTP
