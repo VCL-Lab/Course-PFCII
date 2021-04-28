@@ -26,7 +26,7 @@ title: 前沿计算实践II(2021年春)
 |||||
 |4-14|||第一轮，第三组([Materials](./assets/1-3.zip))|
 |4-21|Lecture 3(Git&Misc,[Note](./html-gen/lecture-3.html),[Slides](./assets/Git.pptx))|陈宝权老师||
-|4-28|Lecture 4(Python,[Note](./html-gen/lecture-4.html))|待定||
+|4-28|Lecture 4(Python,[Note](./html-gen/lecture-4.html),[Slides](./assets/intro-pytorch-pdf.pdf))|待定||
 |5-05|||第二轮，第二组|
 |5-12|||第二轮，第三组|
 |||||
