@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>前沿计算实践II</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/diversen/pandoc-uikit/master/style.css">
+        <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                        <title>前沿计算实践II</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                        <style type="text/css">
+            pre > code.sourceCode { white-space: pre; position: relative; }
+            pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+            pre > code.sourceCode > span:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
+            code.sourceCode > span { color: inherit; text-decoration: inherit; }
+            div.sourceCode { margin: 1em 0; }
+            pre.sourceCode { margin: 0; }
+            @media screen {
+            div.sourceCode { overflow: auto; }
+            }
+            @media print {
+            pre > code.sourceCode { white-space: pre-wrap; }
+            pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+            }
+            pre.numberSource code
+              { counter-reset: source-line 0; }
+            pre.numberSource code > span
+              { position: relative; left: -4em; counter-increment: source-line; }
+            pre.numberSource code > span > a:first-child::before
+              { content: counter(source-line);
+                position: relative; left: -1em; text-align: right; vertical-align: baseline;
+                border: none; display: inline-block;
+                -webkit-touch-callout: none; -webkit-user-select: none;
+                -khtml-user-select: none; -moz-user-select: none;
+                -ms-user-select: none; user-select: none;
+                padding: 0 4px; width: 4em;
+                color: #aaaaaa;
+              }
+            pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+            div.sourceCode
+              {   }
+            @media screen {
+            pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+            }
+            code span.al { color: #ff0000; } /* Alert */
+            code span.an { color: #008000; } /* Annotation */
+            code span.at { } /* Attribute */
+            code span.bu { } /* BuiltIn */
+            code span.cf { color: #0000ff; } /* ControlFlow */
+            code span.ch { color: #008080; } /* Char */
+            code span.cn { } /* Constant */
+            code span.co { color: #008000; } /* Comment */
+            code span.cv { color: #008000; } /* CommentVar */
+            code span.do { color: #008000; } /* Documentation */
+            code span.er { color: #ff0000; font-weight: bold; } /* Error */
+            code span.ex { } /* Extension */
+            code span.im { } /* Import */
+            code span.in { color: #008000; } /* Information */
+            code span.kw { color: #0000ff; } /* Keyword */
+            code span.op { } /* Operator */
+            code span.ot { color: #ff4000; } /* Other */
+            code span.pp { color: #ff4000; } /* Preprocessor */
+            code span.sc { color: #008080; } /* SpecialChar */
+            code span.ss { color: #008080; } /* SpecialString */
+            code span.st { color: #008080; } /* String */
+            code span.va { } /* Variable */
+            code span.vs { color: #008080; } /* VerbatimString */
+            code span.wa { color: #008000; font-weight: bold; } /* Warning */
+        </style>
+                                               
+    </head>
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large"><a href='../index.html'>前沿计算实践II</a></h1>
+                                                        </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >          
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+                                                        <ul>
+                                                        <li><a href="#lecture-3-git-misc">Lecture 3: Git &amp; Misc</a>
+                                                        <ul>
+                                                        <li><a href="#git">Git</a>
+                                                        <ul>
+                                                        <li><a href="#github">Github</a></li>
+                                                        <li><a href="#git模型">Git模型</a></li>
+                                                        <li><a href="#git-staging-area">Git Staging Area</a></li>
+                                                        <li><a href="#github相关内容">GitHub相关内容</a></li>
+                                                        </ul></li>
+                                                        <li><a href="#服务器">服务器</a>
+                                                        <ul>
+                                                        <li><a href="#ssh">SSH</a></li>
+                                                        <li><a href="#sftp">SFTP</a></li>
+                                                        </ul></li>
+                                                        <li><a href="#网络代理">网络代理</a></li>
+                                                        <li><a href="#个人网站">个人网站</a></li>
+                                                        <li><a href="#一些有用的工具">一些有用的工具</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+<h1 id="lecture-3-git-misc">Lecture 3: Git &amp; Misc</h1>
+<p>本课程参考<a href="https://web.mit.edu/">MIT</a>课程<a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>，考虑到同学们之前上过课程的基础以及科研需要进行适当调整。</p>
+<h2 id="git">Git</h2>
+<p><a href="https://git-scm.com/">Git</a>是由Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源码的版本控制软件。所谓版本控制，就是将不同时间文件的快照保存下来，同时附加作者、时间等信息，这样就能追溯代码的历史，方便开发。Git是分布式的，这也是Git区别其他版本控制软件最本质的特征，保存在不同地方的Git仓库需要手动同步，互相之间可以毫无关系。</p>
+<h3 id="github">Github</h3>
+<p><a href="https://github.com/">GitHub</a>是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。</p>
+<h3 id="git模型">Git模型</h3>
+<p>由于Git的指令设计比较拉跨，为了能清楚地理解Git，我们将从Git的<code>原理和模型</code>开始讲起。</p>
+<p>前面我们也曾提过，所谓版本就是本文件夹的一个快照，版本控制就是管理和记录一个个快照。我们先介绍<strong>快照的数据结构</strong>。</p>
+<h4 id="一个快照树结构">一个快照：树结构</h4>
+<p>考虑一个文件夹，其内容无非两种： - 子文件夹 - 文件</p>
+<p>并且子文件夹又可以包含新的子文件夹和文件。</p>
+<p>这样的递归定义天然地可以用树结构进行描述。对于每个<code>文件</code>，我们用一个二进制文件对其进行储存，并称其为一个<code>blob</code>结点。而对于一个文件夹，我们用一个<code>tree</code>结点描述它。tree结点里存储了一些指向<code>bold</code>结点和子<code>tree</code>结点的“指针”。</p>
+<p>下图是一个树结构的例子</p>
+<pre><code>&lt;root&gt; (tree)
+|
++- foo (tree)
+|  |
+|  + bar.txt (blob, contents = &quot;hello world&quot;)
+|
++- baz.txt (blob, contents = &quot;git is wonderful&quot;)</code></pre>
+<p>接下来我们研究每个结点存储什么内容才能维持住树结构。如果我们解析出<code>root</code>结点的内容，其会为</p>
+<pre><code>100644 blob 6806f5f888b8f8b813e5015b88d248c0f98be0bb    baz.txt
+040000 tree d469bf0d8f677acc9f78f1b9c1893685aba8b6d9    foo</code></pre>
+<p>第一列为子节点的文件类型和权限，第二列为子节点类型。由于每个结点在存储时存成一个二进制文件，并且将其<code>SHA-1</code>哈希值作为文件的名字，故而第三列就是每个子节点实际存储时的名字，也即“指针”，第四列是子节点本身的名字。</p>
+<p>接下来，我们解析出<code>bz.txt</code>结点(即<code>6806f5f888b8f8b813e5015b88d248c0f98be0bb</code>文件)</p>
+<pre><code># 使用 git cat-file -p 可以解析一个结点的内容
+&gt; git cat-file -p 6806f5f888b8f8b813e5015b88d248c0f98be0bb
+
+I&#39;m baz, hello world!</code></pre>
+<p>其就是<code>baz.txt</code>本身的内容。</p>
+<p>逻辑上来讲，tree结点需要完成的任务是记录这个快照的<code>a.txt</code>在哪个二进制文件里（因为不同版本的<code>a.txt</code>会保存成新的二进制文件），blob结点的任务就是记录二进制文件。下面是两个结点的伪代码</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// a file is a bunch of bytes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>type blob <span class="op">=</span> array<span class="op">&lt;</span>byte<span class="op">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">// a directory contains named files and directories</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>type tree <span class="op">=</span> map<span class="op">&lt;</span>string<span class="op">,</span> tree <span class="op">|</span> blob<span class="op">&gt;</span></span></code></pre></div>
+<p>此时我们已经能记录下一个快照了。但是作为一个成熟的版本管理器，一个快照不会只包含文件内容，Git还要学会自己记录一些<code>meta data</code>(作者，信息等)，故而我们抽象出一类新结点，称为<code>commit</code>结点，其伪代码如下</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// a commit has parents, metadata, and the top-level tree</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>type commit <span class="op">=</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    snapshot<span class="op">:</span> tree </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    author<span class="op">:</span> string</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    parent<span class="op">:</span> array<span class="op">&lt;</span>commit<span class="op">&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    message<span class="op">:</span> string</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>其第一个内容为根目录对应的<code>tree</code>结点，第二行是更改者信息，第三行是这个<code>commit</code>结点的父结点们(下面马上要说到)，第四行是提交者对本次 commit 的注释信息。</p>
+<p>下面是一个 commit 结点的内容例子</p>
+<pre><code>tree 3f6c1b5c2ee7036b295bfd9364cd025c97910a0d
+parent fe3e960bf18b1f1ee85d4e3b187ef7dd2e364840
+author 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt; 
+committer 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt; 
+
+add a line</code></pre>
+<p>注意<code>blob</code>，<code>tree</code>，<code>commit</code>结点存储时都是二进制文件并以<code>SHA-1</code>哈希值作为名字，只是保存的内容上有所差异，我们将三者统一称为<code>object</code>。</p>
+<h4 id="快照之间有向无环图dag">快照之间：有向无环图(DAG)</h4>
+<p>接下来我们介绍下<code>commit</code>结点里的<code>parent</code>信息。一个<code>commit</code>结点的<code>parent</code>表示这个快照是在哪个快照的基础上做了改动从而产生的，它表示着各个版本的逻辑信息。注意<code>parent</code>可能是多个结点，因为比如<code>merge</code>操作会把两个<code>commmit</code>做一次合并，其父节点会是两个。</p>
+<p>如果我们把每个<code>commit</code>当作一个点，其父子关系会定义成一个<code>DAG</code>(有向无环图)，其中<code>A</code>指向<code>B</code>表示<code>B是A的父节点</code>。</p>
+<pre><code>o &lt;-- o &lt;-- o &lt;-- o
+            ^
+             \
+              --- o &lt;-- o</code></pre>
+<p>如果产生了<code>merge</code>，会长成下面的样子</p>
+<pre><code>o &lt;-- o &lt;-- o &lt;-- o &lt;---- o
+            ^            /
+             \          v
+              --- o &lt;-- o</code></pre>
+<p>我们也可以通过命令行来查看当前DAG的样子</p>
+<pre><code># git log 会展示commit信息
+&gt; git log --all --graph --decorate --pretty=short
+* commit e6ca3a087a82d04906ab19e1a58be743560bc576 (HEAD -&gt; master)
+| Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|     a modify in master branch
+|
+| * commit 5309e8873bdefc82cab582a0da72e691befe6daf (test)
+|/  Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|       a new branch
+|
+* commit 7321da90372c300f2aa413d4a3e50c45bccf8d0c
+| Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|     add a line
+|
+* commit fe3e960bf18b1f1ee85d4e3b187ef7dd2e364840
+  Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+
+      init</code></pre>
+<p>可以看出，此出共有4个commit(最上面的是最新的)，在第二个commit后，分成了两支。</p>
+<h4 id="对dag的操作">对DAG的操作</h4>
+<p>在上面的<code>log</code>信息里，我们注意到有三个东西我们不认识：</p>
+<ul>
+<li>HEAD</li>
+<li>master</li>
+<li>test</li>
+</ul>
+<p>其实这三个东西是三个为用户定义的指针，称为<code>reference</code>，每个<code>reference</code> 可以指向DAG的一个结点。</p>
+<p>首先看<code>master</code>和<code>test</code>指针，其属于两个分支<code>master</code>和<code>test</code>。前者为Git默认创建而后者是自定义的。可以看到二者分别指向了自己所在分支的<code>末尾</code>。(又或者说，正是第一次commit到分支指针的整个路径定义了这个分支)。</p>
+<p><code>HEAD</code>指针则是一种特殊的指针，其表示当前用户在哪里(即新的commit会是谁的儿子)。由于用户一般还要处于某个分支内，<code>HEAD</code>一般会和<code>master</code>或者<code>test</code>之一绑定，体现为log中显示<code>HEAD=master</code>而不是<code>HEAD,master</code>。此时，如果创建一个新的commit结点，<code>HEAD</code>会和<code>master</code>一起指向新的结点。</p>
+<p>用户在版本中切换实际上就是移动<code>HEAD</code>，从而让<code>HEAD</code>指向DAG中的不同结点。操作是</p>
+<pre><code>git checkout 7321da90372c300f2aa413d4a3e50c45bccf8d0c</code></pre>
+<p>但是这样的移动不包含分支信息。一般我们是在分支之间切换，用</p>
+<pre><code>git checkout test</code></pre>
+<p>此时<code>HEAD</code>就会和<code>test</code>绑定起来。</p>
+<p>举一个例子，对于某个Git如下</p>
+<pre><code>* commit e6ca3a087a82d04906ab19e1a58be743560bc576 (HEAD -&gt; master, test2)
+| Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|     a modify in master branch
+|
+| * commit 5309e8873bdefc82cab582a0da72e691befe6daf (test)
+|/  Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|       a new branch
+|
+...</code></pre>
+<p>可见<code>HEAD</code>，<code>master</code>,<code>test2</code>都指向最上面的commit，但是<code>HEAD</code>和<code>master</code>绑定在一起。</p>
+<p>如果我们此时提交一个新的commit，就会变成</p>
+<pre><code>* commit 058d9db895ef6f569f22c18122c4683004196c2e (HEAD -&gt; master)
+| Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|     moving master
+|
+* commit e6ca3a087a82d04906ab19e1a58be743560bc576 (test2)
+| Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|     a modify in master branch
+|
+| * commit 5309e8873bdefc82cab582a0da72e691befe6daf (test)
+|/  Author: 1600016629@pku.edu.cn &lt;1600016629@pku.edu.cn&gt;
+|
+|       a new branch
+|
+...</code></pre>
+<p><code>test2</code>未移动，而<code>HEAD</code>和<code>master</code>一起移动，这表示<code>master</code>分支又多了一个<code>commit</code>。此时<code>git checkout test2</code>就会变回原来的版本，但是是在<code>test2</code>分支。</p>
+<p>综上，所有的<code>object</code>和<code>references</code>组成了一个完整的Git Repository.</p>
+<h3 id="git-staging-area">Git Staging Area</h3>
+<p>到这里我们可以使用一些简单的git命令了。</p>
+<p>拿到一个空文件夹，输入</p>
+<pre><code>&gt; git init</code></pre>
+<p>会创建出一个<code>.git</code>的隐藏文件夹，里面包含了<code>objects</code>文件和<code>reference</code>文件以及其他。</p>
+<p>我们创建一个新的txt文件并输入hello world</p>
+<pre><code>&gt; echo &quot;hello world&quot; &gt; a.txt</code></pre>
+<p>这就是我们想要的第一个版本了。我们想创建个此时的快照，可以使用</p>
+<pre><code>&gt; git commit -m &quot;init&quot;</code></pre>
+<p>但是会报错</p>
+<pre><code>Initial commit
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        a.txt
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<p>它说你的更改没有在它的考虑范围内，如果想要让它考虑的话，需要先用<code>git add</code>将其加入。为什么Git默认不考虑更改需要手动加入呢？</p>
+<p>因为Git的所有commit结点是无法被更改的，而很多时候，debug需要很多输出命令，他们只是暂时被需要而已，如果不管不顾地将其放入commit结点，会导致后面还需要手动删除。此外还有很多的临时文件我们并不希望纳入版本管理(比如编译链接时的中间文件)。故而我们commit时，先用add将需要纳入版本管理的更改放到<code>缓冲区</code>，然后再<code>commit</code>，其余的部分就不会进入版本管理了。</p>
+<pre><code>&gt; git add a.txt
+&gt; git commit -m &quot;init&quot;
+[master (root-commit) e96e3c7] init
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt</code></pre>
+<p>当然，从上面的描述我们可以看出，<code>git add</code>暂存的最小单位不应该是文件，而应该是语句。使用参数<code>-p</code>可以交互地选择某个文件中暂存哪些而忽略哪些。</p>
+<p>由于先<code>add</code>再<code>commit</code>过于麻烦，可以用<code>git commit -a</code>代替。但是它会把所有的更改都暂存起来，此时我们需要创建一个<code>.gitignore</code>文件，里面保存我们不希望纳入版本管理的文件名即可。</p>
+<p>同理，在创建新分支时，我们需要<code>git branch &lt;branch name&gt;</code>再<code>git checkout &lt;branch name&gt;</code>，其也可以合并成<code>git checkout -b &lt;branch name&gt;</code>。</p>
+<h3 id="github相关内容">GitHub相关内容</h3>
+<p>在多人协作时，往往使用GitHub维护一个远程分支，大家都与远程分支交互。这对于Git来说和本地分支没有任何区别。</p>
+<p>举个例子，远程主分支一般叫<code>origin/master</code>，这虽然和本地主分支<code>master</code>名字类似，但是却是不同的分支。但对于我们来讲，只需要把<code>origin/master</code>当作普通的其他分支，想要合并它的内容就使用<code>git merge origin/master</code>即可。</p>
+<p>但是，合并之前我们需要通过网络传进来<code>origin/master</code>分支的内容，需要使用<code>git fetch</code>。</p>
+<p>而<code>git fetch; git merge</code>等价于<code>git pull</code>。</p>
+<h2 id="服务器">服务器</h2>
+<p>服务器就是一台没有图形界面的不会关机的电脑，通常是Linux系统，与普通电脑的区别在于服务器一般需要长时间处理高并发的任务，因而在软硬件层面有针对稳定性、安全性和并发性的优化。想要远程操作服务器，一般通过<strong>ssh</strong>连接。</p>
+<h3 id="ssh">SSH</h3>
+<p><strong>SSH</strong>全称是Secure Shell Protocol，可以被用来加密任何运行在非加密网络上的服务，通常被用于远程命令行。想要使用<strong>ssh</strong>命令需要在本地安装SSH客户端和在服务器上安装相同版本的SSH服务端，最常用的SSH工具是<a href="https://www.openssh.com/">OpenSSH</a>。在Windows下OpenSSH Client可以直接使用，但是OpenSSH Server需要在服务当中开启才能使用；而Linux一般默认包含OpenSSH，没有包含也可以直接通过包管理工具下载：</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install openssh-client</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install openssh-server</span></code></pre></div>
+<p>使用<strong>ssh</strong>连接服务器的一般指令为：</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> [remote_username]@[server_ip_address]</span></code></pre></div>
+<p>其中<code>[remote_username]</code>就是服务器的IP地址，<code>[server_ip_address]</code>为服务器上的用户名，如果购买的是个人服务器可以直接登录root，如果是公用的服务器则应该使用分配的用户名。当服务器端运行着SSH server，端口22就会打开监听任何连接请求，这时本地通过ssh命令就能与服务器建立连接然后登陆对应用户。<br />
+一般来说ssh登陆服务器需要输入用户对应的密码，但是存在使用非对称加密的登陆方法可以避免输入密码，这也是像<a href="https://about.gitlab.com/">Gitlab</a>这样的网站推荐的做法。非对称加密的原理非常简单，只有拥有私钥的人才能生成签名，而任何拥有公钥的人都可以验证私钥的真实性，因此我们只需要生成一对公钥和私钥然后将公钥保存在服务器上就能向服务器证明你是谁。生成公钥和私钥对的命令是<code>ssh-keygen</code>，比如</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> -t rsa -b 4096 -C <span class="st">&quot;your_email@domain.com&quot;</span></span></code></pre></div>
+<p>就可以使用rsa算法生成4096 bits的密钥对，默认被保存在<code>.ssh</code>文件夹内：</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> ls ~/.ssh</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-a----</span>          2020/9/4     11:44            177 config</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-a----</span>          2020/7/5     22:58           3243 id_rsa</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-a----</span>          2020/7/5     22:58            751 id_rsa.pub</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-a----</span>         2021/4/20     23:22            559 known_hosts</span></code></pre></div>
+<p>这里<code>id_rsa.pub</code>就是公钥。然后我们只需要将公钥复制到服务器上就可以无密码登陆了：</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> [remote_username]@[server_ip_address]</span></code></pre></div>
+<h3 id="sftp">SFTP</h3>
+<p>我们之前已经介绍过了使用VS Code的Remote-SSH插件可以将服务器内的文件夹同步到本地，实现本地与服务器之间的文件同步，但是假如我们想向服务器上传或者下载批量数据，可以考虑使用sftp命令。<br />
+<strong>SFTP</strong>全程是SSH File Transfer Protocol，也就是SSH封装的FTP服务。在sftp之前还有scp用于传输文件，scp同样基于SSH，二者最大的区别在于SCP不支持断点续传，而SFTP支持。<br />
+SFTP的使用方法与SSH非常类似，首先我们需要与服务器建立连接：</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sftp</span> [remote_username]@[server_ip_address]</span></code></pre></div>
+<p>然后我们就会进入sftp命令行，可以输入<code>ls</code>、<code>mkdir</code>、<code>cp</code>等命令操作远程文件，在这些命令前加上<code>l</code>就能操作本地的文件，比如<code>lls</code>、<code>lmkdir</code>等等。想要下载某个文件时就可以：</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">get</span> remoteFile <span class="op">&lt;</span>localFile<span class="op">&gt;</span></span></code></pre></div>
+<p>想要上传某个文件时就可以</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">put</span> localFile <span class="op">&lt;</span>remoteFile<span class="op">&gt;</span></span></code></pre></div>
+<p>这里的文件名自然支持通配符因而支持批量操作。想要上传或下载整个文件夹时只需要在前面加上<code>-r</code>，如果同时想保留文件权限可以<code>-Pr</code>。<br />
+一些图形化客户端也可以为互传文件提供便利，比如<a href="https://winscp.net/eng/docs/lang:chs">WinSCP</a>、<a href="https://www.filezilla.cn/">Filezilla</a>等等。</p>
+<h2 id="网络代理">网络代理</h2>
+<p>由于一些众所周知的原因，我们需要通过代理才能访问Google，想要科学上网我们首先要了解一下有关代理的基础知识。<br />
+代理(Proxy)是在客户端和目标服务器中间插入一个代理服务器，所有来自客户端的请求都会通过代理服务器的转发从而实现匿名的目的。现在常用的代理方式有两种：http代理和socks5代理。http代理是在http协议的框架下，所有数据都采用http包的形式交换；socks5代理相比于http代理更为底层，没有协议和端口的限制，因而泛用性更强。理论上我们只需要有一个国外的服务器并且服务器能够访问到外网，就可以把它作为代理服务器访问到外网，实现这一功能最常用的工具是<a href="https://shadowsocks.org/en/index.html">shdowsocks</a>。<br />
+shadowsocks同样分为客户端sslocal和服务器端ssserver，sslocal可以在本地开启一个socks5代理端口，ssserver则会在代理服务器上打开一个监听端口，然后不断在两个端口之间传递数据。shadowsocks通过json文件来配置代理信息。在服务器端的配置文件（一般位于<code>/etc/shadowsocks/server.json</code>）里写入</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;server&quot;</span><span class="fu">:</span> <span class="st">&quot;0.0.0.0&quot;</span><span class="fu">,</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;server_port&quot;</span><span class="fu">:</span> <span class="dv">1851</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;local_address&quot;</span><span class="fu">:</span> <span class="st">&quot;127.0.0.1&quot;</span><span class="fu">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;local_port&quot;</span><span class="fu">:</span> <span class="dv">1080</span><span class="fu">,</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;password&quot;</span><span class="fu">:</span> <span class="st">&quot;xxxxx&quot;</span><span class="fu">,</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;timeout&quot;</span><span class="fu">:</span> <span class="dv">300</span><span class="fu">,</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;method&quot;</span><span class="fu">:</span> <span class="st">&quot;aes-256-cfb&quot;</span><span class="fu">,</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;fast_open&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>然后就可以通过</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssserver</span> -c /etc/shadowsocks-server.json -d start</span></code></pre></div>
+<p>打开代理服务器的监听端口，本地的配置类似：</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;server&quot;</span><span class="fu">:</span> <span class="st">&quot;xxx.xxx.xxx.xxx&quot;</span><span class="fu">,</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;server_port&quot;</span><span class="fu">:</span> <span class="dv">1851</span><span class="fu">,</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;local_address&quot;</span><span class="fu">:</span> <span class="st">&quot;127.0.0.1&quot;</span><span class="fu">,</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;local_port&quot;</span><span class="fu">:</span> <span class="dv">1080</span><span class="fu">,</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;password&quot;</span><span class="fu">:</span> <span class="st">&quot;xxxxxx&quot;</span><span class="fu">,</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;timeout&quot;</span><span class="fu">:</span> <span class="dv">300</span><span class="fu">,</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;method&quot;</span><span class="fu">:</span> <span class="st">&quot;aes-256-cfb&quot;</span><span class="fu">,</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;fast_open&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>通过</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sslocal</span> -c /etc/shadowsocks/client.json -d start</span></code></pre></div>
+<p>打开本地的代理端口。理论上这时就完成了代理的配置，可以通过curl命令检查代理配置是否成功：</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> --socks5-hostname localhost:1080 http://www.google.com/</span></code></pre></div>
+<p>但是我们还需要最后一步，就是修改浏览器、git等工具的默认设置，使其默认通过代理服务器连接到网络。对于Chrome和Firefox浏览器有非常方便的插件比如<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif">Proxy SwitchyOmega</a>实现代理配置，git等工具则可通过命令行</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode syn"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global http.proxy <span class="st">&#39;socks5://127.0.0.1:1080&#39;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global https.proxy <span class="st">&#39;socks5://127.0.0.1:1080&#39;</span></span></code></pre></div>
+<p>来完成代理配置。注意这里的端口号与上面本地配置一致，可以用户自己选择，但是要尽量避免冲突，比如22就不是一个好的端口号，而8888、9999这样都没有问题。<br />
+如果想要使用shadowsocks进行http代理（一些浏览器和工具只支持http代理），则可借助其他工具比如<a href="https://www.privoxy.org/">privoxy</a>再在本地打开一个http代理的端口转发给shdowsocks的socks5端口。</p>
+<p>如果是自己购买的VPS(Virtual Private Server)搭建代理服务器一般价格便宜带宽高，但是存在一定的风险，因为一个服务器只能对应一个IP地址，如果IP地址被封禁就只能更换服务器。因此一般的做法是购买SS/SSR服务，提供商配置多个代理服务器增加容错几率，对应的代价就是流量受限且有的价格昂贵。<br />
+介绍到这里我们并没有提到大家可能更为熟悉概念——VPN。VPN全程是Virtual Private Network，虚拟私人网络，从名字也可以看出VPN是为了保护用户隐私而设计出来的，并不是针对翻墙而提出的，其发明也早于GFW。由于其隐私特性，大家普遍使用VPN来翻墙，网络上也出现了大量VPN服务提供商。但是不同于shadowsocks，不同供应商之间的网络并不互通，因而购买一家的服务之后只能通过这一家提供的软件、服务器使用。而且VPN的流量特征过于明显因而很容易被发现，所以并不推荐大家使用。</p>
+<h2 id="个人网站">个人网站</h2>
+<p>搭建一个个人网站是听起来很Geek的事情，对于科研工作者来说也是必要的事情，因为这是别人了解你的研究的第一步。下面我们就从简单到复杂一步一步搭建一个个人网站出来。<br />
+首先我们需要明白网站是如何工作的。一个最简单的网站可以只包含一个html文件：</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;title&gt;</span>Page Title<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h1&gt;</span>This is a Heading<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>This is a paragraph.<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<p>HTML全程是Hypertext Markup Language，是描述网页的基本语言，可以看到其中有标题<code>&lt;title&gt;</code>，有段落<code>&lt;p&gt;</code>等等，这样一个网页文件被保存在服务器上，当有网站的访问请求时，就可以通过网站后端把网页文件传输到客户端，然后在本地的浏览器中被渲染出来。这样一个传输过程通过的是HTTP网络协议。站在客户端的角度，我们在浏览器中输入一个网址，这个网址首先要通过DNS服务器转变为IP地址，然后才将网站请求发送到目标服务器的HTTP端口上（一般是80）。因此我们可以看到想要创建上面这个简单的可访问的网页，我们至少需要一个服务器，一个网站后端和一个域名。<br />
+这听起来很麻烦，但是幸运的一点是，每个Github用户都可以免费创建一个<a href="https://pages.github.com/">Github Page</a>，域名为<code>&lt;user-name&gt;.github.io</code>，使用的是Github提供的服务器和后端。因而使用Github搭建个人网站变得非常简单，我们只需要两步：</p>
+<ul>
+<li>创建一个名称为<code>&lt;user-name&gt;.github.io</code>的空项目</li>
+<li>在项目中加入上面的html文件，命名为<code>index.html</code></li>
+</ul>
+<p>Push上去之后直接访问<code>&lt;user-name&gt;.github.io</code>就可以看到渲染出来的html文件。接下来的工作，只需要替换html文件里的内容为自己的照片、简介、研究内容，一个简单的个人网站就完成了。<br />
+单纯的html功能显然有限，排版简陋，没有交互，不方便修改，想让个人网站看起来更高端大气就需要html的两个兄弟——css和JavaScript。css是html的风格化文件，可以定义html中各个元素的相对位置以及如何渲染（<del>比如小米的新logo就是通过修改css文件让方角变圆角</del>）；JavaScript则是一个脚本语言，可以从html中得到用户输入的信息，处理之后修改html中的内容。HTML、CSS、JavaScript也就是大家常说的网站的前端部分，定义了网站长什么样子以及如何响应用户的输入。然而除非大家对前端设计非常感兴趣，一般来说我们可以使用开源的前端框架就可以直接生成美观的网站，而不需要手动修改css和JavaScript。</p>
+<blockquote>
+<p>JavaScript和Java可以说是毫无关系。 使用裸html为自己创建个人网站颇有大佬风格，网站不好看没关系，研究做得漂亮就行了。</p>
+</blockquote>
+<p>对于个人网站的一般需求，大家常使用静态博客的前端框架生成自己的网站，比如<a href="https://hexo.io/">hexo</a>，<a href="https://jekyllrb.com/">Jekyll</a>，<a href="https://gohugo.io/">hugo</a>等等。这一类框架提供了Markdown渲染为网页的功能，用户使用Markdown写作博客，网站会自动将文章按照用户定义的标签进行分类展示到网站上。同时每一种框架都提供了很多模板供大家选择，可以很轻松地在不修改网站内容的情况下切换主题。<br />
+如果觉得Github上搭建的网站还不能满足的要求的话，可以考虑购买服务器或者树莓派，自己搭建网站后端，这里就不过多介绍了。</p>
+<h2 id="一些有用的工具">一些有用的工具</h2>
+<ul>
+<li><a href="https://www.one-tab.com/">OneTab</a>是一个浏览器插件，如果打开的页面过多占用很高的内存，但又想保留防止之后找不到时，可以考虑使用。它可以将所有打开页面的网址保存在一起然后关闭所有页面，并且可以随时一键恢复所有网页，这在写论文时非常有用。</li>
+<li><a href="https://github.com/mushanshitiancai/vscode-paste-image">Paste Image</a>是一个VS Code插件，当我们想在Markdown中插入剪切板中的图片时，可以使用这个插件一步完成，剪切板中的图片会自动保存到用户指定的目录下然后在Markdown中创建引用指向图片，这在整理笔记时尤其有用。</li>
+<li><a href="https://github.com/kufii/CodeSnap">Code Snap</a>是一个VS Code插件，可以将代码块保存为图片，方便在文档报告中插入美观的代码。</li>
+<li><a href="https://github.com/CoenraadS/Bracket-Pair-Colorizer-2">Bracket Pair Colorizer</a>是一个VS Code插件，可以将不同层次的括号以不同颜色显示，方便代码阅读。</li>
+<li><a href="https://github.com/conwnet/github1s">github1s</a>是一个Github的小trick，当我们浏览一个Github项目代码又不想下载下来阅读时，可以考虑为Github加1s，这样就可以在浏览器中在线以VS Code风格阅读代码。</li>
+<li><a href="https://app.grammarly.com/">Grammarly</a>是一个语法检查网站，基础功能是免费的，如果需要发送一封正式的邮件或者写英文论文，都可以先使用Grammarly检查一下。</li>
+</ul>                    
+                </div>
+            </div>
+
+            <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+        </div>
+    </body>
+</html>

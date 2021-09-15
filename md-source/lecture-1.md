@@ -1,5 +1,5 @@
 ---
-title: 前沿计算实践II
+title: 前沿计算实践I
 ---
 
 # Lecture 1: Linux Basic & Shell Script

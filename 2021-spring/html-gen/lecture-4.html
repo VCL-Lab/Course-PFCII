@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>前沿计算实践II</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/diversen/pandoc-uikit/master/style.css">
+        <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                        <title>前沿计算实践II</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                        <style type="text/css">
+            pre > code.sourceCode { white-space: pre; position: relative; }
+            pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+            pre > code.sourceCode > span:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
+            code.sourceCode > span { color: inherit; text-decoration: inherit; }
+            div.sourceCode { margin: 1em 0; }
+            pre.sourceCode { margin: 0; }
+            @media screen {
+            div.sourceCode { overflow: auto; }
+            }
+            @media print {
+            pre > code.sourceCode { white-space: pre-wrap; }
+            pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+            }
+            pre.numberSource code
+              { counter-reset: source-line 0; }
+            pre.numberSource code > span
+              { position: relative; left: -4em; counter-increment: source-line; }
+            pre.numberSource code > span > a:first-child::before
+              { content: counter(source-line);
+                position: relative; left: -1em; text-align: right; vertical-align: baseline;
+                border: none; display: inline-block;
+                -webkit-touch-callout: none; -webkit-user-select: none;
+                -khtml-user-select: none; -moz-user-select: none;
+                -ms-user-select: none; user-select: none;
+                padding: 0 4px; width: 4em;
+                color: #aaaaaa;
+              }
+            pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+            div.sourceCode
+              {   }
+            @media screen {
+            pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+            }
+            code span.al { color: #ff0000; } /* Alert */
+            code span.an { color: #008000; } /* Annotation */
+            code span.at { } /* Attribute */
+            code span.bu { } /* BuiltIn */
+            code span.cf { color: #0000ff; } /* ControlFlow */
+            code span.ch { color: #008080; } /* Char */
+            code span.cn { } /* Constant */
+            code span.co { color: #008000; } /* Comment */
+            code span.cv { color: #008000; } /* CommentVar */
+            code span.do { color: #008000; } /* Documentation */
+            code span.er { color: #ff0000; font-weight: bold; } /* Error */
+            code span.ex { } /* Extension */
+            code span.im { } /* Import */
+            code span.in { color: #008000; } /* Information */
+            code span.kw { color: #0000ff; } /* Keyword */
+            code span.op { } /* Operator */
+            code span.ot { color: #ff4000; } /* Other */
+            code span.pp { color: #ff4000; } /* Preprocessor */
+            code span.sc { color: #008080; } /* SpecialChar */
+            code span.ss { color: #008080; } /* SpecialString */
+            code span.st { color: #008080; } /* String */
+            code span.va { } /* Variable */
+            code span.vs { color: #008080; } /* VerbatimString */
+            code span.wa { color: #008000; font-weight: bold; } /* Warning */
+        </style>
+                                               
+    </head>
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large"><a href='../index.html'>前沿计算实践II</a></h1>
+                                                        </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >          
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+                                                        <ul>
+                                                        <li><a href="#lecture-4-python">Lecture 4: Python</a>
+                                                        <ul>
+                                                        <li><a href="#python">Python</a></li>
+                                                        <li><a href="#pip">PIP</a></li>
+                                                        <li><a href="#version-management">Version Management</a></li>
+                                                        <li><a href="#virtual-environment">Virtual Environment</a>
+                                                        <ul>
+                                                        <li><a href="#virtualenv">virtualenv</a></li>
+                                                        <li><a href="#conda">Conda</a></li>
+                                                        <li><a href="#docker">Docker</a></li>
+                                                        </ul></li>
+                                                        <li><a href="#jupyter-notebook">Jupyter Notebook</a>
+                                                        <ul>
+                                                        <li><a href="#widget">Widget</a></li>
+                                                        <li><a href="#matplotlib">Matplotlib</a></li>
+                                                        <li><a href="#vs-code-jupyter-lab">VS Code &amp; Jupyter Lab</a></li>
+                                                        </ul></li>
+                                                        <li><a href="#references">References</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+<h1 id="lecture-4-python">Lecture 4: Python</h1>
+<h2 id="python">Python</h2>
+<p><strong>Python</strong>是一门解释型语言，区别于编译型语言比如C。C编译器会预先将C代码编译成机器语言的可执行文件，之后就可以直接将可执行文件载入内存运行；但是Python代码（无论是命令行中的还是.py脚本中的）都会先被转化为跨平台的中间二进制代码，然后再经过Python虚拟机执行。这样的好处是虚拟机可以自动判断变量类型，同时完成处理依赖、垃圾回收等等工作，而不需要使用者操心，相应的代价就是运行时相比于编译型语言要慢很多。</p>
+<blockquote>
+<p>除了<code>.py</code>文件，运行python代码时经常会看到<code>__pycache__</code>，<code>.pyc</code>，<code>.pyo</code>，<code>.pyd</code>等文件，这些文件（夹）都是python解释的中间文件，用于加速python代码的加载过程，但是并不能加速运行过程，因而可以直接忽略，在git同步时一般也会在<code>.gitignore</code>中标明这些文件</p>
+</blockquote>
+<p>但实际上这只是<a href="https://github.com/python/cpython">CPython</a>的解释过程。CPython是默认的Python解释器，使用C编写。其他的Python解释器一部分如下：</p>
+<ul>
+<li><a href="https://ipython.org/">IPython</a>是基于CPython的交互解释器，因而执行代码的能力与CPython完全一样，但是在交互上更为智能</li>
+<li><a href="https://www.pypy.org/">PyPy</a>不同于CPython，使用Just-In-Time(JIT) Compilation技术能够加速Python代码的执行，但是在某些情况下相同Python代码在两种解释器下会有不同的结果，并且PyPy支持的Python语言版本比CPython相对滞后</li>
+<li><a href="https://www.jython.org/">Jython</a>是Python的<a href="https://www.java.com">Java</a>实现</li>
+<li><a href="https://ironpython.net/">IronPython</a>是Python在微软<a href="https://dotnet.microsoft.com/">.NET</a>平台的实现</li>
+</ul>
+<h2 id="pip">PIP</h2>
+<p><a href="https://pypi.org/project/pip/">PIP</a>是Python默认的包管理工具，与我们之前介绍的<code>apt-get</code>非常类似，只不过pip使用<a href="https://pypi.org/">Python Package Index</a>源来下载安装Python包。与<code>apt-get</code>类似，如果发现在国内下载速度过慢时可以使用<a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华源</a>来加速。<br />
+如果在Ubuntu系统下运行<code>man pip</code>，可以看到这样一段话：</p>
+<blockquote>
+<p>pip is a Python package installer, recommended for installing Python packages which are not available in the Debian archive.</p>
+</blockquote>
+<p>这里这么说的原因在于一些Python包能够通过多种途径安装，比如<a href="https://numpy.org/install/">NumPy</a>：</p>
+<pre><code>pip3 install numpy
+sudo pip3 install numpy
+sudo apt install python3-numpy</code></pre>
+<p>这三种安装方法会把NumPy安装在不同的位置，可以分别用<code>pip show</code>和<code>sudo pip show</code>查看：</p>
+<pre><code>/home/&lt;user-name&gt;/.local/lib/python3.8/site-packages
+/usr/local/lib/python3.8/dist-packages
+/usr/lib/python3/dist-packages</code></pre>
+<p>我们可以通过它们所在的位置看出差别，第一种方法安装的位置在用户的个人目录下，因此不能被其他用户看到；第二种方法所有用户都能看到，但是被安装在<code>python3.8</code>下，因此其他版本的Python3就不能import这个包；第三种方法安装的包则可以被所有用户和所有Python3的版本看到。使用<code>apt</code>安装的包同时会在<code>apt upgrade</code>时更新，安装时间也更短，打开<code>/usr/lib/python3/dist-packages</code>目录也可以发现系统预装的Python包都在这个目录下，因此没有特殊原因使用<code>apt</code>安装Python包更好。当然如果是在<strong>虚拟环境</strong>下或者需要安装<strong>特定版本</strong>的包，使用pip更合适。</p>
+<blockquote>
+<p>好的包管理是一门语言成功的部分，<a href="https://www.ruby-lang.org/en/">Ruby</a>的包管理工具是<a href="https://rubygems.org/gems">gem</a>，<a href="https://www.javascript.com/">Javascript</a>的包管理是<a href="https://www.npmjs.com/">npm</a></p>
+</blockquote>
+<h2 id="version-management">Version Management</h2>
+<p>Python在Python2（已经停止更新）和Python3两个大版本之下存在很多小的版本，虽然Python更新时一般会向前兼容，但是仍然存在一些API被抛弃，因而一台机器上往往会存在多个版本的Python。Ubuntu提供了<code>update-alternatives</code>来管理一个命令的不同版本，我们可以用这个命令来方便地管理Python。假设我们已经安装了Python3.7和Python3.8分别位于<code>/usr/bin/python3.7</code>和<code>/usr/bin/python3.8</code>，首先需要在Python的替换选项中注册它们：</p>
+<pre><code>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2</code></pre>
+<p><code>update-alternatives</code>通过软连接来实现版本替换，这里我们设定的就是软连接。<code>/usr/bin/python</code>是软连接的入口，它会指向<code>/etc/alternatives/python</code>，然后再指向<code>usr/bin/python3.8</code>或者<code>usr/bin/python3.7</code>。命令的最后一个数字是优先级，数字越大优先级越高，在自动模式下会链接到优先级最高的版本，想要切换版本时直接</p>
+<pre><code>sudo update-alternatives --config python</code></pre>
+<p>就可以在不同的版本之间选择了。<code>update-alternatives</code>还支持分组管理，但是用得比较少这里就不再赘述。</p>
+<p>Python有非常多第三方的包，使用它们大大提高了效率，但是也非常容易导致版本冲突问题。冲突的原因是软件包往往会在大版本更新时更改之前的部分API，使用旧的API编写的程序在新版本下就无法运行。出于这个原因，一般来说项目开发时会固定使用某个版本的包，并且把用到的包的版本通过<code>requirements.txt</code>文件记录下来：</p>
+<pre><code>wheel==0.23.0
+Yarg==0.1.9
+docopt==0.6.2</code></pre>
+<p>这样别人使用这个项目时就可以知道需要安装哪个版本的包不会导致冲突了。<code>requirements.txt</code>并不需要手动生成，可以使用pip自动生成：</p>
+<pre><code>pip freeze &gt; requirements.txt</code></pre>
+<p>这样就可以把依赖包的版本固定下来。这样做唯一的问题是这个命令会把所有的包的版本记录下来，包括那些项目并未使用的包，这时可以使用<a href="https://github.com/Damnever/pigar">pigar</a>，<a href="https://github.com/bndr/pipreqs">pipreqs</a>这样的命令代替。有了<code>requiresments.txt</code>之后，当别人使用这个项目时就可以使用</p>
+<pre><code>pip install -r requirements.txt</code></pre>
+<p>来一键安装所需要版本的包了。</p>
+<blockquote>
+<p>这一过程不一定要在命令行下完成，一些Python IDE比如<a href="https://www.jetbrains.com/pycharm/">Pycharm</a>提供了处理<code>requirements.txt</code>的图形界面功能</p>
+</blockquote>
+<h2 id="virtual-environment">Virtual Environment</h2>
+<p>一台电脑上一般要运行多个Python项目，为每个项目创建一个虚拟环境是非常自然的想法。创建虚拟环境的工具非常多，我们选取三个最有代表性的工具介绍：</p>
+<ul>
+<li><a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>：最轻量的虚拟环境工具，在项目目录下创建</li>
+<li><a href="https://www.anaconda.com/">Anaconda</a>：包含了虚拟环境和包管理，统一管理虚拟环境</li>
+<li><a href="https://www.docker.com/">Docker</a>：基本等价于轻量的虚拟机，不局限于Python</li>
+</ul>
+<p>这三个工具从简单到复杂能够覆盖不同场景下的需求。</p>
+<h3 id="virtualenv">virtualenv</h3>
+<p><code>virutalenv</code>是Python的一个包，可以通过<code>pip</code>来安装，当然正如之前所说也可以使用<code>apt</code>安装：</p>
+<pre><code>sudo apt install python3-virtualenv</code></pre>
+<p>当我们想要创建一个虚拟环境时，直接</p>
+<pre><code>virtualenv example</code></pre>
+<p>这时就会在当前目录下创建一个名为<code>example</code>的文件夹，打开就可以发现有如下的文件：</p>
+<pre><code>$ exa --tree --level=2
+.
+├── bin
+│  ├── activate
+│  ├── activate.csh
+│  ├── activate.fish
+│  ├── activate.ps1
+│  ├── activate.xsh
+│  ├── activate_this.py
+│  ├── chardetect
+│  ├── chardetect-3.8
+│  ├── chardetect3
+│  ├── distro
+│  ├── distro-3.8
+│  ├── distro3
+│  ├── easy_install
+│  ├── easy_install-3.8
+│  ├── easy_install3
+│  ├── f2py
+│  ├── f2py3
+│  ├── f2py3.8
+│  ├── pip
+│  ├── pip-3.8
+│  ├── pip3
+│  ├── pip3.8
+│  ├── python -&gt; /usr/bin/python3
+│  ├── python3 -&gt; python
+│  ├── python3.8 -&gt; python
+│  ├── wheel
+│  ├── wheel-3.8
+│  └── wheel3
+├── lib
+│  └── python3.8
+└── pyvenv.cfg</code></pre>
+<p>可以发现在<code>bin</code>的目录下自动安装了<code>pip</code>，并将<code>python</code>指向了系统当前的Python路径。<code>virtualenv</code>直接创建的虚拟环境会使用系统的Python版本，因此如果在之后修改了系统Python的版本（比如通过<code>update-alternatives</code>）可能会导致虚拟环境的冲突，但是在虚拟环境外使用<code>pip</code>更新包的版本不会导致冲突，因为<code>virtualenv</code>在虚拟环境下单独安装了一个<code>pip</code>，并将虚拟环境中的包独立保存在了<code>lib</code>目录下。如果不想使用系统默认的Python版本创建环境时，也可以使用<code>--python</code>后缀指定Python的路径。打开虚拟环境只需要：</p>
+<pre><code>source bin/active</code></pre>
+<p>此时如果使用<code>bash</code>的话可以在命令提示前出现<code>(example)</code>提示，我们可以使用<code>which python</code>和<code>which pip</code>来检验虚拟环境确实被打开了，此时使用<code>pip</code>安装任何包都会与系统环境隔离开。想要关闭虚拟环境只需要</p>
+<pre><code>deactivate</code></pre>
+<h3 id="conda">Conda</h3>
+<p>Conda现在是最主流的Python虚拟环境管理工具，提供GUI，可以和多种编辑器和IDE方便地对接，并且在Windows下使用也非常方便。在有GUI的电脑上可以安装Anaconda或者Miniconda的GUI版本，在服务器上则可以通过官方脚本安装</p>
+<pre><code>mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init bash
+~/miniconda3/bin/conda init zsh</code></pre>
+<p>使用<code>conda</code>命令创建虚拟环境与<code>virtualenv</code>非常类似：</p>
+<pre><code>conda create --name py38 python=3.8</code></pre>
+<p>这里的区别在于这个环境会被安装到Conda默认的目录<code>&lt;conda-path&gt;/envs</code>下（也可以用户指定），并且这个环境中会独立安装一个Python。激活这个虚拟环境的命令是：</p>
+<pre><code>conda activate py38</code></pre>
+<p>Conda在安装之后会默认创建一个名为<code>base</code>的环境，并且如果设置了<code>conda init bash</code>会在bash启动时默认打开，详细设置可以查看<code>~/.bashrc</code>。Conda除了创建虚拟环境之外还可以作为独立于<code>pip</code>之外的包管理器，使用方法就是<code>conda install</code>、<code>conda update</code>和<code>conda remove</code>。既然是包管理器，发现速度过慢时同样可以配置<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华源</a>。最后关闭虚拟环境使用</p>
+<pre><code>conda deactivate</code></pre>
+<h3 id="docker">Docker</h3>
+<p>Docker相比于上面两种虚拟环境工具要复杂得多，使用容器承载应用程序，实现类似虚拟机的效果。很多开源的项目会提供Docker镜像供使用者下载，就可以避免用户自己安装环境，相应的代价就是所需的硬盘空间会更大。这里我们仅展示一个使用Docker为Python创建虚拟环境的简单例子。<br />
+Docker可以通过官方脚本安装（使用apt可能会装到旧版本）</p>
+<pre><code>curl -fsSL https://get.docker.com | bash -s docker</code></pre>
+<p>Docker官方提供了镜像源<a href="https://hub.docker.com/">Docker Hub</a>，我们可以直接从这个源安装特定版本的Python镜像：</p>
+<pre><code>sudo docker pull python:3.5</code></pre>
+<p>安装下来的镜像可以通过<code>image</code>命令查看</p>
+<pre><code>sudo docker image ls</code></pre>
+<p>注意这里我们安装的东西远不止Python，事实上我们可以直接进入这个镜像的命令行环境</p>
+<pre><code>sudo docker run -it python:3.5 /bin/bash</code></pre>
+<p>在这个环境下就会发现Python的版本变成了3.5。我们可以修改命令后面的<code>/bin/bash</code>就可以使用Docker运行其他命令，同时可以通过<code>-v</code>指定镜像挂载的目录和<code>-w</code>指定工作目录。</p>
+<h2 id="jupyter-notebook">Jupyter Notebook</h2>
+<p><a href="https://jupyter.org/">Jupyter Notebook</a>的前身是<a href="http://ipython.org/index.html">IPython Notebook</a>，正如之前所说IPython是基于CPython的解释器，而Jupyter Notebook则是利用浏览器为IPython打造了一个交互的GUI界面，将图片、代码、文字、公式组织成了一个动态可交互的电子书。Jupyter这个名字来源于所支持的语言：<a href="https://julialang.org/">Julia</a>，Python和<a href="https://www.r-project.org/">R</a>。<br />
+Jupyter Notebook相比与直接使用Python的优势是显而易见的，分块式的代码方便实现和debug，输出中间结果非常方便，同时代码中间可以穿插文字和图片辅助说明，所有这一切使用JSON文件格式组织起来打包为一个<code>.ipynb</code>文件。随便用记事本打开一个<code>.ipynb</code>文件就会发现里面无非就是字符串形式储存的代码、文字和二进制格式的图片，Jupyter Notebook相当于就是提供了一个渲染、调用Python修改这个文件的GUI。</p>
+<blockquote>
+<p>实际上Jupyter Notebook借鉴了Matlab的<a href="https://www.mathworks.com/products/matlab/live-editor.html">Live Editor</a>，后者也非常好用</p>
+</blockquote>
+<p>Jupyter Notebook可以直接通过<code>pip</code>安装：</p>
+<pre><code>pip install jupyter</code></pre>
+<p>安装完成之后在任何一个目录下运行<code>jupyter notebook</code>就可以在浏览器中打开该目录，然后运行<code>.ipynb</code>文件了。如果是在服务器上，可以<code>jupyter notebook --ip 0.0.0.0 --port 8888</code>，然后远程访问<code>&lt;server-ip&gt;:8888</code>并输入服务器上显示的token就可以像本地一样使用了。</p>
+<h3 id="widget">Widget</h3>
+<p><a href="https://ipywidgets.readthedocs.io/en/latest/index.html">ipywidget</a>是基于HTML的Jupyter Notebook的GUI小组件，可以通过widget为notebook添加按钮、选项框、按钮等交互功能，而不用使用<a href="https://www.qt.io/">Qt</a>等更为底层的GUI框架。比如我们想让使用者选择一个1-10之间的整数作为输入然后计算输出，就可以首先创建一个滑动条</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipywidgets <span class="im">as</span> widgets</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>slider <span class="op">=</span> widgets.IntSlider(<span class="bu">min</span><span class="op">=</span><span class="dv">1</span>,<span class="bu">max</span><span class="op">=</span><span class="dv">10</span>,step<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>display(slider)</span></code></pre></div>
+<p>然后创建一个按钮</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>btn <span class="op">=</span> widgets.Button(description<span class="op">=</span><span class="st">&#39;compute&#39;</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>display(btn)</span></code></pre></div>
+<p>最后在按钮的回调函数里得到输入并计算结果</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> btn_eventhandler(arg):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span> <span class="op">=</span> slider.value</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># process input to get result</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>btn.on_click(btn_eventhandler)</span></code></pre></div>
+<p>这时notebook就可以变成一个带GUI的小应用了。</p>
+<h3 id="matplotlib">Matplotlib</h3>
+<p><a href="https://matplotlib.org/">Matplotlib</a>是Python的画图工具，一般用来绘制二维图形，如果想要在Jupyter Notebook的环境下绘制三维图形或者可交互的二维图形，可以使用<a href="https://github.com/matplotlib/ipympl">ipympl</a>工具。事实上，Matplotlib只是提供了一个画图的前端接口，具体画线、画点是由后端解决的，在一般Python程序中弹出的绘图窗口使用的一般是Qt的后端，想要在Notebook中画图就得依赖ipympl后端，使用的是ipywidgets的框架。具体的使用方法非常简单，首先安装ipympl包，然后在代码中插入</p>
+<pre><code>%matplotlib widget</code></pre>
+<p>就可以使用了。值得注意的是Jupyter在内核启动之后只能使用一个画图后端，所以如果发现widget出现了一些问题想要换成<code>%matplotlib qt</code>或者<code>matplotlib notebook</code>等，需要重启Jupyter。</p>
+<h3 id="vs-code-jupyter-lab">VS Code &amp; Jupyter Lab</h3>
+<p>正如我们之前介绍的，VS Code本质上是一个浏览器，因而Jupyter Notebook可以方便地在VS Code里使用。VS Code提供了<a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a>官方插件（2020年底），得益于VS Code其他插件的支持，在VS Code中使用Jupyter Notebook会比在其他网页里体验更好。此外，VS Code提供了另一个非常有用的功能，在正常<code>.py</code>中插入<code># %%</code>可以自动把代码组织成代码块，点击<code>运行单元</code>就可以在旁边打开一个Notebook交互界面，同时支持<code>.py</code>文件和<code>.ipynb</code>文件的相互转换。Jupyter Notebook项目官方也提供了类似VS Code的多功能Notebook编辑工具<a href="https://github.com/jupyterlab/jupyterlab">Jupyter Lab</a>，为Notebook提供了更多支持。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://towardsdatascience.com/how-does-python-work-6f21fd197888">How does Python work</a></li>
+<li><a href="https://stackabuse.com/differences-between-pyc-pyd-and-pyo-python-files/">Differences Between .pyc, .pyd, and .pyo Python Files</a></li>
+<li><a href="https://dataaspirant.com/anaconda-python-virtualenv/">What’s Better? Anaconda or Python Virtualenv</a></li>
+<li><a href="https://www.datacamp.com/community/blog/ipython-jupyter">IPython Or Jupyter?</a></li>
+</ul>                    
+                </div>
+            </div>
+
+            <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+        </div>
+    </body>
+</html>
