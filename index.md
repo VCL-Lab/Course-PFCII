@@ -38,7 +38,7 @@ title: 前沿计算实践I(2021年秋)
 |||
 |12-1|实验室介绍+科研工具([Slides](./assets/前沿-12-1-阮良旺.pdf),[Slides](assets/前沿-12-1-姚贺源.pdf))|
 |12-8|实验室介绍+科研工具([Note](./html-gen/lecture-4.html))|
-|12-15|实验室介绍+高年级同学交流|
+|12-15|实验室介绍+高年级同学交流([Slides](./assets/experience.zip))|
 |12-22|课程总结|
 
 # 分数构成
